@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+@import './colors.scss';
+
+$primary-palette: mat-palette($md-black);
+$accent-palette: mat-palette($md-gainsboro);
+$success-palette: mat-palette($md-russiangreen);
+$warn-palette: mat-palette($md-flame);
+$neutral-palette: mat-palette($md-neutral);
+
+$primary: mat-color($primary-palette);
+$accent: mat-color($accent-palette);
+$success: mat-color($success-palette);
+$warn: mat-color($warn-palette);
+$neutral: mat-color($neutral-palette);
