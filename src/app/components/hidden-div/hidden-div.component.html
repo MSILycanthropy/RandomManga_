@@ -1,5 +1,5 @@
 <mat-card [@resizeDiv]="resizeDiv ? 'big' : 'small'" (@resizeDiv.done)="resizeFinished($event)"
-    class="center background-primary" (click)="toggleShow($event)" id="hiddenDiv-card"
+    class="background-primary" (click)="toggleShow($event)" id="hiddenDiv-card"
     [ngClass]="{'matCard-paddingBottom': showContent}">
     <span id="hiddenDiv-title" class="hiddenDiv-title txt-color unselectable">
         <span id="hiddenDiv-title" [ngClass]="{'selector': !showContent}">

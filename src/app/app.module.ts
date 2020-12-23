@@ -22,6 +22,13 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NfoldSelectorComponent } from './components/nfold-selector/nfold-selector.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
+import { GeneratorFormComponent } from './components/generator-form/generator-form.component';
+import { ExpandoCardComponent } from './components/expando-card/expando-card.component';
+import { GeneratedListComponent } from './components/generated-list/generated-list.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +39,9 @@ import { MatButtonModule } from '@angular/material/button';
     HiddenDivComponent,
     DynamicTableComponent,
     NfoldSelectorComponent,
+    GeneratorFormComponent,
+    ExpandoCardComponent,
+    GeneratedListComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +58,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonToggleModule,
     MatTooltipModule,
     MatButtonModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

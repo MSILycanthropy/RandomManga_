@@ -1,15 +1,4 @@
 <main-nav>
   <app-landing></app-landing>
-  <hidden-div [title]="'Genres'" style="display: block;">
-    <nfold-selector [selectableValues]="selectableValues" [defaultValue]="selectableValues[2]"
-      (toggleEvent)="dynTable.toggleAll($event)" title-extra></nfold-selector>
-    <dynamic-table [toDisplay]="genres" (sendToggle)="this.test($event)" #dynTable card></dynamic-table>
-  </hidden-div>
-  <button (click)="generateList()" class="button-color center" mat-button>Generate</button>
-  <div>
-    <div *ngFor="let manga of mangas">
-      {{ manga.Title }}
-    </div>
-  </div>
   <router-outlet></router-outlet>
 </main-nav>

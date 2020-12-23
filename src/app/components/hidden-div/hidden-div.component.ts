@@ -19,14 +19,14 @@ import { element } from 'protractor';
         'big',
         style({
           overflow: 'hidden',
-          width: '60%',
+          width: 'calc(100% - 32px)',
         })
       ),
       state(
         'small',
         style({
           overflow: 'hidden',
-          width: '*',
+          width: 'calc(40% - 32px)',
         })
       ),
       transition('big => small', animate('300ms ease-in-out')),

@@ -1,0 +1,13 @@
+@import "src/themes.scss";
+
+.primary {
+    background-color: $primary;
+}
+
+.button-color {
+    background-color: #424242;
+}
+
+::ng-deep .mat-form-field {
+    width: 100px;
+}
