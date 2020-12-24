@@ -1,0 +1,80 @@
+@import 'src/themes.scss';
+
+.expandoCard {
+  display: inline-block;
+  margin-right: 2px
+}
+
+.expandoCardTop {
+  margin-bottom: 16px;
+}
+
+mat-card.primary {
+  background: $primary;
+}
+
+mat-card.gray {
+  background: $gray;
+}
+
+.matchJapaneseHeight {
+  line-height: 18px;
+}
+
+.synopsisText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  -webkit-line-clamp: 12;
+  overflow: hidden;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.header {
+  margin: 0;
+  display: inline;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 830px
+}
+
+.titleTile {
+  display: inline;
+  width: 100%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: none;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.moreInfoTile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  margin-top: 5%;
+}
+
+.descriptionTile {
+  border-top-right-radius: 0;
+  box-shadow: none;
+}
+
+.descriptionWrapper {
+  width: 93%;
+  margin: 0 auto;
+}
+
+.synopsisTitle {
+  display: inline-block;
+  white-space: normal;
+  width: calc(90% - 16px);
+  vertical-align: middle;
+  margin-bottom: 2px;
+}

@@ -1,0 +1,132 @@
+<mat-card style="margin-top: 2em">
+    <ng-container *ngIf="mangas[currentIndex]; then thenTemplate; else elseTemplate"></ng-container>
+    <ng-template #thenTemplate>
+        <div class="center-15">
+            <div style="display:flex">
+                <mat-card class="gray" style="padding: 5px;">
+                    <a href="{{mangas[currentIndex].URL}}"><img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)"
+                            width="240" (error)="defaultUrl()" height="320" style="display: block"></a>
+                </mat-card>
+
+                <mat-card class="primary titleTile">
+                    <div style="display:flex; align-items: center; justify-content: space-between">
+                        <div class="title">
+                            <h3 class="header" style="font-size: 22px">
+                                {{mangas[currentIndex].Title}}
+                            </h3>
+                        </div>
+
+                        <span style="margin-left:auto">
+                            {{currentIndex + 1}}
+                            /
+                            {{mangas.length}}
+                            <button (click)="decrement();" [disabled]="currentIndex == 0" mat-button>Prev</button>
+                            <button (click)="increment();" [disabled]="currentIndex == mangas.length - 1"
+                                mat-button>Next</button>
+                        </span>
+                    </div>
+
+                    <mat-divider style="position: relative"></mat-divider>
+
+                    <span class="header" style="font-size: 18px">
+                        {{mangas[currentIndex].English}}
+                    </span>
+                    <div style="font-size: 14px;">
+                        {{mangas[currentIndex].Genres.join(', ')}}
+                    </div>
+
+                    <div class="moreInfoTile center-10">
+                        <expando-card #expando class="expandoCard expandoCardTop">
+                            <div title>
+                                Type
+                            </div>
+                            <div class="matchJapaneseHeight" content>
+                                {{mangas[currentIndex].Type || "N/A"}}
+                            </div>
+                        </expando-card>
+                        <expando-card #expando class="expandoCard expandoCardTop">
+                            <div title>
+                                Volumes
+                            </div>
+                            <div class="matchJapaneseHeight" content>
+                                {{mangas[currentIndex].Volumes || "N/A"}}
+                            </div>
+                        </expando-card>
+                        <expando-card #expando class="expandoCard expandoCardTop">
+                            <div title>
+                                Chapters
+                            </div>
+                            <div class="matchJapaneseHeight" content>
+                                {{mangas[currentIndex].Chapters || "N/A"}}
+                            </div>
+                        </expando-card>
+                        <expando-card #expando class="expandoCard expandoCardTop">
+                            <div title>
+                                Authors
+                            </div>
+                            <div class="matchJapaneseHeight" content>
+                                {{mangas[currentIndex].Authors.join('; ') || "N/A"}}
+                            </div>
+                        </expando-card>
+                        <expando-card #expando class="expandoCard">
+                            <div title>
+                                Serialization
+                            </div>
+                            <div class="matchJapaneseHeight" content>
+                                {{mangas[currentIndex].Serialization || "N/A"}}
+                            </div>
+                        </expando-card>
+                        <expando-card #expando class="expandoCard">
+                            <div title>
+                                Score
+                            </div>
+                            <div class="matchJapaneseHeight" content>
+                                {{mangas[currentIndex].Score || "N/A"}}
+                            </div>
+                        </expando-card>
+                        <expando-card #expando class="expandoCard">
+                            <div title>
+                                Start
+                            </div>
+                            <div class="matchJapaneseHeight" content>
+                                {{mangas[currentIndex].Start['month']? mangas[currentIndex].Start['month'] + ' -': ''}}
+                                {{mangas[currentIndex].Start['day']? mangas[currentIndex].Start['day'] + ' -': ''}}
+                                {{mangas[currentIndex].Start['year']? mangas[currentIndex].Start['year']: '' || "N/A"}}
+                            </div>
+                        </expando-card>
+                        <expando-card #expando class="expandoCard">
+                            <div title>
+                                End
+                            </div>
+                            <div class="matchJapaneseHeight" content>
+                                {{mangas[currentIndex].End['month']? mangas[currentIndex].End['month'] + ' -': ''}}
+                                {{mangas[currentIndex].End['day']? mangas[currentIndex].End['day'] + ' -': ''}}
+                                {{mangas[currentIndex].End['year']? mangas[currentIndex].End['year']: '' || "N/A"}}
+                            </div>
+                        </expando-card>
+                    </div>
+                </mat-card>
+            </div>
+            <mat-card class="primary descriptionTile">
+                <div class="descriptionWrapper">
+                    <div style="width:fit-content;">
+                        <h3 class="header" style="padding: 0 20px;padding-right: 0;">
+                            Synopsis
+                        </h3>
+                        <div class="header synopsisTitle">
+                            - {{mangas[currentIndex].Title}}</div>
+                        <mat-divider style="position: relative"></mat-divider>
+                    </div>
+                    <p class="synopsisText" style="line-height: 1.5em"
+                        [innerHTML]="mangas[currentIndex].Synopsis || 'None.'">
+                    </p>
+                </div>
+            </mat-card>
+        </div>
+    </ng-template>
+    <ng-template #elseTemplate>
+        <div>
+            Manga Not Found
+        </div>
+    </ng-template>
+</mat-card>

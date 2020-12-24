@@ -1,0 +1,16 @@
+<mat-card class="fullCenter expandoCard" (click)="toggleExpandedContent()"
+    [ngClass]="(isOverflowing || showExpandedContent) ? 'notOverflowing' : 'overflowing'">
+    <div>
+        <ng-content select=" [title]">
+        </ng-content>
+    </div>
+    <mat-divider style="position: relative;"></mat-divider>
+    <div class="expandoContent" #expandoContent>
+        <ng-content select="[content]"></ng-content>
+    </div>
+
+    <!-- Maybe make it so that only when you click this div does it showExpandedContent -->
+    <div *ngIf="isOverflowing" style="height:1em;">
+        <fa-icon [icon]="showExpandedContent ? faCaretUp: faCaretDown"></fa-icon>
+    </div>
+</mat-card>

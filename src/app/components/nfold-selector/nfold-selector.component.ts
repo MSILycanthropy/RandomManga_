@@ -9,6 +9,7 @@ export class NfoldSelectorComponent implements OnInit {
   @Input() selectableValues: Array<any>;
   @Input() defaultValue: any;
   @Output() toggleEvent = new EventEmitter();
+  @Input() colors: Array<string>;
 
   showExtraClass = true;
   constructor() {}
