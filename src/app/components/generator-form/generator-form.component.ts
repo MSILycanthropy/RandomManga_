@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faCheck, faMinus, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { GenreService } from 'src/app/services/genre.service';
-import { MangaService } from 'src/app/services/manga.service';
+import { GenreService } from 'src/app/services/genre/genre.service';
+import { MangaService } from 'src/app/services/manga/manga.service';
 
 @Component({
   selector: 'generator-form',
@@ -11,7 +12,6 @@ import { MangaService } from 'src/app/services/manga.service';
 export class GeneratorFormComponent implements OnInit {
   title = 'RandomManga';
   genres: Array<any> = [];
-  mangas: Array<any> = [];
   faCheck = faCheck;
   faTimes = faTimes;
   faMinus = faMinus;
@@ -57,7 +57,8 @@ export class GeneratorFormComponent implements OnInit {
 
   constructor(
     private genreService: GenreService,
-    private mangaService: MangaService
+    private mangaService: MangaService,
+    private route: Router
   ) {}
 
   getGenres(): void {
@@ -77,10 +78,17 @@ export class GeneratorFormComponent implements OnInit {
     }
 
     this.mangaService
-      .getByGenre(this.includeGenres, this.excludeGenres)
+      .getByGenre(
+        this.searchType,
+        this.includeGenres,
+        this.excludeGenres,
+        this.searchMinScore,
+        this.isFinished,
+        this.searchAmount
+      )
       .subscribe((mangas) => {
-        this.mangas = mangas;
-        console.log('Mangas: ', this.mangas);
+        this.mangaService.mangas = mangas;
+        this.route.navigate(['/list']);
       });
   }
 

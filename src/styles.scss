@@ -42,9 +42,18 @@ a {
   margin-left: 10% !important;
 }
 
-
 *.txt-color {
     color: #DFDFDF;
+}
+
+*.fullCenter {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 *.unselectable {
