@@ -4,8 +4,7 @@ import { GeneratedListComponent } from './components/generated-list/generated-li
 import { LandingComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'home', component: LandingComponent },
+  { path: '', component: LandingComponent },
   { path: 'list', component: GeneratedListComponent },
 ];
 
