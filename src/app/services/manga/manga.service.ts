@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IManga } from 'src/app/app.interface';
+import { environment } from 'src/environments/environment';
 
-const url = 'http://localhost:8000/manga';
+const url = `${environment.apiUrl}/manga`;
 
 @Injectable({
   providedIn: 'root',
