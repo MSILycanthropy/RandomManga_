@@ -23,18 +23,17 @@
   }
   
   .site-logo {
-    padding-left: 7em;
+    padding-left: 16px;
+    height: 100%;
   }
   
   ul {
     display: flex;
-    padding-right: 3em;
     flex-direction: row;
     list-style: none;
     li a {
       padding: 1em;
       padding-left: 2em;
-      padding-right: 2em;
       &:hover {
         color: #e57a44;
       }

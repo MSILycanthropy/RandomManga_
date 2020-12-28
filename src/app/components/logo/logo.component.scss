@@ -2,20 +2,22 @@
 @import url(https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&display=swap);
 
 .random-txt { 
-    display: block;
-    margin-bottom: -0.25em;
-    font-size: 1.5em;
+    font-size: 2em;
+    margin-top: 0.125em;
 }
 
 .manga-txt { 
+    font-size: 0.6em;
     color: #E57A44;
-    margin: 0 0 0 0.87em; //0.87em
-    font-size: 1.3em; 
 }
     
+p { 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
 
-div {
-    display: inline-block;
-    padding: 0 5px 0 5px;
+span {
     font-family: "Big Shoulders Stencil Display";
 }
