@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MangaService } from 'src/app/services/manga/manga.service';
 import { ExpandoCardComponent } from '../expando-card/expando-card.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'generated-list',
@@ -51,11 +52,11 @@ export class GeneratedListComponent implements OnInit {
   }
 
   getImage(id: string): void {
-    this.url = `http://localhost:8000/assets/manga/images/${id}.jpg`;
+    this.url = `${environment.apiUrl}/assets/manga/images/${id}.jpg`;
   }
 
   defaultUrl(): void {
-    this.url = 'http://localhost:8000/assets/manga/images/notfound.jpg';
+    this.url = `${environment.apiUrl}/assets/manga/images/notfound.jpg`;
   }
 
   ngOnInit(): void {
