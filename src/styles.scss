@@ -43,7 +43,7 @@ a {
 }
 
 *.txt-color {
-    color: #DFDFDF;
+    color: #DFDFDF !important;
 }
 
 *.fullCenter {
@@ -68,5 +68,9 @@ a {
     -ms-user-select: none;
     user-select: none;
  }
+
+.fonts {
+  font-family: "Montserrat",Roboto, "Helvetica Neue", sans-serif;
+}
 
 

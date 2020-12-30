@@ -1,61 +1,59 @@
-<mat-card>
-    <mat-card class="center primary">
-        <h2 style="text-align: center;">
-            Manga Generator
-        </h2>
+<mat-card class="center primary" style="margin-bottom: 2.5em">
+    <h2 style="text-align: center;">
+        Manga Generator
+    </h2>
 
-        <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
 
-        <div style="display:flex;flex-direction: column;justify-content:center;padding-top:16px">
-            <mat-card class="center-30" style="text-align: center; margin-bottom: 4px;">
-                <div style="display:flex; justify-content: space-between">
-                    <mat-form-field>
-                        <mat-label>Type</mat-label>
-                        <mat-select [(ngModel)]="searchType">
-                            <mat-option *ngFor="let type of mangaTypes" [value]="type">
-                                {{type}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>
-                            Minimum Score
-                        </mat-label>
-                        <mat-select [(ngModel)]="searchMinScore">
-                            <mat-option *ngFor="let num of scoreNumbers" [value]="num">
-                                {{num}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>
-                            Amount to List
-                        </mat-label>
-                        <mat-select [(ngModel)]="searchAmount">
-                            <mat-option *ngFor="let num of listNumbers" [value]="num">
-                                {{num}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div style="display:flex; justify-content:space-around">
-                    <mat-checkbox [(ngModel)]="isFinished">
-                        Completed
-                    </mat-checkbox>
-                    <mat-checkbox [(ngModel)]="isUnscored">
-                        Include Unscored
-                    </mat-checkbox>
-                </div>
-            </mat-card>
+    <div style="display:flex;flex-flow: column wrap;justify-content:center;padding-top:16px">
+        <mat-card class="center-30" style="text-align: center; margin-bottom: 4px;">
+            <div style="display:flex; justify-content: space-between">
+                <mat-form-field>
+                    <mat-label>Type</mat-label>
+                    <mat-select [(ngModel)]="searchType">
+                        <mat-option *ngFor="let type of mangaTypes" [value]="type">
+                            {{type}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        Minimum Score
+                    </mat-label>
+                    <mat-select [(ngModel)]="searchMinScore">
+                        <mat-option *ngFor="let num of scoreNumbers" [value]="num">
+                            {{num}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        Amount to List
+                    </mat-label>
+                    <mat-select [(ngModel)]="searchAmount">
+                        <mat-option *ngFor="let num of listNumbers" [value]="num">
+                            {{num}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div style="display:flex; justify-content:space-around">
+                <mat-checkbox [(ngModel)]="isFinished">
+                    Completed
+                </mat-checkbox>
+                <mat-checkbox [(ngModel)]="isUnscored">
+                    Include Unscored
+                </mat-checkbox>
+            </div>
+        </mat-card>
 
-            <hidden-div [title]="'Genres'" style="display: flex;justify-content: center;width:100%;margin-bottom:4px;">
-                <nfold-selector [selectableValues]="selectableValues" [defaultValue]="selectableValues[2]"
-                    (toggleEvent)="dynTable.toggleAll($event)" [colors]='["#6a994e", "#ff4b3e", "#4281a4"]' title-extra>
-                </nfold-selector>
-                <dynamic-table [toDisplay]="genres" (sendToggle)="this.test($event)" #dynTable card></dynamic-table>
-            </hidden-div>
-            <button (click)="generateList()" class="button-color" style="width: calc(40%); align-self:center"
-                mat-button>Generate</button>
-        </div>
-    </mat-card>
+        <hidden-div [title]="'Genres'" style="display: flex;justify-content: center;width:100%;margin-bottom:4px;">
+            <nfold-selector [selectableValues]="selectableValues" [defaultValue]="selectableValues[2]"
+                (toggleEvent)="dynTable.toggleAll($event)" [colors]='["#6a994e", "#ff4b3e", "#4281a4"]' title-extra>
+            </nfold-selector>
+            <dynamic-table [toDisplay]="genres" (sendToggle)="this.test($event)" #dynTable card></dynamic-table>
+        </hidden-div>
+        <button (click)="generateList()" class="button-color" style="width: calc(40%); align-self:center"
+            mat-button>Generate</button>
+    </div>
 </mat-card>

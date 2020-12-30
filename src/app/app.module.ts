@@ -29,7 +29,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-
+import { MainFooterComponent } from './components/main-footer/main-footer.component';
+import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
+import { AboutComponent } from './components/about/about.component';
+import { SiteCardComponent } from './components/site-card/site-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +45,10 @@ import { FormsModule } from '@angular/forms';
     GeneratorFormComponent,
     ExpandoCardComponent,
     GeneratedListComponent,
+    MainFooterComponent,
+    TermsOfUseComponent,
+    AboutComponent,
+    SiteCardComponent,
   ],
   imports: [
     BrowserModule,
