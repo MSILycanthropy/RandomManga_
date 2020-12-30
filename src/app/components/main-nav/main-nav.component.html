@@ -9,18 +9,20 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="light-background">
-        <mat-toolbar class="dark-background">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-                *ngIf="isHandset$ | async">
-                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-            </button>
-            <logo class="site-logo"></logo>
-            <span class="spacer"></span>
-            <ul [ngClass]="{hidden: (isHandset$ | async)}">
-                <li><a href="#" class="txt-color"> Home </a></li>
-                <li><a href="#" routerLink="about" class="txt-color"> About </a></li>
-            </ul>
-        </mat-toolbar>
+        <header>
+            <mat-toolbar class="dark-background">
+                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                    *ngIf="isHandset$ | async">
+                    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+                <logo class="site-logo"></logo>
+                <span class="spacer"></span>
+                <ul [ngClass]="{hidden: (isHandset$ | async)}">
+                    <li><a href="#" routerLink="home" class="txt-color"> Home </a></li>
+                    <li><a href="#" routerLink="about" class="txt-color"> About </a></li>
+                </ul>
+            </mat-toolbar>
+        </header>
         <ng-content></ng-content>
     </mat-sidenav-content>
 </mat-sidenav-container>
