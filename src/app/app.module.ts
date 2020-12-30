@@ -33,7 +33,6 @@ import { MainFooterComponent } from './components/main-footer/main-footer.compon
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { AboutComponent } from './components/about/about.component';
 import { SiteCardComponent } from './components/site-card/site-card.component';
-
 @NgModule({
   declarations: [
     AppComponent,
