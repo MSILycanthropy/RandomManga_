@@ -1,0 +1,10 @@
+@import "src/themes.scss";
+
+.dark-background{
+    background-color: mat-color($primary-palette, 900);
+}
+
+.footer-position {
+    position: fixed;
+    bottom: 0px ;
+}
