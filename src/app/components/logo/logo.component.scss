@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&display=swap);
+@import 'src/themes.scss';
 
 .random-txt { 
     font-size: 2em;
@@ -8,7 +9,7 @@
 
 .manga-txt { 
     font-size: 0.6em;
-    color: #E57A44;
+    color: mat-color($success-palette, 300);
 }
     
 p { 
