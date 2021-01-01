@@ -26,11 +26,23 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/android-chrome-192x192.png",
+              "src/android-chrome-256x256.png",
+              "src/apple-touch-icon.png",
+              "src/favicon-16x16.png",
+              "src/favicon-32x32.png",
+              "src/mstile-150x150.png",
+              "src/safari-pinned-tab.svg",
+              "src/browserconfig.xml",
+              "src/site.webmanifest",
               {
                 "glob": "_redirects",
                 "input": "src",
                 "output": "/"
               }
+            ],
+            "allowedCommonJsDependencies": [
+              "sha1"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
@@ -57,7 +69,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "4mb",
                   "maximumError": "5mb"
                 },
                 {
