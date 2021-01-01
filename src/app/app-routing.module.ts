@@ -7,6 +7,7 @@ import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.comp
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
+  { path: 'home', component: LandingComponent },
   { path: 'list', component: GeneratedListComponent },
   { path: 'about/terms', component: TermsOfUseComponent },
   { path: 'about', component: AboutComponent },
