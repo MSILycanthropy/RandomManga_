@@ -63,6 +63,7 @@ mat-card.gray {
 }
 
 .descriptionTile {
+  flex-grow: 1;
   border-top-right-radius: 0;
   box-shadow: none;
 }
@@ -84,4 +85,11 @@ mat-card.gray {
   max-width: 100%; 
   width: fit-content;
   padding-right: 16px;
+}
+
+.mangaCard {
+  margin: 2.5em 0;
+  flex-direction:column; 
+  display: flex; 
+  min-height: 75vh;
 }

@@ -11,3 +11,36 @@
 ::ng-deep .mat-form-field {
     width: 100px;
 }
+
+.divider {
+    position: relative;
+}
+
+.formWrapper { 
+    display:flex;
+    flex-flow: column wrap;
+    justify-content:center;
+    padding-top:16px
+}
+
+.formCard {
+    text-align: center; 
+    margin-bottom: 4px;
+}
+
+.form {
+    display:flex; 
+    justify-content: space-between
+}
+
+.checkboxWrapper {
+    display:flex; 
+    justify-content:space-around
+}
+
+.hiddenDiv {
+    display: flex;
+    justify-content: center;
+    width:100%;
+    margin-bottom:4px;
+}

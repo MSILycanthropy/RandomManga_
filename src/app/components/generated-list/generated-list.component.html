@@ -1,6 +1,6 @@
 <ng-container *ngIf="mangas[currentIndex]; then thenTemplate; else elseTemplate"></ng-container>
 <ng-template #thenTemplate>
-    <div class="center-15" style="margin: 2.5em 0;">
+    <div class="center-15 mangaCard">
         <div style="display:flex">
             <mat-card class="gray" style="padding: 5px;">
                 <a href="#"><img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" (error)="defaultUrl()"
@@ -124,7 +124,5 @@
     </div>
 </ng-template>
 <ng-template #elseTemplate>
-    <div>
-        Manga Not Found
-    </div>
+    <not-found [error]="'No Manga Found'" [num]="420"></not-found>
 </ng-template>
