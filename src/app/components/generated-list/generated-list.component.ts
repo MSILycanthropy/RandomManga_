@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MangaService } from 'src/app/services/manga/manga.service';
 import { ExpandoCardComponent } from '../expando-card/expando-card.component';
 import { environment } from 'src/environments/environment';
+import { isObservable } from 'rxjs';
 
 @Component({
   selector: 'generated-list',
@@ -61,7 +62,9 @@ export class GeneratedListComponent implements OnInit {
 
   ngOnInit(): void {
     this.mangas = this.mangaService.mangas;
-    this.getImage(this.mangas[this.currentIndex]._id);
+    if (this.mangas[this.currentIndex]) {
+      this.getImage(this.mangas[this.currentIndex]._id);
+    }
     this.readMore = true;
 
     console.log(this.mangas[this.currentIndex].Synopsis);

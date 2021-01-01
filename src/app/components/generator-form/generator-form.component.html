@@ -1,13 +1,13 @@
-<mat-card class="center primary" style="margin-bottom: 2.5em">
+<mat-card class="center primary">
     <h2 style="text-align: center;">
         Manga Generator
     </h2>
 
-    <mat-divider></mat-divider>
+    <mat-divider class="divider"></mat-divider>
 
-    <div style="display:flex;flex-flow: column wrap;justify-content:center;padding-top:16px">
-        <mat-card class="center-30" style="text-align: center; margin-bottom: 4px;">
-            <div style="display:flex; justify-content: space-between">
+    <div class="formWrapper">
+        <mat-card class="center-30 formCard">
+            <div class="form">
                 <mat-form-field>
                     <mat-label>Type</mat-label>
                     <mat-select [(ngModel)]="searchType">
@@ -37,7 +37,7 @@
                     </mat-select>
                 </mat-form-field>
             </div>
-            <div style="display:flex; justify-content:space-around">
+            <div class="checkboxWrapper">
                 <mat-checkbox [(ngModel)]="isFinished">
                     Completed
                 </mat-checkbox>
@@ -47,7 +47,7 @@
             </div>
         </mat-card>
 
-        <hidden-div [title]="'Genres'" style="display: flex;justify-content: center;width:100%;margin-bottom:4px;">
+        <hidden-div [title]="'Genres'" class="hiddenDiv">
             <nfold-selector [selectableValues]="selectableValues" [defaultValue]="selectableValues[2]"
                 (toggleEvent)="dynTable.toggleAll($event)" [colors]='["#6a994e", "#ff4b3e", "#4281a4"]' title-extra>
             </nfold-selector>

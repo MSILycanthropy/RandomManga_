@@ -51,6 +51,8 @@
 main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 2.5em 0;
   > *:not(router-outlet) {
     flex: 1;
     display: block;
