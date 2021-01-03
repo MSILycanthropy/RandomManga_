@@ -1,49 +1,51 @@
 @import "src/themes.scss";
 
 .dark-background {
-    background-color: mat-color($primary-palette, 900);
+  background-color: mat-color($primary-palette, 900);
 }
 
 .footer-position {
-    bottom: 0px;
+  bottom: 0px;
 }
 
 .bottom {
-    flex-basis: 100%;
-    display: flex;
+  flex-basis: 100%;
+  display: flex;
 }
 
 .footerHeader {
-    text-align: center;
+  text-align: center;
 }
 
 :host ::ng-deep svg {
-    width: 35px;
-    height: 40px;
+  width: 35px;
+  height: 40px;
 }
 
 .coolList {
-    list-style-type: '> ';
-    margin: 0;
-    font-size: 0.85em;
+  list-style-type: "> ";
+  margin: 0;
+  font-size: 0.85em;
 }
 
 a:link {
-    color: mat-color($success-palette, 300);
+  color: mat-color($success-palette, 300);
 }
 
 a:visited {
-    color: mat-color($success-palette, 300);
+  color: mat-color($success-palette, 300);
 }
 
 fa-icon {
-    color: white;
+  color: white;
 }
 
 fa-icon:hover {
-    color: mat-color($success-palette, 300);
+  color: mat-color($success-palette, 300);
 }
 
 .shareWrapper {
-    display:flex; justify-content: space-evenly; width: 15%
+  display: flex;
+  justify-content: space-evenly;
+  width: 15%;
 }
