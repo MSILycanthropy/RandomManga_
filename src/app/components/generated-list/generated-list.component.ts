@@ -53,11 +53,11 @@ export class GeneratedListComponent implements OnInit {
   }
 
   getImage(id: string): void {
-    this.url = `${environment.apiUrl}/assets/manga/images/${id}.jpg`;
+    this.url = `${environment.apiUrl}/assets/manga-images-${id}.jpg`;
   }
 
   defaultUrl(): void {
-    this.url = `${environment.apiUrl}/assets/manga/images/notfound.jpg`;
+    this.url = `${environment.apiUrl}/assets/manga-images-notfound.jpg`;
   }
 
   ngOnInit(): void {
