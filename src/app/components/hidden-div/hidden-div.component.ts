@@ -26,7 +26,7 @@ import { element } from 'protractor';
         'small',
         style({
           overflow: 'hidden',
-          width: 'calc(40% - 32px)',
+          width: 'calc(60% - 32px)',
         })
       ),
       transition('big => small', animate('300ms ease-in-out')),

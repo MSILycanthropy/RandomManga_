@@ -15,6 +15,10 @@ export class MangaService {
 
   constructor(private http: HttpClient) {}
 
+  async getDailies() {
+    return await this.http.get(`${url}/dailies`).toPromise();
+  }
+
   getByGenre(
     type: string,
     include: Array<string>,

@@ -1,58 +1,58 @@
 @import "src/themes.scss";
 
 .sidenav-container {
-    height: 100%;
-  }
-  
-  .sidenav {
-    width: 200px;
-  }
-  
-  .mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  
-  .hidden {
-    display:none;
-  }
-  
-  .spacer {
-    flex: 1 1 auto;
-  }
-  
-  .site-logo {
-    padding-left: 16px;
-    height: 100%;
-  }
-  
-  ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    li a {
-      padding: 1em;
-      padding-left: 2em;
-      &:hover {
-        color: #e57a44;
-      }
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.site-logo {
+  padding-left: 16px;
+  height: 100%;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  li a {
+    padding: 1em;
+    padding-left: 2em;
+    &:hover {
+      color: #e57a44;
     }
   }
+}
 
-.dark-background{
+.dark-background {
   background-color: mat-color($primary-palette, 900);
 }
 
-.light-background{
+.light-background {
   background-color: #424242;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 2.5em 0;
+  //justify-content: center;
+  //margin: 2.5em 0;
   > *:not(router-outlet) {
     flex: 1;
     display: block;

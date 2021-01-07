@@ -1,15 +1,29 @@
-<mat-button-toggle-group #group="matButtonToggleGroup" class="smallify" [(ngModel)]="defaultValue">
-    <mat-button-toggle *ngFor="let value of selectableValues;let i = index" [value]="value"
-        (change)="onChange($event.value)" #tooltip='matTooltip' matTooltip="{{value.text}}" matTooltipPosition="below"
-        class="smallify" style="width: 40px;"
-        [ngStyle]="{'background-color': defaultValue == selectableValues[i] ? '#212121' : colors[i]}">
-        <ng-container *ngIf="value.fa != null; else elseTemplate">
-            <span>
-                <fa-icon [icon]="value.fa"></fa-icon>
-            </span>
-        </ng-container>
-        <ng-template #elseTemplate>
-            {{value.text[0]}}
-        </ng-template>
-    </mat-button-toggle>
+<mat-button-toggle-group
+  #group="matButtonToggleGroup"
+  class="smallify"
+  [(ngModel)]="defaultValue"
+>
+  <mat-button-toggle
+    *ngFor="let value of selectableValues; let i = index"
+    [value]="value"
+    (change)="onChange($event.value)"
+    #tooltip="matTooltip"
+    matTooltip="{{ value.text }}"
+    matTooltipPosition="below"
+    class="smallify"
+    style="width: 40px"
+    [ngStyle]="{
+      'background-color':
+        defaultValue == selectableValues[i] ? '#212121' : colors[i]
+    }"
+  >
+    <ng-container *ngIf="value.fa != null; else elseTemplate">
+      <span>
+        <fa-icon [icon]="value.fa" class="checkIcon"></fa-icon>
+      </span>
+    </ng-container>
+    <ng-template #elseTemplate>
+      {{ value.text[0] }}
+    </ng-template>
+  </mat-button-toggle>
 </mat-button-toggle-group>

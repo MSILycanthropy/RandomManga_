@@ -1,4 +1,81 @@
-<mat-card class="center txt-color dark-background" style="margin-bottom: 1.5em">
+<section id="introduction" class="introductionSection">
+  <div class="verticalLine"></div>
+  <div class="bottomBorder">
+    <div class="descriptionWrapper">
+      <span class="description fonts">
+        Easily generate random lists of manga, according to your exact
+        preferences and tastes.
+      </span>
+      <button class="headingButton" mat-button>Get Started</button>
+    </div>
+    <div class="descriptionWrapper">
+      <span class="description fonts">
+        Leave feedback, report errors and recommend manga to improve the site.
+      </span>
+      <button class="headingButton" mat-button>Leave Feedback</button>
+    </div>
+  </div>
+
+  <div class="featureWrapper">
+    <div class="feature">
+      <fa-icon [icon]="faInfinity" size="7x"></fa-icon>
+      <span class="featureText fonts"> Search through a vast selection </span>
+    </div>
+    <div class="feature">
+      <fa-icon [icon]="faCog" size="7x"></fa-icon>
+      <span class="featureText fonts"> Fully customizable search </span>
+    </div>
+    <div class="feature">
+      <fa-icon [icon]="faList" size="7x"></fa-icon>
+      <span class="featureText fonts"> Create custom lists to share </span>
+    </div>
+  </div>
+</section>
+<section id="dailyRecs" class="dailyRecs">
+  <div class="dailyRecsInner">
+    <div class="quickSuggestTitle fonts">Daily Recommendations</div>
+    <div class="listWrapper">
+      <div class="quickSuggestTop">
+        <div
+          class="quickSuggestListWrapper"
+          *ngFor="let daily of dailies.slice(0, 5)"
+        >
+          <mat-card class="quickSuggestList">
+            <img
+              [src]="
+                _DomSanitizer.bypassSecurityTrustUrl(url + daily._id + '.jpg')
+              "
+              width="180"
+              height="240"
+              style="display: block"
+            />
+          </mat-card>
+        </div>
+      </div>
+      <div class="quickSuggestBottom">
+        <div
+          class="quickSuggestListWrapper"
+          *ngFor="let daily of dailies.slice(5, 10)"
+        >
+          <mat-card class="quickSuggestList">
+            <img
+              [src]="
+                _DomSanitizer.bypassSecurityTrustUrl(url + daily._id + '.jpg')
+              "
+              width="180"
+              height="240"
+              style="display: block"
+            />
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="generator" class="generator">
+  <generator-form></generator-form>
+</section>
+<!-- <mat-card class="center txt-color dark-background" style="margin-bottom: 1.5em">
     <h2 style="margin-bottom: 4px">Welcome to RNGmanga.com</h2>
     <mat-divider class="divider"></mat-divider>
     <p class="text">
@@ -111,4 +188,4 @@
         </li>
     </ul>
 </mat-card>
-<generator-form></generator-form>
+<generator-form></generator-form> -->

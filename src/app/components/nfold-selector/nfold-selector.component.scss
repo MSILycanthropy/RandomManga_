@@ -1,5 +1,13 @@
 .smallify {
-    height: 21px;
-    display: inline-flex !important;
-    align-items: center !important;
+  height: 24px;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.checkIcon {
+  font-size: 20px;
+}
+
+:host::ng-deep .svg-inline--fa {
+  vertical-align: -0.05em;
 }
