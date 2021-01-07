@@ -1,5 +1,5 @@
-@import '~@angular/material/theming';
-@import './colors.scss';
+@import "~@angular/material/theming";
+@import "./colors.scss";
 @include mat-core();
 
 $primary-palette: mat-palette($md-black);
@@ -19,23 +19,28 @@ $neutral: mat-color($neutral-palette);
 $brown: mat-color($brown-palette);
 $gray: mat-color($gray-palette);
 
-
-$app-theme: mat-dark-theme((
+$app-theme: mat-dark-theme(
+  (
     color: (
-        primary: $accent-palette, 
-        accent: $accent-palette, 
-        warn: $warn-palette
-    )
-));
+      primary: $accent-palette,
+      accent: $accent-palette,
+      warn: $warn-palette,
+    ),
+  )
+);
 
-$app-dark-theme: mat-dark-theme((
+$app-dark-theme: mat-dark-theme(
+  (
     color: (
-        primary: $white-palette,
-        accent: $accent-palette,
-        warn: $warn-palette
-    )
-));
+      primary: $white-palette,
+      accent: $accent-palette,
+      warn: $warn-palette,
+    ),
+  )
+);
 
 @include angular-material-theme($app-dark-theme);
-$typography: mat-typography-config($font-family: '"Montserrat",Roboto, "Helvetica Neue", sans-serif;');
+$typography: mat-typography-config(
+  $font-family: '"Montserrat",Roboto, "Helvetica Neue", sans-serif;',
+);
 @include mat-core($typography);
