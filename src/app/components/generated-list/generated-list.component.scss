@@ -1,11 +1,9 @@
-@import 'src/themes.scss';
+@import "src/themes.scss";
 
 .expandoCard {
   display: inline-block;
-  margin-right: 2px
-}
-
-.expandoCardTop {
+  margin-right: 2px;
+  height: 75px;
   margin-bottom: 16px;
 }
 
@@ -38,7 +36,7 @@ mat-card.gray {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 830px
+  max-width: 830px;
 }
 
 .titleTile {
@@ -58,8 +56,9 @@ mat-card.gray {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: wrap;
-  margin-top: 5%;
+  flex-flow: column;
+  height: 80%;
+  //margin-top: 5%;
 }
 
 .descriptionTile {
@@ -71,6 +70,7 @@ mat-card.gray {
 .descriptionWrapper {
   width: 93%;
   margin: 0 auto;
+  margin-top: 1.5em;
 }
 
 .synopsisTitle {
@@ -82,14 +82,18 @@ mat-card.gray {
 }
 
 .secondaryTitle {
-  max-width: 100%; 
+  max-width: 100%;
   width: fit-content;
   padding-right: 16px;
 }
 
 .mangaCard {
   margin: 2.5em 0;
-  flex-direction:column; 
-  display: flex; 
+  flex-direction: column;
+  display: flex;
   min-height: 75vh;
+}
+
+button {
+  background: #424242 !important;
 }
