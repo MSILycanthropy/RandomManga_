@@ -1,6 +1,4 @@
-<ng-container
-  *ngIf="mangas[currentIndex]; then thenTemplate; else elseTemplate"
-></ng-container>
+<ng-container *ngIf="mangas[currentIndex]; then thenTemplate; else elseTemplate"></ng-container>
 <ng-template #thenTemplate>
   <div class="center-15 mangaCard">
     <div style="display: flex">
@@ -17,13 +15,7 @@
       </mat-card>
 
       <mat-card class="primary titleTile">
-        <div
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          "
-        >
+        <div style="display: flex; align-items: center; justify-content: space-between">
           <div class="title">
             <h3 class="header" style="font-size: 22px">
               {{ mangas[currentIndex].Title }}
@@ -34,12 +26,7 @@
             {{ currentIndex + 1 }}
             /
             {{ mangas.length }}
-            <button
-              (click)="decrement()"
-              [disabled]="currentIndex == 0"
-              style="margin-left: 2px"
-              mat-button
-            >
+            <button (click)="decrement()" [disabled]="currentIndex == 0" style="margin-left: 2px" mat-button>
               Prev
             </button>
             <button
@@ -105,41 +92,17 @@
             <expando-card #expando class="expandoCard">
               <div title>Start</div>
               <div class="matchJapaneseHeight" content>
-                {{
-                  mangas[currentIndex].Start["month"]
-                    ? mangas[currentIndex].Start["month"] + " -"
-                    : ""
-                }}
-                {{
-                  mangas[currentIndex].Start["day"]
-                    ? mangas[currentIndex].Start["day"] + " -"
-                    : ""
-                }}
-                {{
-                  mangas[currentIndex].Start["year"]
-                    ? mangas[currentIndex].Start["year"]
-                    : "" || "N/A"
-                }}
+                {{ mangas[currentIndex].Start["month"] ? mangas[currentIndex].Start["month"] + " -" : "" }}
+                {{ mangas[currentIndex].Start["day"] ? mangas[currentIndex].Start["day"] + " -" : "" }}
+                {{ mangas[currentIndex].Start["year"] ? mangas[currentIndex].Start["year"] : "" || "N/A" }}
               </div>
             </expando-card>
             <expando-card #expando class="expandoCard">
               <div title>End</div>
               <div class="matchJapaneseHeight" content>
-                {{
-                  mangas[currentIndex].End["month"]
-                    ? mangas[currentIndex].End["month"] + " -"
-                    : ""
-                }}
-                {{
-                  mangas[currentIndex].End["day"]
-                    ? mangas[currentIndex].End["day"] + " -"
-                    : ""
-                }}
-                {{
-                  mangas[currentIndex].End["year"]
-                    ? mangas[currentIndex].End["year"]
-                    : "" || "N/A"
-                }}
+                {{ mangas[currentIndex].End["month"] ? mangas[currentIndex].End["month"] + " -" : "" }}
+                {{ mangas[currentIndex].End["day"] ? mangas[currentIndex].End["day"] + " -" : "" }}
+                {{ mangas[currentIndex].End["year"] ? mangas[currentIndex].End["year"] : "" || "N/A" }}
               </div>
             </expando-card>
           </div>
@@ -149,19 +112,13 @@
     <mat-card class="primary descriptionTile">
       <div class="descriptionWrapper">
         <div style="width: fit-content">
-          <h3 class="header" style="padding: 0 20px; padding-right: 0">
-            Synopsis -
-          </h3>
+          <h3 class="header" style="padding: 0 20px; padding-right: 0">Synopsis -</h3>
           <div class="header synopsisTitle secondaryTitle">
             {{ mangas[currentIndex].Title }}
           </div>
           <mat-divider style="position: relative"></mat-divider>
         </div>
-        <p
-          class="synopsisText"
-          style="line-height: 1.5em"
-          [innerHTML]="mangas[currentIndex].Synopsis || 'None.'"
-        ></p>
+        <p class="synopsisText" style="line-height: 1.5em" [innerHTML]="mangas[currentIndex].Synopsis || 'None.'"></p>
       </div>
     </mat-card>
   </div>

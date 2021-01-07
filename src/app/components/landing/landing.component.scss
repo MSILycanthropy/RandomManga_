@@ -50,18 +50,18 @@ h3 {
   height: 70%;
   position: relative;
   padding: 6em 0;
-  padding-bottom: 10em;
+  padding-bottom: 12em;
 }
 
 .description {
-  font-weight: normal;
-  font-size: 30px;
+  font-weight: 600;
+  font-size: 1.875em;
   text-align: center;
-  width: 578px;
+  width: 19.267em;
 }
 
 .verticalLine {
-  border-left: 1px solid #dfdfdf;
+  border-left: 2px solid #dfdfdf;
   position: absolute;
   left: 50%;
   top: 0;
@@ -95,14 +95,14 @@ h3 {
 .quickSuggestListWrapper {
   display: flex;
   justify-content: center;
-}
-
-.quickSuggestList {
-  padding: 4px;
-  width: fit-content;
+  padding: 0.5em;
   background: $primary;
-}
+  box-shadow: -5px 5px 3px -1px rgba(0, 0, 0, 0.2), 0px 3px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 4px;
 
+  position: relative;
+}
 .listWrapper {
   display: flex;
   flex-flow: wrap;
@@ -110,12 +110,12 @@ h3 {
 
 .dailyRecs {
   background: #555555;
-  padding: 10em 12em;
+  padding: 12em 15em;
 }
 
 .bottomBorder {
   display: flex;
-  border-bottom: 1px solid #dfdfdf;
+  border-bottom: 2px solid #dfdfdf;
 }
 
 .featureWrapper {
@@ -129,7 +129,8 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 33%;
+  width: fit-content;
+  background: $primary;
 }
 
 .featureText {
@@ -140,18 +141,39 @@ h3 {
 
 .generator {
   background: #5c5c5c;
-  padding: 10em 12em;
+  padding: 8em 12em;
 }
 
 .quickSuggestTop {
   display: flex;
   justify-content: space-between;
   flex-basis: 100%;
-  margin-bottom: 6em;
+  flex-flow: wrap;
+  margin-bottom: 2em;
 }
 
 .quickSuggestBottom {
   display: flex;
   justify-content: space-between;
+  flex-flow: wrap;
   flex-basis: 100%;
+}
+
+.quickSuggestNameWrapper {
+  position: absolute;
+  bottom: 0.5em;
+  height: fit-content;
+  background: mat-color($primary-palette, 400);
+  width: calc(100% - 1em);
+  text-align: center;
+  padding: 3px 0;
+}
+
+.quickSuggestName {
+  width: 90%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #dfdfdf;
+  margin: 0 auto;
 }

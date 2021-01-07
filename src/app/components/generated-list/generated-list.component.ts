@@ -18,7 +18,6 @@ export class GeneratedListComponent implements OnInit {
   isMaxIndex: boolean;
   isMinIndex: boolean;
   @ViewChildren(ExpandoCardComponent) expandos: QueryList<ExpandoCardComponent>;
-  readMore: boolean;
   url: string;
 
   increment(): void {
@@ -27,7 +26,6 @@ export class GeneratedListComponent implements OnInit {
       expando.reset();
     });
 
-    this.readMore = true;
     this.getImage(this.mangas[this.currentIndex]._id);
   }
 
@@ -36,16 +34,10 @@ export class GeneratedListComponent implements OnInit {
     this.expandos.forEach((expando) => {
       expando.reset();
     });
-
-    this.readMore = true;
     this.getImage(this.mangas[this.currentIndex]._id);
-    this.readMore = !this.readMore;
   }
 
-  constructor(
-    private mangaService: MangaService,
-    public _DomSanitizer: DomSanitizer
-  ) {
+  constructor(private mangaService: MangaService, public _DomSanitizer: DomSanitizer) {
     this.mangas = [];
     this.currentIndex = 0;
     this.isMaxIndex = false;
@@ -65,8 +57,5 @@ export class GeneratedListComponent implements OnInit {
     if (this.mangas[this.currentIndex]) {
       this.getImage(this.mangas[this.currentIndex]._id);
     }
-    this.readMore = true;
-
-    console.log(this.mangas[this.currentIndex].Synopsis);
   }
 }
