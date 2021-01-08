@@ -2,10 +2,8 @@
   <div class="verticalLine"></div>
   <div class="bottomBorder">
     <div class="descriptionWrapper">
-      <span class="description fonts">
-        Easily generate random lists of manga, according to your exact preferences and tastes.
-      </span>
-      <button class="headingButton" mat-button>Get Started</button>
+      <span class="description fonts"> Easily generate random lists of manga, according to your exact preferences and tastes. </span>
+      <button class="headingButton" routerLink="." fragment="generator" mat-button>Get Started</button>
     </div>
     <div class="descriptionWrapper">
       <span class="description fonts"> Leave feedback, report errors and recommend manga to improve the site. </span>
@@ -42,12 +40,7 @@
       </div>
       <div class="quickSuggestBottom" *ngIf="dailies">
         <div class="quickSuggestListWrapper" *ngFor="let daily of dailies.slice(5, 10); let i = index">
-          <img
-            [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i + 5])"
-            (error)="defaultUrl(i)"
-            width="240"
-            height="320"
-          />
+          <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i + 5])" (error)="defaultUrl(i)" width="240" height="320" />
           <div class="quickSuggestNameWrapper fonts">
             <div class="quickSuggestName">{{ daily.Title }}</div>
           </div>
