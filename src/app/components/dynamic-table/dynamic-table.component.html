@@ -1,11 +1,15 @@
 <mat-grid-list cols="5" rowHeight="3.5em">
-    <mat-grid-tile *ngFor="let item of toDisplay; index as i" class="txt-color test dynamicTable-tile"
-        [ngClass]="(toggle[i] == 1) ? 'dynamicTable-include' : (toggle[i] == 0) ? 'dynamicTable-neutral' : 'dynamicTable-exclude'" (click)="toggleOne(i)">
-        <span class="dynamicTable-icon">
-            <span class="dynamicTable-title unselectable">{{ item }}</span> 
-            <fa-layers [fixedWidth]="true" >
-                <fa-icon [icon]="toggle[i] == -1 ? faTimes : toggle[i] == 0 ? faMinus : faCheck" style="margin-right:2px;" ></fa-icon>
-            </fa-layers>
-        </span>
-    </mat-grid-tile>
+  <mat-grid-tile
+    *ngFor="let item of toDisplay; index as i"
+    class="txt-color test dynamicTable-tile"
+    [ngClass]="toggle[i] == 1 ? 'dynamicTable-include' : toggle[i] == 0 ? 'dynamicTable-neutral' : 'dynamicTable-exclude'"
+    (click)="toggleOne(i)"
+  >
+    <span class="dynamicTable-field">
+      <span class="dynamicTable-title unselectable">{{ item }}</span>
+      <fa-layers [fixedWidth]="true" class="dynamicTable-icon">
+        <fa-icon [icon]="toggle[i] == -1 ? faTimes : toggle[i] == 0 ? faMinus : faCheck" style="margin-right: 2px"></fa-icon>
+      </fa-layers>
+    </span>
+  </mat-grid-tile>
 </mat-grid-list>
