@@ -82,8 +82,32 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .hiddenDiv {
-    font-size: 0.7em;
+@media screen and (max-width: 550px) {
+  *.center-20 {
+    margin: 0 0 !important;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+  .checkboxWrapper {
+    flex-direction: column;
+  }
+
+  .checkbox {
+    margin-top: 0.5em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  ::ng-deep .mat-form-field {
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  ::ng-deep .mat-form-field {
+    width: 75px;
   }
 }

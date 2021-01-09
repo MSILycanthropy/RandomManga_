@@ -63,3 +63,27 @@ fa-icon:hover {
     text-align: left;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .footerContent {
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  h3 {
+    width: 100% !important;
+  }
+
+  ul {
+    list-style: none !important;
+    padding: 0;
+  }
+
+  .footerSection {
+    width: 100%;
+  }
+  .licenseText {
+    text-align: center;
+  }
+}

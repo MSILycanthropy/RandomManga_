@@ -11,7 +11,7 @@ export class DynamicTableComponent implements OnInit {
   toggle: Array<number> = Array<number>(100);
 
   @Output() sendToggle = new EventEmitter();
-
+  columns: number;
   faCheck = faCheck;
   faTimes = faTimes;
   faMinus = faMinus;
@@ -19,6 +19,13 @@ export class DynamicTableComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    if (window.innerWidth >= 1024) {
+      this.columns = 5;
+    } else if (window.innerWidth < 1024 && window.innerWidth > 500) {
+      this.columns = 4;
+    } else {
+      this.columns = 2;
+    }
     for (let i = 0; i < this.toggle.length; i++) {
       this.toggle[i] = 0;
     }
@@ -41,9 +48,7 @@ export class DynamicTableComponent implements OnInit {
         this.toggle[i] = 1;
         break;
       default:
-        console.error(
-          'Somehow you got none of the toggleable states, so good job?'
-        );
+        console.error('Somehow you got none of the toggleable states, so good job?');
     }
 
     this.sendToggle.emit(this.toggle);
