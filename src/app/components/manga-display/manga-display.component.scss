@@ -1,0 +1,158 @@
+@import "src/themes.scss";
+
+.expandoCard {
+  display: inline-block;
+  margin-right: 0.375em;
+  height: 75px;
+}
+
+.moreInfoTop {
+  margin-bottom: 1em;
+}
+
+mat-card.primary {
+  background: $primary !important;
+}
+
+.matchJapaneseHeight {
+  line-height: 18px;
+}
+
+.synopsisText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  -webkit-line-clamp: 12;
+  overflow: hidden;
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding-left: 1em;
+}
+
+.header {
+  margin: 0;
+  display: inline;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 50vw;
+  font-size: 1.375em;
+}
+
+.titleTile {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: none;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.moreInfoTile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.descriptionTile {
+  flex-grow: 1;
+  border-top-right-radius: 0;
+  box-shadow: none;
+}
+
+.descriptionWrapper {
+  width: 93%;
+  margin: 0 auto;
+  margin-top: 3em;
+}
+
+.synopsisTitle {
+  display: inline-block;
+  white-space: normal;
+  width: calc(90% - 16px);
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.mangaCard {
+  margin: 5em 0;
+  flex-direction: column;
+  display: flex;
+  min-height: 75vh;
+}
+
+button {
+  background: #5c5c5c !important;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.5;
+  position: relative;
+}
+
+.genres {
+  font-size: 1.125em;
+  line-height: 1.5em;
+  margin: 0.375em;
+}
+
+.synopsisHeader {
+  padding: 0 1.25em;
+}
+
+.errorButton {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
+
+.share {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+
+a:link {
+  color: mat-color($success-palette, 300);
+}
+
+a:visited {
+  color: mat-color($success-palette, 300);
+}
+
+fa-icon {
+  color: white;
+}
+
+fa-icon:hover {
+  color: mat-color($success-palette, 300);
+}
+
+.fullTitle {
+  position: absolute;
+  left: 0;
+}
+
+.addToList {
+  border: none;
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  padding: 0;
+  outline: none;
+  margin-right: 0.375em;
+  vertical-align: middle;
+}

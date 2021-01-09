@@ -10,8 +10,8 @@ export interface IManga {
   Authors: Array<string>;
   Serialization: string;
   Score: Number;
-  Start: string;
-  End: string;
+  Start: Object;
+  End: Object;
   URL: string;
   isFinished: boolean;
   Synopsis: string;

@@ -34,6 +34,7 @@ import { AboutComponent } from './components/about/about.component';
 import { SiteCardComponent } from './components/site-card/site-card.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
+import { MangaDisplayComponent } from './components/manga-display/manga-display.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
     SiteCardComponent,
     NotFoundComponent,
     MainHeaderComponent,
+    MangaDisplayComponent,
   ],
   imports: [
     BrowserModule,

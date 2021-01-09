@@ -16,34 +16,23 @@ export class MangaService {
   constructor(private http: HttpClient) {}
 
   async getDailies() {
-    return await this.http.get(`${url}/dailies`).toPromise();
+    return (await this.http.get(`${url}/dailies`).toPromise()) as Array<IManga>;
   }
 
-  getByGenre(
-    type: string,
-    include: Array<string>,
-    exclude: Array<string>,
-    minScore: number,
-    isFinished: boolean,
-    amount: number
-  ): Observable<any> {
+  async getById(id: string) {
+    return (await this.http.get(`${url}/${id}`).toPromise())[0] as IManga;
+  }
+
+  getByGenre(type: string, include: Array<string>, exclude: Array<string>, minScore: number, isFinished: boolean, amount: number): Observable<any> {
     if (environment.production) {
       const hash = sha1(
         `${type}${environment.SECRET}${include.join('-')}\
         ${exclude.join('-')}${minScore}${amount}`.replace(/ /g, '')
       );
 
-      return this.http.get(
-        `${url}/${type}/${include.join('-')}/${exclude.join(
-          '-'
-        )}/${minScore}/${isFinished}/${amount}?gamma=${hash}`
-      );
+      return this.http.get(`${url}/${type}/${include.join('-')}/${exclude.join('-')}/${minScore}/${isFinished}/${amount}?gamma=${hash}`);
     } else {
-      return this.http.get(
-        `${url}/${type}/${include.join('-')}/${exclude.join(
-          '-'
-        )}/${minScore}/${isFinished}/${amount}`
-      );
+      return this.http.get(`${url}/${type}/${include.join('-')}/${exclude.join('-')}/${minScore}/${isFinished}/${amount}`);
     }
   }
 }
