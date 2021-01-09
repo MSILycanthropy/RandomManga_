@@ -3,7 +3,7 @@
   <mat-card class="primary center-10 mangaCard">
     <div style="display: flex">
       <div class="gray" style="padding-right: 1em">
-        <a href="#">
+        <a [attr.href]="innerUrl">
           <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" (error)="defaultUrl()" height="320" style="display: block" />
         </a>
       </div>
@@ -19,9 +19,6 @@
             </div>
 
             <span style="margin-left: auto">
-              <button class="addToList" title="Add to List">
-                <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
-              </button>
               <span>
                 {{ currentIndex + 1 }}
                 /
@@ -30,6 +27,10 @@
               <button (click)="decrement()" [disabled]="currentIndex == 0" style="margin-left: 0.375em" mat-button>Prev</button>
               <button (click)="increment()" [disabled]="currentIndex == mangas.length - 1" style="margin-left: 0.375em" mat-button>Next</button>
             </span>
+
+            <button class="addToList" title="Add to List">
+              <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
+            </button>
           </div>
 
           <div class="genres">

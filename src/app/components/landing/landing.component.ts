@@ -13,6 +13,7 @@ import { faInfinity, faCog, faListUl } from '@fortawesome/free-solid-svg-icons';
 export class LandingComponent implements OnInit {
   dailies: Array<IManga>;
   urls: Array<string>;
+  innerUrls: Array<string>;
   baseUrl: string;
   faInfinity = faInfinity;
   faCog = faCog;
@@ -27,8 +28,10 @@ export class LandingComponent implements OnInit {
     this.baseUrl = `${environment.apiUrl}/assets/manga-images-`;
     this.dailies = await this.mangaService.getDailies();
     this.urls = Array<string>(this.dailies.length);
+    this.innerUrls = Array<string>(this.dailies.length);
     this.dailies.forEach((d, i) => {
       this.urls[i] = `${this.baseUrl}${d._id}.jpg`;
+      this.innerUrls[i] = `${environment.siteUrl}/manga?id=${d._id}`;
     });
   }
 

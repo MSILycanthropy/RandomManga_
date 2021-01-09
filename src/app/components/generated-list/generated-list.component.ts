@@ -28,6 +28,7 @@ export class GeneratedListComponent implements OnInit {
   faTumblr = faTumblrSquare;
   faPlusCircle = faPlusCircle;
   mangaSynonyms: Array<string>;
+  innerUrl: string;
 
   increment(): void {
     this.currentIndex++;
@@ -36,6 +37,7 @@ export class GeneratedListComponent implements OnInit {
     });
 
     this.getImage(this.mangas[this.currentIndex]._id);
+    this.getInnerUrl(this.mangas[this.currentIndex]._id);
   }
 
   decrement(): void {
@@ -43,7 +45,9 @@ export class GeneratedListComponent implements OnInit {
     this.expandos.forEach((expando) => {
       expando.reset();
     });
+
     this.getImage(this.mangas[this.currentIndex]._id);
+    this.getInnerUrl(this.mangas[this.currentIndex]._id);
   }
 
   constructor(private mangaService: MangaService, public _DomSanitizer: DomSanitizer) {
@@ -61,11 +65,15 @@ export class GeneratedListComponent implements OnInit {
     this.url = `${environment.apiUrl}/assets/manga-images-notfound.jpg`;
   }
 
+  getInnerUrl(id: string) {
+    this.innerUrl = `${environment.siteUrl}/manga?id=${id}`;
+  }
   ngOnInit(): void {
     this.mangas = this.mangaService.mangas;
 
     if (this.mangas[this.currentIndex]) {
       this.getImage(this.mangas[this.currentIndex]._id);
+      this.getInnerUrl(this.mangas[this.currentIndex]._id);
     }
   }
 }
