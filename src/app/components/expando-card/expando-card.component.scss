@@ -1,7 +1,7 @@
-@import 'src/themes.scss';
+@import "src/themes.scss";
 
 mat-card {
-  background: $gray;
+  background: #5c5c5c !important;
 }
 
 .expandoContent {
@@ -16,7 +16,6 @@ mat-card {
 .expandoCard {
   display: flex;
   flex-direction: column;
-  width: 160px;
   text-align: center;
 }
 

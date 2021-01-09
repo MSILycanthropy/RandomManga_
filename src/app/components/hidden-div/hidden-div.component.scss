@@ -1,28 +1,29 @@
 @import "src/themes.scss";
 
 mat-card {
-    background-color: $primary;
-    display: inline-block; 
-    padding-bottom: 0;
+  background-color: #5c5c5c !important;
+  display: inline-block;
+  padding-bottom: 0;
 }
 
 span {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .hiddenDiv-title {
-    display: flex;
-    flex-basis: 100%;
-    width:  100%;
-    justify-content: space-between;
-    padding-bottom: 16px;
-    position: relative;
+  display: flex;
+  flex-basis: 100%;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  position: relative;
+  font-size: 20px;
 }
 
 .matCard-paddingBottom {
-    padding-bottom: 32px;
+  padding-bottom: 32px;
 }
 
 .selector {
-    padding-right: 1em;
+  padding-right: 1em;
 }

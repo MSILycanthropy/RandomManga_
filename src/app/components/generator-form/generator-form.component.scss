@@ -1,46 +1,89 @@
 @import "src/themes.scss";
 
 .primary {
-    background-color: $primary;
+  background-color: $primary;
 }
 
-.button-color {
-    background-color: #424242;
+.submitButton {
+  background-color: #5c5c5c;
+  width: 60%;
+  align-self: center;
+  font-size: 18px;
+  vertical-align: middle;
 }
 
 ::ng-deep .mat-form-field {
-    width: 100px;
+  width: 110px;
+}
+
+::ng-deep .mat-form-field-label {
+  color: white !important;
 }
 
 .divider {
-    position: relative;
+  position: relative;
 }
 
-.formWrapper { 
-    display:flex;
-    flex-flow: column wrap;
-    justify-content:center;
-    padding-top:16px
+.formWrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding-top: 1em;
 }
 
 .formCard {
-    text-align: center; 
-    margin-bottom: 4px;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  background: #5c5c5c;
 }
 
 .form {
-    display:flex; 
-    justify-content: space-between
+  display: flex;
+  justify-content: space-between;
 }
 
 .checkboxWrapper {
-    display:flex; 
-    justify-content:space-around
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2em;
 }
 
 .hiddenDiv {
-    display: flex;
-    justify-content: center;
-    width:100%;
-    margin-bottom:4px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.generatorHeader {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.checkbox {
+  margin-top: 1em;
+}
+
+.generatorWrapper {
+  padding-top: calc(16px + 1em);
+  padding-bottom: calc(16px + 1em);
+}
+
+@media screen and (max-width: 1440px) {
+  *.center {
+    margin: 0 10% !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  *.center {
+    margin: 0 12px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hiddenDiv {
+    font-size: 0.7em;
+  }
 }

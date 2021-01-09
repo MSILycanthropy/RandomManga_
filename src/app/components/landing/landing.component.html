@@ -1,114 +1,56 @@
-<mat-card class="center txt-color dark-background" style="margin-bottom: 1.5em">
-    <h2 style="margin-bottom: 4px">Welcome to RNGmanga.com</h2>
-    <mat-divider class="divider"></mat-divider>
-    <p class="text">
-        Yo
-        Eu4yea
-        It's your boy Danny playing solo, ayy
-        You know who's getting all those vicroys
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        John Wick coming with the V-Bucks
-        Ask mommy for the Visa (Skrr, Skrr)
-        Choppin' trees, Mickey D's, shootin' spree, Ali-A
-        And you see me and you freeze
-        Drop a knee, join my team
-        Ten, ten damage, that's a bug bite
-        50 damage, you aight-ight
-        100 damage, get some minis
-        200 damage, gimme the loot, gimme the loot
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        I'm gonna bounce and blast you off this tire
-        Your mom's armpits smell like a Moisty Mire
-        Get some slurp juice, get some slurp-slurp
-        When you hurt, you'll be crawlin' in the dirt-dirt
-        Hey hater, get on the elevator
-        Press L 'cause you're goin' to the lobby
-        I'm trappin' everywhere, you're trapped under there
-        150 damage in your underwear (Skrr, skrr)
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-
-        Yo
-        Eu4yea
-        It's your boy Danny playing solo, ayy
-        You know who's getting all those vicroys
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        John Wick coming with the V-Bucks
-        Ask mommy for the Visa (Skrr, Skrr)
-        Choppin' trees, Mickey D's, shootin' spree, Ali-A
-        And you see me and you freeze
-        Drop a knee, join my team
-        Ten, ten damage, that's a bug bite
-        50 damage, you aight-ight
-        100 damage, get some minis
-        200 damage, gimme the loot, gimme the loot
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        I'm gonna bounce and blast you off this tire
-        Your mom's armpits smell like a Moisty Mire
-        Get some slurp juice, get some slurp-slurp
-        When you hurt, you'll be crawlin' in the dirt-dirt
-        Hey hater, get on the elevator
-        Press L 'cause you're goin' to the lobby
-        I'm trappin' everywhere, you're trapped under there
-        150 damage in your underwear (Skrr, skrr)
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-        Fortnite, Fortnite
-        What's the point of building forts you're goin' night, night
-    </p>
-
-    <div class="dividerWrapper">
-        <h3 class="header">How does it work?</h3>
-        <mat-divider class="divider"></mat-divider>
+<section id="introduction" class="introductionSection">
+  <div class="verticalLine"></div>
+  <div class="bottomBorder">
+    <div class="descriptionWrapper">
+      <span class="description fonts"> Easily generate random lists of manga, according to your exact preferences and tastes. </span>
+      <button class="headingButton" routerLink="." fragment="generator" mat-button>Get Started</button>
     </div>
-    <p class="text">
-        Just fill out the form below and click generate to get a randomly generated list that tries to match the genres
-        you listed as best as possible.
-        If no genres are listed, then they are just listed at random.
-        <br />
-        Here's a quick explanation of what each form field does, and how to use them
-    </p>
-    <ul class="fullCenter optionsList">
-        <li>
-            <u>Type:</u> The type of comic by country of origin. Either manga (JP), manhwa (KR) or manhua (CN/TW).
-        </li>
-        <li>
-            <u>Minimum Score:</u> The minimum average score of the manga.
-        </li>
-        <li>
-            <u>Amount to List:</u> Self-explanatory. The amount to show in the list!
-        </li>
-        <li>
-            <u>Completed:</u> Whether or not only completed manga should show up.
-        </li>
-        <li>
-            <u>Include Unscored:</u> Whether or not to include manga without any score data.
-        </li>
-        <li>
-            <u>Genres:</u> Click to open and close, pick the genres you wish to include/exclude in the search.
-        </li>
-    </ul>
-</mat-card>
-<generator-form></generator-form>
+    <div class="descriptionWrapper">
+      <span class="description fonts"> Leave feedback, report errors and recommend manga to improve the site. </span>
+      <button class="headingButton" routerLink="/about/feedback" mat-button>Leave Feedback</button>
+    </div>
+  </div>
+
+  <div class="featureWrapper">
+    <mat-card class="feature">
+      <fa-icon [icon]="faInfinity" size="7x"></fa-icon>
+      <span class="featureText fonts"> Search through a vast selection </span>
+    </mat-card>
+    <mat-card class="feature">
+      <fa-icon [icon]="faCog" size="7x"></fa-icon>
+      <span class="featureText fonts"> Fully customizable search </span>
+    </mat-card>
+    <mat-card class="feature">
+      <fa-icon [icon]="faList" size="7x"></fa-icon>
+      <span class="featureText fonts"> Create custom lists to share </span>
+    </mat-card>
+  </div>
+</section>
+<section id="dailyRecs" class="dailyRecs">
+  <div class="dailyRecsInner">
+    <div class="quickSuggestTitle fonts">Daily Recommendations</div>
+    <div class="listWrapper">
+      <div class="quickSuggestTop" *ngIf="dailies">
+        <div class="quickSuggestListWrapper" *ngFor="let daily of dailies.slice(0, 5); let i = index" [attr.id]="'quickSuggestList' + i">
+          <a [href]="innerUrls[i]">
+            <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i])" (error)="defaultUrl(i)" width="240" height="320" />
+            <div class="quickSuggestNameWrapper fonts">
+              <div class="quickSuggestName">{{ daily.Title }}</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="quickSuggestBottom" *ngIf="dailies">
+        <div class="quickSuggestListWrapper" *ngFor="let daily of dailies.slice(5, 10); let i = index" [attr.id]="'quickSuggestList' + (i + 5)">
+          <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i + 5])" (error)="defaultUrl(i)" width="240" height="320" />
+          <div class="quickSuggestNameWrapper fonts">
+            <div class="quickSuggestName">{{ daily.Title }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="generator" class="generator">
+  <generator-form></generator-form>
+</section>

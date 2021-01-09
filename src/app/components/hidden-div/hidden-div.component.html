@@ -1,15 +1,29 @@
-<mat-card [@resizeDiv]="resizeDiv ? 'big' : 'small'" (@resizeDiv.done)="resizeFinished($event)"
-    class="background-primary" (click)="toggleShow($event)" id="hiddenDiv-card"
-    [ngClass]="{'matCard-paddingBottom': showContent}">
-    <span id="hiddenDiv-title" class="hiddenDiv-title txt-color unselectable">
-        <span id="hiddenDiv-title" [ngClass]="{'selector': !showContent}">
-            {{ title }} <fa-icon [icon]="faAngleDown" id="hiddenDiv-icon"></fa-icon>
-        </span>
-        <span>
-            <ng-content select="[title-extra]"></ng-content>
-        </span>
+<mat-card
+  [@resizeDiv]="resizeDiv ? 'big' : 'small'"
+  (@resizeDiv.done)="resizeFinished($event)"
+  class="background-primary"
+  (click)="toggleShow($event)"
+  id="hiddenDiv-card"
+  [ngClass]="{ 'matCard-paddingBottom': showContent }"
+>
+  <span id="hiddenDiv-title" class="hiddenDiv-title txt-color unselectable">
+    <span id="hiddenDiv-title" [ngClass]="{ selector: !showContent }">
+      {{ title }}
+      <fa-icon
+        [icon]="faAngleDown"
+        id="hiddenDiv-icon"
+        class="downArrow"
+      ></fa-icon>
     </span>
-    <div [@slideInOut]="showContent ? 'out' : 'in'" (@slideInOut.done)="slideFinished($event)" id="hiddenDiv-content">
-        <ng-content select="[card]"></ng-content>
-    </div>
+    <span>
+      <ng-content select="[title-extra]"></ng-content>
+    </span>
+  </span>
+  <div
+    [@slideInOut]="showContent ? 'out' : 'in'"
+    (@slideInOut.done)="slideFinished($event)"
+    id="hiddenDiv-content"
+  >
+    <ng-content select="[card]"></ng-content>
+  </div>
 </mat-card>

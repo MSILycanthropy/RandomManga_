@@ -1,43 +1,254 @@
 @import "src/themes.scss";
-
 .dark-background {
-    background-color: $primary;
+  background-color: $primary;
 }
 
 .udl {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 h3 {
-    margin: 0;
+  margin: 0;
 }
 
 .divider {
-    position: relative !important;
+  position: relative !important;
 }
 
 .text {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .header {
-    padding-right: 20px;
-    padding-left: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .dividerWrapper {
-    width: fit-content;
+  width: fit-content;
 }
 
 .optionsList {
-    padding: 0;
-    width: fit-content !important;
+  padding: 0;
+  width: fit-content !important;
+}
+
+.introductionSection {
+  background: #5c5c5c;
+  height: 70%;
+  position: relative;
+  padding: 6em 0;
+  padding-bottom: 12em;
+}
+
+.description {
+  font-weight: 600;
+  font-size: 1.875em;
+  text-align: center;
+  width: 19.267em;
+}
+
+.verticalLine {
+  border-left: 2px solid #dfdfdf;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: calc(336px + 10em);
+}
+
+.headingButton {
+  background: $primary;
+  color: #dfdfdf;
+  width: 50%;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  height: 336px;
+  padding-bottom: 4em;
+}
+
+.quickSuggestTitle {
+  font-weight: 600;
+  font-size: 45px;
+  margin-bottom: 0.85em;
+}
+
+.quickSuggestListWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+  background: $primary;
+  box-shadow: -5px 5px 3px -1px rgba(0, 0, 0, 0.2), 0px 3px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 4px;
+
+  position: relative;
+}
+.listWrapper {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.dailyRecs {
+  background: #555555;
+  padding: 12em 15em;
+}
+
+.bottomBorder {
+  display: flex;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.featureWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20%;
+  margin-top: 6em;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  background: $primary;
+}
+
+.featureText {
+  text-align: center;
+  width: 150px;
+  margin-top: 8px;
+}
+
+.generator {
+  background: #5c5c5c;
+  padding: 8em 12em;
+}
+
+.quickSuggestTop {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 100%;
+  flex-flow: wrap;
+  margin-bottom: 2em;
+}
+
+.quickSuggestBottom {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+  flex-basis: 100%;
+}
+
+.quickSuggestNameWrapper {
+  position: absolute;
+  bottom: 0.5em;
+  height: fit-content;
+  background: mat-color($primary-palette, 400);
+  width: calc(100% - 1em);
+  text-align: center;
+  padding: 3px 0;
+}
+
+.quickSuggestName {
+  width: 90%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #dfdfdf;
+  margin: 0 auto;
+}
+
+.quickSuggestListWrapper:hover {
+  .quickSuggestName {
+    white-space: normal;
+  }
+}
+
+@media screen and (max-width: 1919px) {
+  .dailyRecs {
+    padding: 12em 4em;
+  }
+
+  .quickSuggestTop {
+    margin-bottom: 0.5em;
+  }
+
+  .generator {
+    padding: 8em 4em;
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  .description {
+    width: 40vw;
+  }
+
+  .featureWrapper {
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: space-around;
+  }
+
+  .quickSuggestTop {
+    margin-bottom: 0;
+  }
+
+  #quickSuggestList9 {
+    display: none;
+  }
+  #quickSuggestList8 {
+    display: none;
+  }
+  #quickSuggestList3 {
+    display: none;
+  }
+  #quickSuggestList4 {
+    display: none;
+  }
+
+  .quickSuggestListWrapper {
+    margin-bottom: 0.5em;
+  }
+
+  .quickSuggestTitle {
+    text-align: center;
+  }
+
+  .generator {
+    padding: 8em 0;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .description {
+    font-size: 1.45em;
+  }
+
+  #quickSuggestList9 {
+    display: none;
+  }
+  #quickSuggestList8 {
+    display: flex;
+  }
+  #quickSuggestList3 {
+    display: flex;
+  }
+  #quickSuggestList4 {
+    display: none;
+  }
 }

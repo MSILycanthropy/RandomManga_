@@ -6,6 +6,9 @@ import { MangaService } from 'src/app/services/manga/manga.service';
 import { ExpandoCardComponent } from '../expando-card/expando-card.component';
 import { environment } from 'src/environments/environment';
 import { isObservable } from 'rxjs';
+import { faFacebookSquare, faTwitterSquare, faRedditSquare, faTumblrSquare } from '@fortawesome/free-brands-svg-icons';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { IManga } from 'src/app/app.interface';
 
 @Component({
   selector: 'generated-list',
@@ -13,13 +16,19 @@ import { isObservable } from 'rxjs';
   styleUrls: ['./generated-list.component.scss'],
 })
 export class GeneratedListComponent implements OnInit {
-  mangas: Array<any>;
+  mangas: Array<IManga>;
   currentIndex: number;
   isMaxIndex: boolean;
   isMinIndex: boolean;
   @ViewChildren(ExpandoCardComponent) expandos: QueryList<ExpandoCardComponent>;
-  readMore: boolean;
   url: string;
+  faFacebook = faFacebookSquare;
+  faTwitter = faTwitterSquare;
+  faReddit = faRedditSquare;
+  faTumblr = faTumblrSquare;
+  faPlusCircle = faPlusCircle;
+  mangaSynonyms: Array<string>;
+  innerUrl: string;
 
   increment(): void {
     this.currentIndex++;
@@ -27,8 +36,8 @@ export class GeneratedListComponent implements OnInit {
       expando.reset();
     });
 
-    this.readMore = true;
     this.getImage(this.mangas[this.currentIndex]._id);
+    this.getInnerUrl(this.mangas[this.currentIndex]._id);
   }
 
   decrement(): void {
@@ -37,15 +46,11 @@ export class GeneratedListComponent implements OnInit {
       expando.reset();
     });
 
-    this.readMore = true;
     this.getImage(this.mangas[this.currentIndex]._id);
-    this.readMore = !this.readMore;
+    this.getInnerUrl(this.mangas[this.currentIndex]._id);
   }
 
-  constructor(
-    private mangaService: MangaService,
-    public _DomSanitizer: DomSanitizer
-  ) {
+  constructor(private mangaService: MangaService, public _DomSanitizer: DomSanitizer) {
     this.mangas = [];
     this.currentIndex = 0;
     this.isMaxIndex = false;
@@ -60,13 +65,15 @@ export class GeneratedListComponent implements OnInit {
     this.url = `${environment.apiUrl}/assets/manga-images-notfound.jpg`;
   }
 
+  getInnerUrl(id: string) {
+    this.innerUrl = `${environment.siteUrl}/manga?id=${id}`;
+  }
   ngOnInit(): void {
     this.mangas = this.mangaService.mangas;
+
     if (this.mangas[this.currentIndex]) {
       this.getImage(this.mangas[this.currentIndex]._id);
+      this.getInnerUrl(this.mangas[this.currentIndex]._id);
     }
-    this.readMore = true;
-
-    console.log(this.mangas[this.currentIndex].Synopsis);
   }
 }

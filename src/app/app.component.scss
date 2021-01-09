@@ -1,5 +1,30 @@
-@import './src/themes.scss';
+@import "./src/themes.scss";
 
 .button-color {
-    background: $primary;
+  background: $primary;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  > *:not(router-outlet) {
+    flex: 1;
+    display: block;
+  }
+}
+
+.all-wrap {
+  min-height: 100vh;
+}
+
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #5c5c5c;
+}
+
+.content {
+  flex: 1;
 }

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -34,11 +33,12 @@ import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.comp
 import { AboutComponent } from './components/about/about.component';
 import { SiteCardComponent } from './components/site-card/site-card.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MainHeaderComponent } from './components/main-header/main-header.component';
+import { MangaDisplayComponent } from './components/manga-display/manga-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent,
     LogoComponent,
     LandingComponent,
     HiddenDivComponent,
@@ -52,6 +52,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     AboutComponent,
     SiteCardComponent,
     NotFoundComponent,
+    MainHeaderComponent,
+    MangaDisplayComponent,
   ],
   imports: [
     BrowserModule,
