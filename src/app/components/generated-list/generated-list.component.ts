@@ -6,6 +6,9 @@ import { MangaService } from 'src/app/services/manga/manga.service';
 import { ExpandoCardComponent } from '../expando-card/expando-card.component';
 import { environment } from 'src/environments/environment';
 import { isObservable } from 'rxjs';
+import { faFacebookSquare, faTwitterSquare, faRedditSquare, faTumblrSquare } from '@fortawesome/free-brands-svg-icons';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { IManga } from 'src/app/app.interface';
 
 @Component({
   selector: 'generated-list',
@@ -13,12 +16,18 @@ import { isObservable } from 'rxjs';
   styleUrls: ['./generated-list.component.scss'],
 })
 export class GeneratedListComponent implements OnInit {
-  mangas: Array<any>;
+  mangas: Array<IManga>;
   currentIndex: number;
   isMaxIndex: boolean;
   isMinIndex: boolean;
   @ViewChildren(ExpandoCardComponent) expandos: QueryList<ExpandoCardComponent>;
   url: string;
+  faFacebook = faFacebookSquare;
+  faTwitter = faTwitterSquare;
+  faReddit = faRedditSquare;
+  faTumblr = faTumblrSquare;
+  faPlusCircle = faPlusCircle;
+  mangaSynonyms: Array<string>;
 
   increment(): void {
     this.currentIndex++;
@@ -54,6 +63,7 @@ export class GeneratedListComponent implements OnInit {
 
   ngOnInit(): void {
     this.mangas = this.mangaService.mangas;
+
     if (this.mangas[this.currentIndex]) {
       this.getImage(this.mangas[this.currentIndex]._id);
     }
