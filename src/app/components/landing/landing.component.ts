@@ -11,7 +11,7 @@ import { faInfinity, faCog, faListUl } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  dailies: any;
+  dailies: Array<IManga>;
   urls: Array<string>;
   baseUrl: string;
   faInfinity = faInfinity;
