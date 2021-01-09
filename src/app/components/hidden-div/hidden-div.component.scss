@@ -27,3 +27,16 @@ span {
 .selector {
   padding-right: 1em;
 }
+
+@media screen and (max-width: 500px) {
+  #hiddenDiv-card {
+    width: calc(100% - 32px) !important;
+    margin-top: 1em;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .selector {
+    padding-right: 0;
+  }
+}

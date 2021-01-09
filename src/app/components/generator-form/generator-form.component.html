@@ -32,12 +32,8 @@
         </mat-form-field>
       </div>
       <div class="checkboxWrapper">
-        <mat-checkbox class="checkbox" [(ngModel)]="isFinished">
-          Completed
-        </mat-checkbox>
-        <mat-checkbox class="checkbox" [(ngModel)]="isUnscored">
-          Include Unscored
-        </mat-checkbox>
+        <mat-checkbox class="checkbox" [(ngModel)]="isFinished"> Completed </mat-checkbox>
+        <mat-checkbox class="checkbox" [(ngModel)]="isUnscored"> Include Unscored </mat-checkbox>
       </div>
     </mat-card>
 
@@ -50,15 +46,8 @@
         title-extra
       >
       </nfold-selector>
-      <dynamic-table
-        [toDisplay]="genres"
-        (sendToggle)="this.test($event)"
-        #dynTable
-        card
-      ></dynamic-table>
+      <dynamic-table [toDisplay]="genres" (sendToggle)="this.test($event)" #dynTable card></dynamic-table>
     </hidden-div>
-    <button (click)="generateList()" class="submitButton" mat-button>
-      Generate
-    </button>
+    <button (click)="generateList()" class="submitButton" mat-button>Generate</button>
   </div>
 </mat-card>

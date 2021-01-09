@@ -1,4 +1,4 @@
-<mat-grid-list cols="5" rowHeight="3.5em">
+<mat-grid-list [cols]="columns" rowHeight="3.5em">
   <mat-grid-tile
     *ngFor="let item of toDisplay; index as i"
     class="txt-color test dynamicTable-tile"
