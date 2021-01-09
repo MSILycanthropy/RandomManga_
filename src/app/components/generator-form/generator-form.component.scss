@@ -69,3 +69,21 @@
   padding-top: calc(16px + 1em);
   padding-bottom: calc(16px + 1em);
 }
+
+@media screen and (max-width: 1440px) {
+  *.center {
+    margin: 0 10% !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  *.center {
+    margin: 0 12px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hiddenDiv {
+    font-size: 0.7em;
+  }
+}

@@ -43,3 +43,23 @@ fa-icon {
 fa-icon:hover {
   color: mat-color($success-palette, 300);
 }
+
+.licenseText {
+  width: 33%;
+  white-space: normal;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+@media screen and (max-width: 1440px) {
+  .licenseText {
+    font-size: 0.6em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .licenseText {
+    width: 100%;
+    text-align: left;
+  }
+}
