@@ -36,17 +36,17 @@ h2 {
 }
 
 a:link {
-  color: mat-color($success-palette, 300);
+  color: #40f99b;
 }
 
 a:visited {
-  color: mat-color($success-palette, 300);
+  color: #40f99b;
 }
 
 .siteCardWrapper {
   display: flex;
   flex-flow: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .siteCardSpacer {
