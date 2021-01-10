@@ -1,35 +1,41 @@
 @import "src/themes.scss";
 
 .primary {
-    background-color: $primary;
+  background-color: $primary;
 }
 
 .wrapper {
-    width: fit-content;
+  width: fit-content;
 }
 
 .header {
-    margin-bottom: 4px;
-}
-
-.subheader {
-    margin-bottom: 4px;
-    padding-right: 20px;
-    padding-left: 20px;
+  margin-bottom: 4px;
 }
 
 .top {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 .divider {
-    position: relative !important;
+  position: relative !important;
 }
 
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 h3 {
-    margin: 0;
+  margin: 0;
+}
+
+a:link {
+  color: mat-color($success-palette, 300);
+}
+
+a:visited {
+  color: mat-color($success-palette, 300);
+}
+
+p {
+  padding: 0 20px;
 }
