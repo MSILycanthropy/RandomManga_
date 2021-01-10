@@ -1,29 +1,18 @@
-<mat-button-toggle-group
-  #group="matButtonToggleGroup"
-  class="smallify"
-  [(ngModel)]="defaultValue"
->
-  <mat-button-toggle
+<div class="selectableWrapper">
+  <button
     *ngFor="let value of selectableValues; let i = index"
-    [value]="value"
-    (change)="onChange($event.value)"
+    class="selectableButton"
+    [ngStyle]="{
+      'background-color': defaultValue == selectableValues[i] ? '#212121' : colors[i]
+    }"
     #tooltip="matTooltip"
     matTooltip="{{ value.text }}"
     matTooltipPosition="below"
-    class="smallify"
-    style="width: 40px"
-    [ngStyle]="{
-      'background-color':
-        defaultValue == selectableValues[i] ? '#212121' : colors[i]
-    }"
+    [value]="value"
+    (click)="toggle(value, i)"
+    [class.firstButton]="i == 0"
+    [class.lastButton]="i == selectableValues.length - 1"
   >
-    <ng-container *ngIf="value.fa != null; else elseTemplate">
-      <span>
-        <fa-icon [icon]="value.fa" class="checkIcon"></fa-icon>
-      </span>
-    </ng-container>
-    <ng-template #elseTemplate>
-      {{ value.text[0] }}
-    </ng-template>
-  </mat-button-toggle>
-</mat-button-toggle-group>
+    <fa-icon [icon]="value.fa"></fa-icon>
+  </button>
+</div>
