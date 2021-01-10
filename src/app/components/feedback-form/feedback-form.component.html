@@ -1,0 +1,24 @@
+<div style="margin: 2.5em 0" class="center fonts color">
+  <h2 class="header">Contact/Feedback</h2>
+  <mat-divider class="divider"></mat-divider>
+  <p class="text">
+    Use this form to leave feedback or contact me about anything related to the site. Feel free to send me an email at
+    <a href="mailto:msilycanthropy@gmail.com">msilycanthropy@gmail.com</a> as well. Thanks for taking the time to leave feedback!
+  </p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" method="post" class="feedbackForm" id="contact-form" role="form">
+    <mat-form-field>
+      <mat-label for="name">Name</mat-label>
+      <input type="text" id="name" name="name" formControlName="name" matInput placeholder="John Doe" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="email">Email</mat-label>
+      <input type="email" id="email" name="email" formControlName="email" matInput placeholder="example@example.com" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="message">Feedback</mat-label>
+      <textarea id="message" rows="15" name="message" formControlName="message" matInput placeholder="I do not like weebs!" required></textarea>
+    </mat-form-field>
+    <button mat-button type="submit" id="submit" class="button-color">Send Feedback</button>
+  </form>
+</div>

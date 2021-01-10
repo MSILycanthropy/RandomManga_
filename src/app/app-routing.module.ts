@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
+import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { GeneratedListComponent } from './components/generated-list/generated-list.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { MangaDisplayComponent } from './components/manga-display/manga-display.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'about/terms', component: TermsOfUseComponent },
   { path: 'about', component: AboutComponent },
   { path: 'manga', component: MangaDisplayComponent },
+  { path: 'feedback', component: FeedbackFormComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
 ];

@@ -27,7 +27,7 @@ import { GeneratedListComponent } from './components/generated-list/generated-li
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { AboutComponent } from './components/about/about.component';
@@ -35,7 +35,8 @@ import { SiteCardComponent } from './components/site-card/site-card.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { MangaDisplayComponent } from './components/manga-display/manga-display.component';
-
+import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
+import { MatInput, MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { MangaDisplayComponent } from './components/manga-display/manga-display.
     NotFoundComponent,
     MainHeaderComponent,
     MangaDisplayComponent,
+    FeedbackFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,8 @@ import { MangaDisplayComponent } from './components/manga-display/manga-display.
     MatCheckboxModule,
     MatFormFieldModule,
     FormsModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
