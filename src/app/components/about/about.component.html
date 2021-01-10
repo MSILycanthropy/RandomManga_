@@ -1,382 +1,243 @@
-<mat-card class="center primary" style="margin: 2.5em 0;">
+<div class="center color fonts" style="margin: 2.5em 0">
+  <h2 class="header">About RNGmanga.com</h2>
+  <mat-divider class="divider"></mat-divider>
 
-    <h2 class="header">About RNGmanga.com</h2>
+  <p class="text">
+    Hello! I'm Ethan, otherwise and more preferably known as my online moniker, Lycanthropy, I'm the creator of this site!
+    <br />
+    <br />
+    I noticed there was a huge lack in terms of manga/manhwa/manhua recommendation, and I figured I'd fill that gap with an ad-free site. So that
+    people can get access to the large array of comics that exist!
+    <br />
+    <br />
+    This site takes heavy inspiriation from <a href="https://randomanime.org">RandomAnime</a> created by Kyle Hawks. Their site is far better than
+    mine probably ever will be, so please go check it out. It's honestly incredible, and it is also ad free!
+    <br />
+    <br />
+    Over the past few months I've shifted almost exclusively to reading manga, but couldn't find a place for good recommendations, so I figured I'd
+    make it. And I am constantly working it as well as other projects. So please keep an eye out for any updates and make sure to send me feedback.
+
+    <br />
+    <br />
+    Any feedback you send using the form below or at the
+    <a [href]="siteUrl + '/about/feedback'">feedback form</a> goes directly to my email and I make sure to look over every one of them! Similarly if
+    you notice any errors or discrepancies in the data, or wish to suggest more comics for the site, please go over to the
+    <a [href]="siteUrl + '/about/report'">reports section</a>.
+  </p>
+
+  <div class="wrapper">
+    <h3>How can I support?</h3>
     <mat-divider class="divider"></mat-divider>
+  </div>
+  <p class="text">TODO: insert donation shill here</p>
 
-    <p class="text">
-        Hello! I'm Ethan, otherwise and more preferably known as my online moniker, Lycanthropy, I'm the creator of this
-        site!
-        <br />
-        <br />
-        I noticed there was a huge lack in terms of manga/manhwa/manhua recommendation, and I figured I'd fill that gap
-        with an ad-free
-        site. So that people can get access to the large array of comics that exist!
-        <br />
-        <br />
-        This site takes heavy inspiriation from <a href="https://randomanime.org">RandomAnime</a> created by Kyle Hawks.
-        Their site is far better than mine probably ever will be, so please go check it out. It's honestly incredible,
-        and it is also ad free!
-        <br />
-        <br />
-        But, very similarly to Kyle, <i>I wanted people to have more to read</i>. So, I got to work and combined my love
-        of
-        reading comics with my web design skills to create RNGmanga. And I am constantly working on that as well as
-        other
-        projects. So please keep an eye out for any updates and make sure to send me feedback.
+  <div class="wrapper">
+    <h3>Places to read!</h3>
+    <mat-divider class="divider"></mat-divider>
+  </div>
+  <p class="text">
+    If possible always read from a source that supports the creators. I understand that this is not always possible due to translations, or other
+    issues. But, still use less legal sites at your own risk.
+    <br />
+    <br />
+    Just a note, I don't particularly read a lot of Manhua specifically, so I'm not aware of the legit sites for them. So, if you are someone who
+    reads lots of Manhua, please let me know via the
+    <a [href]="siteUrl + '/about/feedback'">feedback form</a>.
+    <br />
+    <br />
+    Second note, I only speak English, so please let me know of non-English sites as well at that same
+    <a [href]="siteUrl + '/about/feedback'">feedback form</a>.
+  </p>
 
-        <br />
-        <br />
-        Any feedback you send using the form below or at the
-        <a [href]="siteUrl + '/about/feedback'">feedback form</a> goes directly to my email and I make sure
-        to look over every one of them! Similarly if you notice any errors or discrepancies in the data, or wish to
-        suggest more comics for the site, please go over to the
-        <a [href]="siteUrl + '/about/report'">reports section</a>.
-    </p>
-
-    <div class="wrapper">
-        <h3>How can I support?</h3>
-        <mat-divider class="divider"></mat-divider>
-    </div>
-    <p class="text">TODO: insert donation shill here</p>
-
-    <div class="wrapper">
-        <h3>Places to read!</h3>
-        <mat-divider class="divider"></mat-divider>
-    </div>
-    <p class="text">
-        If possible always read from a source that supports the creators. I understand that this is not always possible
-        due to translations, or other issues. But, still use less legal sites at your own risk.
-        <br />
-        <br />
-        Just a note, I don't particularly read a lot of Manhua specifically, so I'm not aware of the legit sites for
-        them.
-        So, if you are someone who reads lots of Manhua, please let me know via the
-        <a [href]="siteUrl + '/about/feedback'">feedback form</a>.
-        <br />
-        <br />
-        Second note, I only speak English, so please let me know of non-English sites as well at that same
-        <a [href]="siteUrl + '/about/feedback'">feedback form</a>.
-    </p>
-
-    <p class="text" style="margin-bottom: 2em">
-        Here's a list of some sites you can use!
-    </p>
-    <div class="fullCenter siteCardWrapper">
-        <site-card class="siteCardSpacer" [title]="'Crunchyroll'" [color]="'#F47521'"
-            [url]="'https://www.crunchyroll.com/comics/manga'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pros
-                    <ul>
-                        <li>
-                            Supports Authors
-                        </li>
-                        <li>
-                            Large selection
-                        </li>
-                        <li>
-                            No ads
-                        </li>
-                        <li>
-                            Legal
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Subscription required
-                        </li>
-                        <li>
-                            Limited selection
-                        </li>
-                        <li>
-                            Limited search
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-        <site-card class="siteCardSpacer" [title]="'LINE Webtoon'" [color]="'#00A349'"
-            [url]="'https://www.webtoons.com/en/'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pro
-                    <ul>
-                        <li>
-                            Supports Authors
-                        </li>
-                        <li>
-                            Mostly free
-                        </li>
-                        <li>
-                            Mostly ad-free
-                        </li>
-                        <li>
-                            Legal
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Small selection
-                        </li>
-                        <li>
-                            Lots of promotional popups
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-        <site-card class="siteCardSpacer" [title]="'BookWalker'" [color]="'#1D6FA5'"
-            [url]="'https://global.bookwalker.jp/free/?np=1'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pros
-                    <ul>
-                        <li>
-                            Supports Authors
-                        </li>
-                        <li>
-                            Large selection
-                        </li>
-                        <li>
-                            Mostly free
-                        </li>
-                        <li>
-                            Legal
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Some paid content
-                        </li>
-                        <li>
-                            Account required
-                        </li>
-                        <li>
-                            Downloads required
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-        <site-card class="siteCardSpacer" [title]="'VIZ'" [color]="'#FF0000'" [url]="'https://www.viz.com/'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pros
-                    <ul>
-                        <li>
-                            Supports Authors
-                        </li>
-                        <li>
-                            Free content
-                        </li>
-                        <li>
-                            Popular selection
-                        </li>
-                        <li>
-                            Legal
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Limited selection
-                        </li>
-                        <li>
-                            Account needed
-                        </li>
-                        <li>
-                            Some chapters limited
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-        <site-card class="siteCardSpacer" [title]="'MangaKakalot'" [color]="'#FF530D'"
-            [url]="'https://mangakakalot.com/'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pros
-                    <ul>
-                        <li>
-                            Large selection
-                        </li>
-                        <li>
-                            Constantly updating
-                        </li>
-                        <li>
-                            One page reader
-                        </li>
-                        <li>
-                            Popularity lists
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Minimal ads
-                        </li>
-                        <li>
-                            Limited search
-                        </li>
-                        <li>
-                            Legal grey area
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-        <site-card class="siteCardSpacer" [title]="'BATO.to'" [color]="'#0F5262'" [url]="'https://bato.to/'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pros
-                    <ul>
-                        <li>
-                            Large selection
-                        </li>
-                        <li>
-                            Open source
-                        </li>
-                        <li>
-                            No ads
-                        </li>
-                        <li>
-                            Can add content
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Account recommended
-                        </li>
-                        <li>
-                            Legal grey area
-                        </li>
-                        <li>
-                            Basic search
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-        <site-card [title]="'Mangareader'" [color]="'#013838'" [url]="'https://www.mangareader.net/'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pros
-                    <ul>
-                        <li>
-                            Large selection
-                        </li>
-                        <li>
-                            Constantly updating
-                        </li>
-                        <li>
-                            Advanced search
-                        </li>
-                        <li>
-                            Suprise me feature
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Lots of ads
-                        </li>
-                        <li>
-                            Adult ads
-                        </li>
-                        <li>
-                            Legal grey area
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-        <site-card [title]="'Mangafreak'" [color]="'#000000'" [url]="'https://w11.mangafreak.net/'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pros
-                    <ul>
-                        <li>
-                            Large selection
-                        </li>
-                        <li>
-                            Search by author
-                        </li>
-                        <li>
-                            Fast updates
-                        </li>
-                        <li>
-                            Access to full
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Lots of ads
-                        </li>
-                        <li>
-                            Adult ads
-                        </li>
-                        <li>
-                            Legal grey area
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-        <site-card [title]="'MangaLife'" [color]="'#6BAADF'" [url]="'https://manga4life.com/'">
-            <div class="siteCardInner">
-                <span class="siteCardInnerContent" style="margin-top:1em">
-                    Pros
-                    <ul>
-                        <li>
-                            Large selection
-                        </li>
-                        <li>
-                            Access to full directory
-                        </li>
-                        <li>
-                            In depth search
-                        </li>
-                        <li>
-                            One page reader
-                        </li>
-                    </ul>
-                </span>
-                <span class="siteCardInnerContent">
-                    Cons
-                    <ul>
-                        <li>
-                            Minimal ads
-                        </li>
-                        <li>
-                            Rarely doesn't load
-                        </li>
-                        <li>
-                            Legal grey area
-                        </li>
-                    </ul>
-                </span>
-            </div>
-        </site-card>
-    </div>
-</mat-card>
+  <p class="text" style="margin-bottom: 2em">Here's a list of some sites you can use!</p>
+  <div class="fullCenter siteCardWrapper">
+    <site-card class="siteCardSpacer" [title]="'Crunchyroll'" [color]="'#F47521'" [url]="'https://www.crunchyroll.com/comics/manga'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pros
+          <ul>
+            <li>Supports Authors</li>
+            <li>Large selection</li>
+            <li>No ads</li>
+            <li>Legal</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Subscription required</li>
+            <li>Limited selection</li>
+            <li>Limited search</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+    <site-card class="siteCardSpacer" [title]="'LINE Webtoon'" [color]="'#00A349'" [url]="'https://www.webtoons.com/en/'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pro
+          <ul>
+            <li>Supports Authors</li>
+            <li>Mostly free</li>
+            <li>Mostly ad-free</li>
+            <li>Legal</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Small selection</li>
+            <li>Lots of promotional popups</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+    <site-card class="siteCardSpacer" [title]="'BookWalker'" [color]="'#1D6FA5'" [url]="'https://global.bookwalker.jp/free/?np=1'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pros
+          <ul>
+            <li>Supports Authors</li>
+            <li>Large selection</li>
+            <li>Mostly free</li>
+            <li>Legal</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Some paid content</li>
+            <li>Account required</li>
+            <li>Downloads required</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+    <site-card class="siteCardSpacer" [title]="'VIZ'" [color]="'#FF0000'" [url]="'https://www.viz.com/'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pros
+          <ul>
+            <li>Supports Authors</li>
+            <li>Free content</li>
+            <li>Popular selection</li>
+            <li>Legal</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Limited selection</li>
+            <li>Account needed</li>
+            <li>Some chapters limited</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+    <site-card class="siteCardSpacer" [title]="'MangaKakalot'" [color]="'#FF530D'" [url]="'https://mangakakalot.com/'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pros
+          <ul>
+            <li>Large selection</li>
+            <li>Constantly updating</li>
+            <li>One page reader</li>
+            <li>Popularity lists</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Minimal ads</li>
+            <li>Limited search</li>
+            <li>Legal grey area</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+    <site-card class="siteCardSpacer" [title]="'BATO.to'" [color]="'#0F5262'" [url]="'https://bato.to/'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pros
+          <ul>
+            <li>Large selection</li>
+            <li>Open source</li>
+            <li>No ads</li>
+            <li>Can add content</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Account recommended</li>
+            <li>Legal grey area</li>
+            <li>Basic search</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+    <site-card [title]="'Mangareader'" [color]="'#013838'" [url]="'https://www.mangareader.net/'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pros
+          <ul>
+            <li>Large selection</li>
+            <li>Constantly updating</li>
+            <li>Advanced search</li>
+            <li>Suprise me feature</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Lots of ads</li>
+            <li>Adult ads</li>
+            <li>Legal grey area</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+    <site-card [title]="'Mangafreak'" [color]="'#000000'" [url]="'https://w11.mangafreak.net/'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pros
+          <ul>
+            <li>Large selection</li>
+            <li>Search by author</li>
+            <li>Fast updates</li>
+            <li>Access to full</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Lots of ads</li>
+            <li>Adult ads</li>
+            <li>Legal grey area</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+    <site-card [title]="'MangaLife'" [color]="'#6BAADF'" [url]="'https://manga4life.com/'">
+      <div class="siteCardInner">
+        <span class="siteCardInnerContent" style="margin-top: 1em">
+          Pros
+          <ul>
+            <li>Large selection</li>
+            <li>Access to full directory</li>
+            <li>In depth search</li>
+            <li>One page reader</li>
+          </ul>
+        </span>
+        <span class="siteCardInnerContent">
+          Cons
+          <ul>
+            <li>Minimal ads</li>
+            <li>Rarely doesn't load</li>
+            <li>Legal grey area</li>
+          </ul>
+        </span>
+      </div>
+    </site-card>
+  </div>
+</div>

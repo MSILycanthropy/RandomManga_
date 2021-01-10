@@ -1,58 +1,58 @@
 @import "src/themes.scss";
 
-.primary {
-    background-color: $primary;
-}
-
 .divider {
-    position: relative !important;
+  position: relative !important;
 }
 
 .header {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .wrapper {
-    width: fit-content;
+  width: fit-content;
 }
 
 .text {
-    padding-right: 20px; 
-    padding-left: 20px
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .siteCardInner {
-    display: flex; 
-    flex-direction: column;
-    align-items:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .siteCardInnerContent {
-    width: 80%;
+  width: 80%;
 }
 
 h3 {
-    margin: 0;
+  margin: 0;
 }
 
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 a:link {
-    color: mat-color($success-palette, 300);
+  color: mat-color($success-palette, 300);
 }
 
 a:visited {
-    color: mat-color($success-palette, 300);
+  color: mat-color($success-palette, 300);
 }
 
 .siteCardWrapper {
-    display:flex; 
-    flex-flow: wrap;
-    justify-content: space-evenly; 
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
 }
 
 .siteCardSpacer {
-    margin-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+.color {
+  color: white !important;
 }
