@@ -26,6 +26,15 @@ span {
 
 .selector {
   padding-right: 1em;
+  line-height: unset;
+}
+
+#hiddenDiv-title {
+  line-height: unset;
+}
+
+.extraContent {
+  line-height: unset;
 }
 
 @media screen and (max-width: 500px) {
