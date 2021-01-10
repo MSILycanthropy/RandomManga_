@@ -42,10 +42,12 @@
       </div>
       <div class="quickSuggestBottom" *ngIf="dailies">
         <div class="quickSuggestListWrapper" *ngFor="let daily of dailies.slice(5, 10); let i = index" [attr.id]="'quickSuggestList' + (i + 5)">
-          <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i + 5])" (error)="defaultUrl(i)" width="240" height="320" />
-          <div class="quickSuggestNameWrapper fonts">
-            <div class="quickSuggestName">{{ daily.Title }}</div>
-          </div>
+          <a [href]="innerUrls[i + 5]">
+            <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i + 5])" (error)="defaultUrl(i)" width="240" height="320" />
+            <div class="quickSuggestNameWrapper fonts">
+              <div class="quickSuggestName">{{ daily.Title }}</div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
