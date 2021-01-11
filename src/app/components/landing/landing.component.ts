@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { IManga } from 'src/app/app.interface';
 import { MangaService } from 'src/app/services/manga/manga.service';
@@ -21,6 +21,7 @@ export class LandingComponent implements OnInit {
 
   currentDailyIndex: number;
 
+  @ViewChild('underConstructionModal') underConstructionModal;
   constructor(public _DomSanitizer: DomSanitizer, private mangaService: MangaService) {}
 
   async ngOnInit(): Promise<void> {
@@ -33,6 +34,12 @@ export class LandingComponent implements OnInit {
       this.urls[i] = `${this.baseUrl}${d._id}.jpg`;
       this.innerUrls[i] = `${environment.siteUrl}/manga?id=${d._id}`;
     });
+  }
+
+  ngAfterViewInit() {
+    if (!environment.production) {
+      this.underConstructionModal.create();
+    }
   }
 
   defaultUrl(i: number) {
