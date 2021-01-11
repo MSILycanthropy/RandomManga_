@@ -37,7 +37,7 @@ export class LandingComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if (!environment.production) {
+    if (environment.production) {
       this.underConstructionModal.create();
     }
   }
