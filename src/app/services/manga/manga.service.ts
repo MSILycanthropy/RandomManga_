@@ -12,7 +12,7 @@ const url = `${environment.apiUrl}/manga`;
 })
 export class MangaService {
   mangas: Array<IManga> = [];
-
+  viewManga: IManga;
   constructor(private http: HttpClient) {}
 
   async getDailies() {
