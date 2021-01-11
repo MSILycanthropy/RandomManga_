@@ -10,7 +10,9 @@ main {
   justify-content: center;
   > *:not(router-outlet) {
     flex: 1;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
