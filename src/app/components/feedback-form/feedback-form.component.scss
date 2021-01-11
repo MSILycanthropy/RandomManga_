@@ -31,4 +31,27 @@ a:visited {
 }
 .button-color {
   background: $primary;
+  margin-top: 1em;
+}
+
+.confirmButton {
+  background: #5c5c5c;
+  width: 45%;
+}
+
+.modalContent {
+  display: flex;
+  justify-content: center;
+}
+
+.modalTitle {
+  padding: 1em 4px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.warningText {
+  color: $warn;
 }
