@@ -37,6 +37,7 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { MangaDisplayComponent } from './components/manga-display/manga-display.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { MatInput, MatInputModule } from '@angular/material/input';
+import { ModalPopupComponent } from './components/modal-popup/modal-popup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { MatInput, MatInputModule } from '@angular/material/input';
     MainHeaderComponent,
     MangaDisplayComponent,
     FeedbackFormComponent,
+    ModalPopupComponent,
   ],
   imports: [
     BrowserModule,
