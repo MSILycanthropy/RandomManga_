@@ -1,0 +1,11 @@
+<div class="modalWrapper fonts" *ngIf="shown">
+  <div class="modal" [ngStyle]="setStyles()">
+    <div class="modalTitle">
+      <ng-content select="[title]"></ng-content>
+    </div>
+    <div class="modalContent">
+      <ng-content select="[content]"></ng-content>
+    </div>
+    <button class="exitButton" (click)="destroy()"></button>
+  </div>
+</div>

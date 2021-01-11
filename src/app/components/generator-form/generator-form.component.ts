@@ -32,34 +32,20 @@ export class GeneratorFormComponent implements OnInit {
       fa: faMinus,
     },
   ];
-  mangaTypes: Array<string> = [
-    'All',
-    'Manga',
-    'Manhwa',
-    'Manhua',
-    'One-shot',
-    'Doujinshi',
-  ];
+  mangaTypes: Array<string> = ['All', 'Manga', 'Manhwa', 'Manhua', 'One-shot', 'Doujinshi'];
   searchType: string;
-  scoreNumbers: Array<number> = Array.from(new Array(20).keys()).map(
-    (x) => x / 2
-  );
-  listNumbers: Array<number> = [1, 5, 10].concat(
-    Array.from(new Array(10).keys()).map((x) => (100 * (x + 1)) / 2)
-  );
+  scoreNumbers: Array<number> = Array.from(new Array(20).keys()).map((x) => x / 2);
+  listNumbers: Array<number> = [1, 5, 10].concat(Array.from(new Array(10).keys()).map((x) => (100 * (x + 1)) / 2));
   searchMinScore: number;
   searchAmount: number;
   isFinished: boolean;
   isUnscored: boolean;
+  nfoldDefault: object;
 
   private includeGenres = Array<string>();
   private excludeGenres = Array<string>();
 
-  constructor(
-    private genreService: GenreService,
-    private mangaService: MangaService,
-    private route: Router
-  ) {}
+  constructor(private genreService: GenreService, private mangaService: MangaService, private route: Router) {}
 
   getGenres(): void {
     this.genreService.getAll().subscribe((genres) => {
@@ -78,21 +64,14 @@ export class GeneratorFormComponent implements OnInit {
     }
 
     this.mangaService
-      .getByGenre(
-        this.searchType,
-        this.includeGenres,
-        this.excludeGenres,
-        this.searchMinScore,
-        this.isFinished,
-        this.searchAmount
-      )
+      .getByGenre(this.searchType, this.includeGenres, this.excludeGenres, this.searchMinScore, this.isFinished, this.searchAmount)
       .subscribe((mangas) => {
         this.mangaService.mangas = mangas;
         this.route.navigate(['/list']);
       });
   }
 
-  test(value) {
+  onGenreToggle(value) {
     var tempInclude = [];
     var tempExclude = [];
     for (let i = 0; i < value.length; i++) {
@@ -105,6 +84,34 @@ export class GeneratorFormComponent implements OnInit {
 
     this.includeGenres = tempInclude;
     this.excludeGenres = tempExclude;
+
+    if (
+      value.every(function (x) {
+        return x == 0;
+      }) ||
+      value.every(function (x) {
+        return x == 1;
+      }) ||
+      value.every(function (x) {
+        return x == -1;
+      })
+    ) {
+      switch (value[0]) {
+        case -1:
+          this.nfoldDefault = this.selectableValues[1];
+          break;
+        case 0:
+          this.nfoldDefault = this.selectableValues[2];
+          break;
+        case 1:
+          this.nfoldDefault = this.selectableValues[0];
+          break;
+        default:
+          console.error('You somehow got a value that isnt in any of the arrays');
+      }
+    } else {
+      this.nfoldDefault = undefined;
+    }
   }
 
   ngOnInit() {
@@ -114,5 +121,6 @@ export class GeneratorFormComponent implements OnInit {
     this.searchAmount = 250;
     this.isFinished = false;
     this.isUnscored = false;
+    this.nfoldDefault = this.selectableValues[2];
   }
 }

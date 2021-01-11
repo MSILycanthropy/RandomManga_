@@ -1,0 +1,58 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: #212121;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+
+  padding: 1em;
+
+  max-width: 100%;
+}
+
+.modalWrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0, 0.45);
+
+  z-index: 9999;
+}
+
+.modalTitle {
+  text-align: center;
+}
+
+.modalContent {
+  width: 100%;
+}
+
+.exitButton {
+  background: inherit;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255, 0.3);
+  position: absolute;
+  top: 0em;
+  right: 0em;
+  font-size: 1.875em;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.exitButton:after {
+  content: "\00d7";
+}
+
+.exitButton:hover {
+  color: rgb(255, 255, 255, 0.8);
+}

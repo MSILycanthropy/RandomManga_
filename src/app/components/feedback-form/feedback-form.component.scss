@@ -1,0 +1,57 @@
+@import "src/themes.scss";
+h2 {
+  margin: 0;
+}
+
+a:link {
+  color: #40f99b;
+}
+
+a:visited {
+  color: #40f99b;
+}
+
+.divider {
+  position: relative;
+}
+
+.text {
+  padding-left: 20px;
+}
+
+.feedbackForm {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.color {
+  color: white;
+}
+.button-color {
+  background: $primary;
+  margin-top: 1em;
+}
+
+.confirmButton {
+  background: #5c5c5c;
+  width: 45%;
+}
+
+.modalContent {
+  display: flex;
+  justify-content: center;
+}
+
+.modalTitle {
+  padding: 1em 4px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.warningText {
+  color: $warn;
+}

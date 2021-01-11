@@ -16,7 +16,8 @@ export class NfoldSelectorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onChange(value): void {
+  toggle(value) {
+    this.defaultValue = value;
     this.toggleEvent.emit(value.index);
   }
 }
