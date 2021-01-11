@@ -1,0 +1,36 @@
+<div style="margin: 2.5em 0" class="center fonts color">
+  <ng-container *ngIf="this.manga; else elseTemplate">
+    <h2 class="header">Report an Error</h2>
+    <mat-divider class="divider"></mat-divider>
+    <p class="text">
+      Report any errors you have noticed in the manga data, or suggest edits to improve it! If you would like to add a manga, please head over to the
+      <a routerLink="/feedback">feedback form</a> and press the 'Request New Manga' button!
+      <br />
+      <br />
+      Please note that your information is NOT stored by the site, it is just used to send me an email and then it's gone.
+    </p>
+
+    <ul class="warningText" *ngIf="triedSubmit"></ul>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="feedbackForm" id="contact-form" role="form">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <modal-popup #modal [width]="250" [background]="'#212121'">
+        <h3 class="modalTitle" title>Are you sure you want to send this message?</h3>
+        <div class="modalContent" content>
+          <button mat-button type="button" (click)="modal.destroy()" class="confirmButton">No</button>
+          <button mat-button type="submit" id="submit" class="confirmButton" style="margin-left: 1em">Yes</button>
+        </div>
+      </modal-popup>
+    </form>
+
+    <modal-popup #successModal [width]="150" [background]="'#212121'">
+      <h3 class="modalTitle" title>Thank you!</h3>
+    </modal-popup>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <not-found [error]="'Manga not found'" [num]="420" *ngIf="notFound"></not-found>
+  </ng-template>
+</div>
