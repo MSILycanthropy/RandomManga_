@@ -91,7 +91,7 @@
           <mat-divider style="position: relative"></mat-divider>
         </div>
         <p class="synopsisText" style="line-height: 1.5em" [innerHTML]="manga.Synopsis || 'None.'"></p>
-        <!-- <button *ngIf="!manga.Synopsis" mat-button>Write One</button> -->
+        <button *ngIf="!manga.Synopsis" mat-button (click)="setReportAndRoute()">Suggest a Synopsis</button>
       </div>
     </div>
 

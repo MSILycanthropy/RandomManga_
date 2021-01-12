@@ -100,8 +100,8 @@
           <h3 class="header synopsisHeader">Synopsis</h3>
           <mat-divider style="position: relative"></mat-divider>
         </div>
-        <p class="synopsisText" style="line-height: 1.5em" [innerHTML]="mangas[currentIndex].Synopsis || 'None.'"></p>
-        <!-- <button *ngIf="!mangas[currentIndex].Synopsis" mat-button>Write One</button> -->
+        <p class="synopsisText" style="line-height: 1.5em" [innerHTML]="mangas[currentIndex].Synopsis || 'None'"></p>
+        <button *ngIf="!mangas[currentIndex].Synopsis" (click)="setReportAndRoute()" mat-button>Suggest a Synopsis</button>
       </div>
     </div>
 
