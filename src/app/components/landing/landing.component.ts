@@ -4,6 +4,7 @@ import { IManga } from 'src/app/app.interface';
 import { MangaService } from 'src/app/services/manga/manga.service';
 import { environment } from 'src/environments/environment';
 import { faInfinity, faCog, faListUl } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -22,7 +23,7 @@ export class LandingComponent implements OnInit {
   currentDailyIndex: number;
 
   @ViewChild('underConstructionModal') underConstructionModal;
-  constructor(public _DomSanitizer: DomSanitizer, private mangaService: MangaService) {}
+  constructor(public _DomSanitizer: DomSanitizer, private mangaService: MangaService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
     this.currentDailyIndex = 0;
@@ -44,5 +45,11 @@ export class LandingComponent implements OnInit {
 
   defaultUrl(i: number) {
     this.urls[i] = `${environment.apiUrl}/assets/manga-images-notfound.jpg`;
+  }
+
+  setViewAndRoute(i): void {
+    this.mangaService.viewManga = this.dailies[i];
+
+    this.router.navigate(['/manga'], { queryParams: { id: this.dailies[i]._id } });
   }
 }

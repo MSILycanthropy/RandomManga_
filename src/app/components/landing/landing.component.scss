@@ -179,6 +179,10 @@ h3 {
   }
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1919px) {
   .dailyRecs {
     padding: 12em 4em;
