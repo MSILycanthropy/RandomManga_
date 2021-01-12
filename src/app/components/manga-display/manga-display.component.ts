@@ -6,6 +6,7 @@ import { faFacebookSquare, faTwitterSquare, faRedditSquare, faTumblrSquare } fro
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { escapeRegExp } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'manga-display',
@@ -22,16 +23,27 @@ export class MangaDisplayComponent implements OnInit {
   faReddit = faRedditSquare;
   faTumblr = faTumblrSquare;
   faPlusCircle = faPlusCircle;
-
+  notFound: boolean;
   constructor(private router: ActivatedRoute, public manga_service: MangaService, public _DomSanitizer: DomSanitizer) {}
 
   async ngOnInit(): Promise<void> {
+    this.notFound = false;
     this.baseUrl = `${environment.apiUrl}/assets/manga-images-`;
     this.id = this.router.snapshot.queryParamMap.get('id');
-    this.url = `${this.baseUrl}${this.id}.jpg`;
-    this.manga = await this.manga_service.getById(this.id);
 
-    console.log(this.manga);
+    if (this.manga_service.viewManga) {
+      this.manga = this.manga_service.viewManga;
+      this.id = this.manga._id;
+    } else if (this.id) {
+      this.manga = await this.manga_service.getById(this.id);
+      if (!this.manga) {
+        this.notFound = true;
+      }
+    } else {
+      this.notFound = true;
+    }
+
+    this.url = `${this.baseUrl}${this.id}.jpg`;
   }
 
   defaultUrl() {

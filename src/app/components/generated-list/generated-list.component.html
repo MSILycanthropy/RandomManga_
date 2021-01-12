@@ -3,7 +3,7 @@
   <mat-card class="primary center-10 mangaCard">
     <div style="display: flex">
       <div class="gray" style="padding-right: 1em">
-        <a [attr.href]="innerUrl">
+        <a (click)="setViewMangaAndRoute()" class="linkToManga">
           <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" (error)="defaultUrl()" height="320" style="display: block" />
         </a>
       </div>
@@ -119,7 +119,7 @@
         <fa-icon [icon]="faTumblr" style="font-size: 2.5em"></fa-icon>
       </a>
     </div>
-    <button mat-button class="errorButton">Report Error</button>
+    <button mat-button (click)="setReportAndRoute()" class="errorButton">Report Error</button>
   </mat-card>
 </ng-template>
 <ng-template #elseTemplate>

@@ -3,9 +3,7 @@
   <mat-card class="primary center-10 mangaCard">
     <div style="display: flex">
       <div class="gray" style="padding-right: 1em">
-        <a href="#">
-          <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" (error)="defaultUrl()" height="320" style="display: block" />
-        </a>
+        <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" (error)="defaultUrl()" height="320" style="display: block" />
       </div>
 
       <div class="titleTile">
@@ -111,9 +109,9 @@
         <fa-icon [icon]="faTumblr" style="font-size: 2.5em"></fa-icon>
       </a>
     </div>
-    <button mat-button class="errorButton">Report Error</button>
+    <button mat-button routerLink="/manga/report" class="errorButton">Report Error</button>
   </mat-card>
 </ng-template>
 <ng-template #elseTemplate>
-  <not-found [error]="'Not found'" [num]="420"></not-found>
+  <not-found [error]="'Manga not found'" [num]="420" *ngIf="notFound"></not-found>
 </ng-template>

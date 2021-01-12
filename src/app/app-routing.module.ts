@@ -6,6 +6,7 @@ import { GeneratedListComponent } from './components/generated-list/generated-li
 import { LandingComponent } from './components/landing/landing.component';
 import { MangaDisplayComponent } from './components/manga-display/manga-display.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ReportErrorFormComponent } from './components/report-error-form/report-error-form.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'manga', component: MangaDisplayComponent },
   { path: 'feedback', component: FeedbackFormComponent },
+  { path: 'manga/report', component: ReportErrorFormComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
 ];
