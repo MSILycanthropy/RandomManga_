@@ -169,8 +169,6 @@ export class ReportErrorFormComponent implements OnInit {
   }
 
   checkOneShot(): void {
-    console.log('change');
-
     if (this.type.value == 'One-shot') {
       this.form.controls['finished'].setValue(true);
       this.form.controls['finished'].disable();

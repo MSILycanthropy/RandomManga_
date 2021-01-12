@@ -94,4 +94,13 @@ export class RequestMangaComponent implements OnInit {
       location.reload();
     }
   }
+
+  checkOneShot(): void {
+    if (this.type.value == 'One-shot') {
+      this.form.controls['finished'].setValue(true);
+      this.form.controls['finished'].disable();
+    } else if (this.form.controls['finished'].disabled) {
+      this.form.controls['finished'].enable();
+    }
+  }
 }

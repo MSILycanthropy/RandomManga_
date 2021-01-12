@@ -103,7 +103,7 @@
         <div class="shortFormFieldWrapper">
           <mat-form-field appearance="fill" class="shortControl">
             <mat-label>Type</mat-label>
-            <mat-select name="type" id="type" [formControl]="type" required>
+            <mat-select name="type" id="type" [formControl]="type" required (selectionChange)="checkOneShot()">
               <mat-option *ngFor="let type of mangaTypes" [value]="type">
                 {{ type }}
               </mat-option>
