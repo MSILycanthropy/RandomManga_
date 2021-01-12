@@ -34,6 +34,8 @@ export class ReportErrorFormComponent implements OnInit {
   synopsis = new FormControl();
   name = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
+  other = new FormControl('');
+
   mangaTypes: Array<string> = ['Manga', 'Manhwa', 'Manhua', 'One-shot', 'Doujinshi', 'Novel'];
 
   faEdit = faEdit;
@@ -68,8 +70,8 @@ export class ReportErrorFormComponent implements OnInit {
     this.type = new FormControl(this.manga.Type || '', [Validators.required]);
     this.volumes = new FormControl(this.manga.Volumes || -1);
     this.chapters = new FormControl(this.manga.Chapters || -1);
-    this.startDate = new FormControl(this.manga.Start);
-    this.endDate = new FormControl(this.manga.End);
+    this.startDate = new FormControl(this.dateObjToString(this.manga.Start));
+    this.endDate = new FormControl(this.dateObjToString(this.manga.End));
     this.finished = new FormControl(this.manga.isFinished, [Validators.required]);
     if (!this.manga.Genres || this.manga.Genres.length <= 0) {
       this.genres = new FormControl('', [Validators.required]);
@@ -97,11 +99,28 @@ export class ReportErrorFormComponent implements OnInit {
       synopsis: this.synopsis,
       email: this.email,
       name: this.name,
+      other: this.other,
     });
 
     this.form.disable();
     this.form.controls['name'].enable();
     this.form.controls['email'].enable();
+    this.form.controls['other'].enable();
+  }
+
+  dateObjToString(date: Object): string {
+    let year = date['year'];
+    let month = date['month'];
+    let day = date['day'];
+
+    if (parseInt(month) / 10 < 1) {
+      month = `0${month}`;
+    }
+    if (parseInt(day) / 10 < 1) {
+      day = `0${day}`;
+    }
+
+    return `${year}-${month}-${day}`;
   }
 
   enableControl(control: string, id: number) {
@@ -135,7 +154,7 @@ export class ReportErrorFormComponent implements OnInit {
       this.form.get('endDate').value['month']
     }-${this.form.get('endDate').value['day']}-${this.form.get('endDate').value['year']}`}&finished=${this.form.get('finished').value}&authors=${
       this.form.get('authors').value
-    }&genres=${this.form.get('genres').value}&synopsis=${this.form.get('synopsis').value}`;
+    }&genres=${this.form.get('genres').value}&synopsis=${this.form.get('synopsis').value}&other=${this.form.get('other').value}`;
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     if (!this.hasErrors) {

@@ -3,7 +3,10 @@
   <mat-divider class="divider"></mat-divider>
   <p class="text">
     Use this form to leave feedback or contact me about anything related to the site. Feel free to send me an email directly if needed at
-    <a href="mailto:RNGmanga.com@gmail.com">RNGmanga.com@gmail.com</a> as well. Thanks for taking the time to leave feedback!
+    <a href="mailto:RNGmanga.com@gmail.com">RNGmanga.com@gmail.com</a> as well.
+    <br />
+    <br />
+    If you would like to add a new manga please head over to the <a routerLink="/feedback/request-manga">Manga Request Form</a>!
     <br />
     <br />
     Please note that your information is NOT stored by the site, it is just used to send me an email and then it's gone.
@@ -27,7 +30,7 @@
     </li>
   </ul>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="feedbackForm" id="contact-form" role="form">
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="feedbackForm" id="contact-form" role="form" *ngIf="feedbackFormSelected">
     <mat-form-field appearance="fill">
       <mat-label for="name">Name</mat-label>
       <input type="text" id="name" name="name" [formControl]="name" matInput placeholder="John Doe" required />
@@ -55,7 +58,9 @@
     </modal-popup>
   </form>
 
+  <form *ngIf="!feedbackFormSelected">ASS AND BOOTY AND ASS</form>
+
   <modal-popup #successModal [width]="150" [background]="'#212121'">
-    <h3 class="modalTitle" title>Thank you for the feedback!</h3>
+    <h3 class="modalTitle" title>Thank you!</h3>
   </modal-popup>
 </div>

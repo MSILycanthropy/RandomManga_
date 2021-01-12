@@ -8,7 +8,7 @@
       <a routerLink="/feedback">feedback form</a> and press the 'Request New Manga' button!
       <br />
       <br />
-      Please note that your information is NOT stored by the site, it is just used to send me an email and then it's gone.
+      Please note that your information is NOT stored by the site, it is just used in the process of submitting and then it's gone.
     </p>
 
     <ul class="warningText" *ngIf="triedSubmit">
@@ -91,7 +91,7 @@
           <mat-form-field appearance="fill" class="formField">
             <mat-label>Genres</mat-label>
             <input type="text" name="genres" id="genres" placeholder="Action, Adventure, Shounen" [formControl]="genres" matInput required />
-            <mat-error *ngIf="genres.errors?.required">At least one genre or "None" is required</mat-error>
+            <mat-error *ngIf="genres.errors?.required">At least one genre is required</mat-error>
           </mat-form-field>
           <button class="editButton" title="Edit" id="editButton_10" (click)="enableControl('genres', 10)">
             <fa-icon [icon]="faEdit"></fa-icon>
@@ -177,6 +177,19 @@
           <button class="editButton" title="Edit" id="editButton_11" (click)="enableControl('synopsis', 11)" style="top: unset; bottom: 1.875em">
             <fa-icon [icon]="faEdit"></fa-icon>
           </button>
+        </div>
+        <div class="formFieldWrapper">
+          <mat-form-field appearance="fill" class="formField">
+            <mat-label>Other</mat-label>
+            <textarea
+              name="other"
+              id="other"
+              [formControl]="other"
+              matInput
+              rows="5"
+              placeholder="This manga is on hiatus until futher notice"
+            ></textarea>
+          </mat-form-field>
         </div>
       </div>
 
