@@ -39,6 +39,7 @@ import { FeedbackFormComponent } from './components/feedback-form/feedback-form.
 import { MatInputModule } from '@angular/material/input';
 import { ModalPopupComponent } from './components/modal-popup/modal-popup.component';
 import { ReportErrorFormComponent } from './components/report-error-form/report-error-form.component';
+import { RequestMangaComponent } from './components/request-manga/request-manga.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { ReportErrorFormComponent } from './components/report-error-form/report-
     FeedbackFormComponent,
     ModalPopupComponent,
     ReportErrorFormComponent,
+    RequestMangaComponent,
   ],
   imports: [
     BrowserModule,
