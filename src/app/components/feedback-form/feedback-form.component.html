@@ -28,18 +28,18 @@
   </ul>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="feedbackForm" id="contact-form" role="form">
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="name">Name</mat-label>
       <input type="text" id="name" name="name" [formControl]="name" matInput placeholder="John Doe" required />
       <mat-error *ngIf="name.errors?.required">Name is required</mat-error>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="email">Email</mat-label>
       <input type="email" id="email" name="email" [formControl]="email" matInput placeholder="example@example.com" required />
       <mat-error *ngIf="email.errors?.required">Email is required</mat-error>
       <mat-error *ngIf="email.errors?.email">Please provide a valid email address</mat-error>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="message">Message</mat-label>
       <textarea id="message" rows="15" name="message" [formControl]="message" matInput placeholder="I do not like weebs!" required></textarea>
       <mat-error *ngIf="message.errors?.required">A message is required</mat-error>

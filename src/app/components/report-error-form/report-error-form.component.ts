@@ -31,6 +31,7 @@ export class ReportErrorFormComponent implements OnInit {
   endDate = new FormControl();
   finished = new FormControl();
   genres = new FormControl();
+  synopsis = new FormControl();
   name = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
   mangaTypes: Array<string> = ['Manga', 'Manhwa', 'Manhua', 'One-shot', 'Doujinshi', 'Novel'];
@@ -65,21 +66,18 @@ export class ReportErrorFormComponent implements OnInit {
     this.englishTitle = new FormControl(this.manga.English || '');
     this.alternateTitles = new FormControl(this.manga.Synonyms.join(', ') || '');
     this.type = new FormControl(this.manga.Type || '', [Validators.required]);
-
     this.volumes = new FormControl(this.manga.Volumes || -1);
-
     this.chapters = new FormControl(this.manga.Chapters || -1);
     this.startDate = new FormControl(this.manga.Start);
     this.endDate = new FormControl(this.manga.End);
     this.finished = new FormControl(this.manga.isFinished, [Validators.required]);
-
     if (!this.manga.Genres || this.manga.Genres.length <= 0) {
       this.genres = new FormControl('', [Validators.required]);
     } else {
       this.genres = new FormControl(this.manga.Genres.join(', '), [Validators.required]);
     }
-
     this.authors = new FormControl(this.manga.Authors.join('; ') || '');
+    this.synopsis = new FormControl(this.manga.Synopsis || '', [Validators.required]);
 
     this.triedSubmit = false;
     this.hasErrors = true;
@@ -96,6 +94,7 @@ export class ReportErrorFormComponent implements OnInit {
       finished: this.finished,
       genres: this.genres,
       authors: this.authors,
+      synopsis: this.synopsis,
       email: this.email,
       name: this.name,
     });
@@ -117,8 +116,6 @@ export class ReportErrorFormComponent implements OnInit {
 
     Object.keys(this.form.controls).forEach((key) => {
       if (this.form.get(key).errors != null) {
-        console.log('HAS ERRORS WEE WOO WEE WOO!!!');
-
         this.triedSubmit = true;
         this.hasErrors = true;
         this.modal.destroy();
@@ -138,15 +135,13 @@ export class ReportErrorFormComponent implements OnInit {
       this.form.get('endDate').value['month']
     }-${this.form.get('endDate').value['day']}-${this.form.get('endDate').value['year']}`}&finished=${this.form.get('finished').value}&authors=${
       this.form.get('authors').value
-    }&genres=${this.form.get('genres').value}`;
-
-    console.log(reportData);
+    }&genres=${this.form.get('genres').value}&synopsis=${this.form.get('synopsis').value}`;
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     if (!this.hasErrors) {
       this.http.post(this.contactUrl, reportData, { headers: headers }).subscribe();
       this.successModal.create();
-      //location.reload();
+      location.reload();
     }
   }
 }
