@@ -109,7 +109,7 @@
         <fa-icon [icon]="faTumblr" style="font-size: 2.5em"></fa-icon>
       </a>
     </div>
-    <button mat-button routerLink="/manga/report" class="errorButton">Report Error</button>
+    <button mat-button (click)="setReportAndRoute()" class="errorButton">Report Error</button>
   </mat-card>
 </ng-template>
 <ng-template #elseTemplate>
