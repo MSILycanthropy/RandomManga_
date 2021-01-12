@@ -88,7 +88,7 @@ export class GeneratedListComponent implements OnInit {
   setReportAndRoute(): void {
     this.reportService.manga = this.mangas[this.currentIndex];
 
-    this.router.navigate(['/manga/report']);
+    this.router.navigate(['/manga/report'], { queryParams: { id: this.mangas[this.currentIndex]._id } });
   }
 
   setViewMangaAndRoute(): void {
