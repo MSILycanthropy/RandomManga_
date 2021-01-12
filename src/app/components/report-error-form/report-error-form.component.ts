@@ -123,7 +123,11 @@ export class ReportErrorFormComponent implements OnInit {
     return `${year}-${month}-${day}`;
   }
 
-  enableControl(control: string, id: number) {
+  enableControl(control: string, id: number): void {
+    if (this.type.value == 'One-shot' && control == 'finished') {
+      return;
+    }
+
     this.form.controls[control].enable();
 
     let button = this.el.nativeElement.querySelector(`#editButton_${id}`);
@@ -161,6 +165,17 @@ export class ReportErrorFormComponent implements OnInit {
       this.http.post(this.contactUrl, reportData, { headers: headers }).subscribe();
       this.successModal.create();
       location.reload();
+    }
+  }
+
+  checkOneShot(): void {
+    console.log('change');
+
+    if (this.type.value == 'One-shot') {
+      this.form.controls['finished'].setValue(true);
+      this.form.controls['finished'].disable();
+    } else if (this.form.controls['finished'].disabled && !this.el.nativeElement.querySelector(`#editButton_8`)) {
+      this.form.controls['finished'].enable();
     }
   }
 }

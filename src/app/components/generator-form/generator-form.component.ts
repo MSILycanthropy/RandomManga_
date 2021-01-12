@@ -47,6 +47,16 @@ export class GeneratorFormComponent implements OnInit {
 
   constructor(private genreService: GenreService, private mangaService: MangaService, private route: Router) {}
 
+  ngOnInit() {
+    this.getGenres();
+    this.searchType = 'All';
+    this.searchMinScore = 0;
+    this.searchAmount = 250;
+    this.isFinished = false;
+    this.isUnscored = false;
+    this.nfoldDefault = this.selectableValues[2];
+  }
+
   getGenres(): void {
     this.genreService.getAll().subscribe((genres) => {
       genres.forEach((genre) => {
@@ -114,13 +124,12 @@ export class GeneratorFormComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    this.getGenres();
-    this.searchType = 'All';
-    this.searchMinScore = 0;
-    this.searchAmount = 250;
-    this.isFinished = false;
-    this.isUnscored = false;
-    this.nfoldDefault = this.selectableValues[2];
+  checkOneShot(): boolean {
+    if (this.searchType == 'One-shot') {
+      this.isFinished = true;
+      return true;
+    } else {
+      return false;
+    }
   }
 }

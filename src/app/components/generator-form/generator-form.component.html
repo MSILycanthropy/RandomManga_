@@ -32,7 +32,7 @@
         </mat-form-field>
       </div>
       <div class="checkboxWrapper">
-        <mat-checkbox class="checkbox" [(ngModel)]="isFinished"> Completed </mat-checkbox>
+        <mat-checkbox class="checkbox" [(ngModel)]="isFinished" [disabled]="checkOneShot()"> Completed </mat-checkbox>
         <mat-checkbox class="checkbox" [(ngModel)]="isUnscored"> Include Unscored </mat-checkbox>
       </div>
     </mat-card>
