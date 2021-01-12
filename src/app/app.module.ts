@@ -36,7 +36,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { MangaDisplayComponent } from './components/manga-display/manga-display.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
-import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { ModalPopupComponent } from './components/modal-popup/modal-popup.component';
 import { ReportErrorFormComponent } from './components/report-error-form/report-error-form.component';
 @NgModule({
