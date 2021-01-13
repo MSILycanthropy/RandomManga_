@@ -47,6 +47,7 @@ a:visited {
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
+  padding: 0 20px;
 }
 
 .siteCardSpacer {
@@ -55,4 +56,33 @@ a:visited {
 
 .color {
   color: white !important;
+}
+
+.donationSection {
+  width: 45%;
+  padding: 12px;
+  border-radius: 8px;
+  background: #212121;
+}
+
+.donationIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donationIcon ::ng-deep svg {
+  width: 32.5px !important;
+  height: 45px !important;
+}
+
+.donationWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+}
+
+.donationText {
+  padding: 0 20px;
+  margin-top: 1em;
 }
