@@ -53,10 +53,6 @@ export class MangaDisplayComponent implements OnInit {
     this.url = `${this.baseUrl}${this.id}.jpg`;
   }
 
-  defaultUrl(): void {
-    this.url = `${environment.apiUrl}/assets/manga-images-notfound.jpg`;
-  }
-
   setReportAndRoute(): void {
     this.report_service.manga = this.manga;
 

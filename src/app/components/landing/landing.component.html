@@ -33,7 +33,7 @@
       <div class="quickSuggestTop" *ngIf="dailies">
         <div class="quickSuggestListWrapper" *ngFor="let daily of dailies.slice(0, 5); let i = index" [attr.id]="'quickSuggestList' + i">
           <a (click)="setViewAndRoute(i)">
-            <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i])" (error)="defaultUrl(i)" width="240" height="320" />
+            <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i])" width="240" height="320" />
             <div class="quickSuggestNameWrapper fonts">
               <div class="quickSuggestName">{{ daily.Title }}</div>
             </div>
@@ -43,7 +43,7 @@
       <div class="quickSuggestBottom" *ngIf="dailies">
         <div class="quickSuggestListWrapper" *ngFor="let daily of dailies.slice(5, 10); let i = index" [attr.id]="'quickSuggestList' + (i + 5)">
           <a (click)="setViewAndRoute(i + 5)">
-            <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i + 5])" (error)="defaultUrl(i)" width="240" height="320" />
+            <img [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i + 5])" width="240" height="320" />
             <div class="quickSuggestNameWrapper fonts">
               <div class="quickSuggestName">{{ daily.Title }}</div>
             </div>

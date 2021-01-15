@@ -4,7 +4,7 @@
     <div style="display: flex">
       <div class="gray" style="padding-right: 1em">
         <a (click)="setViewMangaAndRoute()" class="linkToManga">
-          <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" (error)="defaultUrl()" height="320" style="display: block" />
+          <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" height="320" style="display: block" />
         </a>
       </div>
 
@@ -33,7 +33,7 @@
             </button>
           </div>
 
-          <div class="genres">
+          <div class="genres" *ngIf="mangas[currentIndex].Genres">
             {{ mangas[currentIndex].Genres.join(", ") }}
           </div>
         </div>
@@ -60,15 +60,19 @@
             </expando-card>
             <expando-card #expando class="expandoCard">
               <div title>Authors</div>
-              <div class="matchJapaneseHeight" content>
-                {{ mangas[currentIndex].Authors.join("; ") || "N/A" }}
+              <div content>
+                <div class="matchJapaneseHeight" [innerHTML]="mangas[currentIndex].Authors.join('; ')" *ngIf="mangas[currentIndex].Authors"></div>
+                <div class="matchJapaneseHeight" *ngIf="!mangas[currentIndex].Authors">N/A</div>
               </div>
             </expando-card>
           </div>
           <div>
             <expando-card #expando class="expandoCard">
               <div title>Synonyms</div>
-              <div class="matchJapaneseHeight" content [innerHTML]="mangas[currentIndex].Synonyms.join('; ') || 'N/A'"></div>
+              <div content>
+                <div class="matchJapaneseHeight" [innerHTML]="mangas[currentIndex].Synonyms.join('; ')" *ngIf="mangas[currentIndex].Synonyms"></div>
+                <div class="matchJapaneseHeight" *ngIf="!mangas[currentIndex].Synonyms">N/A</div>
+              </div>
             </expando-card>
             <expando-card #expando class="expandoCard">
               <div title>Score</div>
@@ -76,19 +80,21 @@
             </expando-card>
             <expando-card #expando class="expandoCard">
               <div title>Start</div>
-              <div class="matchJapaneseHeight" content>
+              <div class="matchJapaneseHeight" content *ngIf="mangas[currentIndex].Start">
                 {{ mangas[currentIndex].Start["month"] ? mangas[currentIndex].Start["month"] + " -" : "" }}
                 {{ mangas[currentIndex].Start["day"] ? mangas[currentIndex].Start["day"] + " -" : "" }}
                 {{ mangas[currentIndex].Start["year"] ? mangas[currentIndex].Start["year"] : "" || "N/A" }}
               </div>
+              <div class="matchJapaneseHeight" content *ngIf="!mangas[currentIndex].Start">N/A</div>
             </expando-card>
             <expando-card #expando class="expandoCard">
               <div title>End</div>
-              <div class="matchJapaneseHeight" content>
+              <div class="matchJapaneseHeight" content *ngIf="mangas[currentIndex].End">
                 {{ mangas[currentIndex].End["month"] ? mangas[currentIndex].End["month"] + " -" : "" }}
                 {{ mangas[currentIndex].End["day"] ? mangas[currentIndex].End["day"] + " -" : "" }}
                 {{ mangas[currentIndex].End["year"] ? mangas[currentIndex].End["year"] : "" || "N/A" }}
               </div>
+              <div class="matchJapaneseHeight" content *ngIf="!mangas[currentIndex].End">N/A</div>
             </expando-card>
           </div>
         </div>

@@ -43,10 +43,6 @@ export class LandingComponent implements OnInit {
     }
   }
 
-  defaultUrl(i: number) {
-    this.urls[i] = `${environment.apiUrl}/assets/manga-images-notfound.jpg`;
-  }
-
   setViewAndRoute(i): void {
     this.mangaService.viewManga = this.dailies[i];
 

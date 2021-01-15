@@ -10,7 +10,7 @@ import { faFacebookSquare, faTwitterSquare, faRedditSquare, faTumblrSquare } fro
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { IManga } from 'src/app/app.interface';
 import { ReportErrorService } from 'src/app/services/report-error/report-error.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'generated-list',
@@ -36,7 +36,8 @@ export class GeneratedListComponent implements OnInit {
     private mangaService: MangaService,
     public _DomSanitizer: DomSanitizer,
     private reportService: ReportErrorService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.mangas = [];
     this.currentIndex = 0;
@@ -50,15 +51,12 @@ export class GeneratedListComponent implements OnInit {
     if (this.mangas[this.currentIndex]) {
       this.getImage(this.mangas[this.currentIndex]._id);
       this.getInnerUrl(this.mangas[this.currentIndex]._id);
+      this.changeQueryString();
     }
   }
 
   getImage(id: string): void {
     this.url = `${environment.apiUrl}/assets/manga-images-${id}.jpg`;
-  }
-
-  defaultUrl(): void {
-    this.url = `${environment.apiUrl}/assets/manga-images-notfound.jpg`;
   }
 
   getInnerUrl(id: string) {
@@ -73,6 +71,9 @@ export class GeneratedListComponent implements OnInit {
 
     this.getImage(this.mangas[this.currentIndex]._id);
     this.getInnerUrl(this.mangas[this.currentIndex]._id);
+    this.changeQueryString();
+
+    console.log(this.mangas[this.currentIndex].Synonyms);
   }
 
   decrement(): void {
@@ -83,6 +84,7 @@ export class GeneratedListComponent implements OnInit {
 
     this.getImage(this.mangas[this.currentIndex]._id);
     this.getInnerUrl(this.mangas[this.currentIndex]._id);
+    this.changeQueryString();
   }
 
   setReportAndRoute(): void {
@@ -95,5 +97,13 @@ export class GeneratedListComponent implements OnInit {
     this.mangaService.viewManga = this.mangas[this.currentIndex];
 
     this.router.navigate(['/manga'], { queryParams: { id: this.mangas[this.currentIndex]._id } });
+  }
+
+  changeQueryString(): void {
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { id: this.mangas[this.currentIndex]._id },
+      queryParamsHandling: 'merge',
+    });
   }
 }
