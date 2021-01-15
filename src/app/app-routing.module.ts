@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
+import { CookiesComponent } from './components/cookies/cookies.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { GeneratedListComponent } from './components/generated-list/generated-list.component';
 import { LandingComponent } from './components/landing/landing.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackFormComponent },
   { path: 'manga/report', component: ReportErrorFormComponent },
   { path: 'feedback/request-manga', component: RequestMangaComponent },
+  { path: 'about/cookies', component: CookiesComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
 ];

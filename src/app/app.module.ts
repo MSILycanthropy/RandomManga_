@@ -41,6 +41,7 @@ import { ModalPopupComponent } from './components/modal-popup/modal-popup.compon
 import { ReportErrorFormComponent } from './components/report-error-form/report-error-form.component';
 import { RequestMangaComponent } from './components/request-manga/request-manga.component';
 import { InlineSVGModule } from 'ng-inline-svg';
+import { CookiesComponent } from './components/cookies/cookies.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { InlineSVGModule } from 'ng-inline-svg';
     ModalPopupComponent,
     ReportErrorFormComponent,
     RequestMangaComponent,
+    CookiesComponent,
   ],
   imports: [
     BrowserModule,
