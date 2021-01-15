@@ -6,3 +6,5 @@ User-agent: spambot
 Disallow: /
 User-agent: *
 Disallow: 
+
+sitemap: https://rngmanga.com/sitemap.xml
