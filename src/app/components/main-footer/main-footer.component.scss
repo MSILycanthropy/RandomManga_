@@ -33,7 +33,6 @@
 
 .shareSection {
   display: flex;
-  width: 80%;
   flex-flow: wrap;
 }
 
@@ -60,6 +59,17 @@ fa-icon:hover {
   text-align: center;
 }
 
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  flex-flow: wrap;
+}
+
+.share {
+  flex-basis: 32%;
+}
+
 @media screen and (max-width: 1440px) {
   .licenseText {
     font-size: 0.6em;
@@ -74,6 +84,14 @@ fa-icon:hover {
 
   .footerSection {
     width: 33%;
+  }
+
+  .footerContent {
+    width: 100%;
+  }
+
+  *.center {
+    margin: 0 5% !important;
   }
 }
 
@@ -106,5 +124,13 @@ fa-icon:hover {
   }
   .licenseText {
     text-align: center;
+  }
+
+  .share {
+    flex-basis: 100%;
+  }
+
+  .shareSection {
+    justify-content: center;
   }
 }

@@ -86,3 +86,33 @@ a:visited {
   padding: 0 20px;
   margin-top: 1em;
 }
+
+@media screen and (max-width: 1024px) {
+  *.center {
+    margin: 2.5em 5% !important;
+  }
+
+  .siteCardWrapper {
+    justify-content: space-around;
+  }
+
+  .hiddenSmall {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .hiddenVerySmall {
+    display: none;
+  }
+
+  .donationSection {
+    width: 40%;
+  }
+  .text {
+    padding: 0;
+  }
+  .donationWrapper {
+    padding: 0 20px;
+  }
+}

@@ -41,6 +41,7 @@
 .form {
   display: flex;
   justify-content: space-between;
+  flex-flow: wrap;
 }
 
 .checkboxWrapper {
@@ -101,13 +102,13 @@
 }
 
 @media screen and (max-width: 450px) {
-  ::ng-deep .mat-form-field {
+  :host::ng-deep .mat-form-field {
     width: 90px;
   }
 }
 
 @media screen and (max-width: 370px) {
-  ::ng-deep .mat-form-field {
+  :host::ng-deep .mat-form-field {
     width: 75px;
   }
 }

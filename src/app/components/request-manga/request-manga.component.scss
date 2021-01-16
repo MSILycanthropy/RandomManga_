@@ -102,3 +102,28 @@ h3 {
 ul {
   padding: 0;
 }
+
+@media screen and (max-width: 1024px) {
+  input {
+    width: calc(100% - 1.5em);
+  }
+
+  *.center {
+    margin: 2.5em 5% !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .shortFormFieldWrapper {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .text {
+    padding: 0;
+  }
+  .reportForm {
+    padding: 0;
+  }
+}
