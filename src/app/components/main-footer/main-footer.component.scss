@@ -11,6 +11,7 @@
 .bottom {
   flex-basis: 100%;
   display: flex;
+  flex-flow: wrap;
 }
 
 .footerHeader {
@@ -27,6 +28,13 @@
   margin: 0;
   font-size: 0.85em;
   padding: 0;
+  position: relative;
+}
+
+.shareSection {
+  display: flex;
+  width: 80%;
+  flex-flow: wrap;
 }
 
 a:link {
@@ -63,6 +71,10 @@ fa-icon:hover {
     width: 100%;
     text-align: left;
   }
+
+  .footerSection {
+    width: 33%;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -72,6 +84,10 @@ fa-icon:hover {
     align-items: center !important;
   }
 
+  .shareSection {
+    flex-flow: unset;
+  }
+
   h3 {
     width: 100% !important;
   }
@@ -79,6 +95,10 @@ fa-icon:hover {
   ul {
     list-style: none !important;
     padding: 0;
+  }
+
+  .bottom {
+    justify-content: center;
   }
 
   .footerSection {
