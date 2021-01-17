@@ -35,3 +35,42 @@
 .iconColor {
   color: white;
 }
+
+.position {
+  position: absolute;
+  margin-right: calc(100% - 10% - 340px - 1em + 5.675em);
+  right: 0;
+  top: calc(1em + 325px);
+  font-size: 1.125em;
+  vertical-align: middle;
+  width: fit-content;
+  z-index: 1;
+}
+
+.decButton:disabled {
+  ::ng-deep .mat-ripple-element {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .incButton {
+    width: calc(50% - 12px);
+    margin-right: 12px;
+  }
+
+  .decButton {
+    width: calc(50% - 12px);
+    margin-left: 12px;
+  }
+
+  .position {
+    margin-right: calc(100% - 12px - 340px - 1em + 5.675em);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .position {
+    margin-right: calc(100% - 50% - 1em - 5.25em);
+  }
+}

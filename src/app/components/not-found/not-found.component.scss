@@ -24,14 +24,16 @@
   font-size: 2.5em;
   font-weight: normal;
 }
-@media screen and (max-width: 320px) {
+
+@media screen and (max-width: 500px) {
+  .cardWrapper {
+    margin: 2.5em;
+    padding: 1em;
+  }
   .errorTitle {
     font-size: 3.5em;
   }
   .errorContent {
     font-size: 1.5em;
-  }
-  .cardWrapper {
-    width: unset;
   }
 }

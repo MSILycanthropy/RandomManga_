@@ -1,9 +1,11 @@
 <ng-container *ngIf="manga; then thenTemplate; else elseTemplate"></ng-container>
 <ng-template #thenTemplate>
   <mat-card class="primary center-10 mangaCard">
-    <div style="display: flex">
+    <div class="titleInfoWrapper">
       <div class="gray" style="padding-right: 1em">
         <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" height="320" style="display: block" class="showAbove" />
+
+        <button mat-button class="altAddToList showAbove" (click)="sorryModal.create()">Add to List</button>
       </div>
 
       <div class="titleTile">
@@ -16,7 +18,7 @@
               <mat-divider style="position: relative"></mat-divider>
             </div>
 
-            <span style="margin-left: auto">
+            <span class="addToListWrapper">
               <button class="addToList showAbove" title="Add to List" (click)="sorryModal.create()">
                 <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
               </button>
@@ -34,10 +36,12 @@
             </ng-template>
 
             <ng-container *ngIf="manga.Authors; else authorsElse">
-              <div class="extraTitleContent showAbove fitContent" style="font-size: 1em; margin-top: 0">
-                <span *ngFor="let author of manga.Authors; let i = index">
-                  <span *ngIf="author['name']['last']">{{ author["name"]["last"] }},&nbsp;</span>{{ author["name"]["first"]
-                  }}<span *ngIf="i != manga.Authors.length - 1">;&nbsp;</span>
+              <div class="extraTitleContent" style="font-size: 1em; margin-top: 0">
+                <span *ngFor="let author of manga.Authors; let i = index" class="showAbove fitContent">
+                  <span *ngIf="author['name']['last']">{{ author["name"]["last"] }},&nbsp;</span>{{ author["name"]["first"] }};<span
+                    *ngIf="i != manga.Authors.length - 1"
+                    >&nbsp;</span
+                  >
                 </span>
               </div>
             </ng-container>
@@ -48,60 +52,50 @@
         </div>
 
         <div class="moreInfoTile">
-          <div class="moreInfoTop">
-            <expando-card #expando class="expandoCard">
-              <div title class="showAbove fitContent">Country of Origin</div>
-              <div class="matchJapaneseHeight showAbove fitContent" content>
-                {{ manga.Type || "N/A" }}
-              </div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title class="showAbove fitContent">Volumes</div>
-              <div class="matchJapaneseHeight showAbove fitContent" content>
-                {{ manga.Volumes || "N/A" }}
-              </div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title class="showAbove fitContent">Chapters</div>
-              <div class="matchJapaneseHeight showAbove fitContent" content>
-                {{ manga.Chapters || "N/A" }}
-              </div>
-            </expando-card>
-            <!-- <expando-card #expando class="expandoCard">
-              <div title class="showAbove fitContent">Authors</div>
-              <div class="matchJapaneseHeight showAbove fitContent" content>
-                {{ manga.Authors.join("; ") || "N/A" }}
-              </div>
-            </expando-card> -->
-          </div>
-          <div>
-            <expando-card #expando class="expandoCard">
-              <div title class="showAbove fitContent">Score</div>
-              <div class="matchJapaneseHeight showAbove fitContent" content [innerHTML]="manga.Score || 'N/A'"></div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title class="showAbove fitContent">Start</div>
-              <div class="matchJapaneseHeight showAbove fitContent" content>
-                {{ manga.Start["month"] ? manga.Start["month"] + " -" : "" }}
-                {{ manga.Start["day"] ? manga.Start["day"] + " -" : "" }}
-                {{ manga.Start["year"] ? manga.Start["year"] : "" || "N/A" }}
-              </div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title class="showAbove fitContent">End</div>
-              <div class="matchJapaneseHeight showAbove fitContent" content>
-                {{ manga.End["month"] ? manga.End["month"] + " -" : "" }}
-                {{ manga.End["day"] ? manga.End["day"] + " -" : "" }}
-                {{ manga.End["year"] ? manga.End["year"] : "" || "N/A" }}
-              </div>
-            </expando-card>
-          </div>
+          <expando-card #expando class="expandoCard">
+            <div title class="showAbove fitContent">Origin</div>
+            <div class="matchJapaneseHeight showAbove fitContent" content>
+              {{ manga.Type || "N/A" }}
+            </div>
+          </expando-card>
+          <expando-card #expando class="expandoCard">
+            <div title class="showAbove fitContent">Volumes</div>
+            <div class="matchJapaneseHeight showAbove fitContent" content>
+              {{ manga.Volumes || "N/A" }}
+            </div>
+          </expando-card>
+          <expando-card #expando class="expandoCard">
+            <div title class="showAbove fitContent">Chapters</div>
+            <div class="matchJapaneseHeight showAbove fitContent" content>
+              {{ manga.Chapters || "N/A" }}
+            </div>
+          </expando-card>
+          <expando-card #expando class="expandoCard">
+            <div title class="showAbove fitContent">Score</div>
+            <div class="matchJapaneseHeight showAbove fitContent" content [innerHTML]="manga.Score || 'N/A'"></div>
+          </expando-card>
+          <expando-card #expando class="expandoCard">
+            <div title class="showAbove fitContent">Start</div>
+            <div class="matchJapaneseHeight showAbove fitContent" content>
+              {{ manga.Start["month"] ? manga.Start["month"] + " -" : "" }}
+              {{ manga.Start["day"] ? manga.Start["day"] + " -" : "" }}
+              {{ manga.Start["year"] ? manga.Start["year"] : "" || "N/A" }}
+            </div>
+          </expando-card>
+          <expando-card #expando class="expandoCard">
+            <div title class="showAbove fitContent">End</div>
+            <div class="matchJapaneseHeight showAbove fitContent" content>
+              {{ manga.End["month"] ? manga.End["month"] + " -" : "" }}
+              {{ manga.End["day"] ? manga.End["day"] + " -" : "" }}
+              {{ manga.End["year"] ? manga.End["year"] : "" || "N/A" }}
+            </div>
+          </expando-card>
         </div>
       </div>
     </div>
     <div class="descriptionTile">
       <div class="descriptionWrapper">
-        <div style="width: fit-content">
+        <div style="width: fit-content; margin-bottom: 0.375em">
           <h3 class="header synopsisHeader showAbove">Synopsis</h3>
           <mat-divider style="position: relative"></mat-divider>
         </div>
@@ -111,8 +105,8 @@
     </div>
 
     <div class="descriptionTile">
-      <div class="descriptionWrapper" style="margin-top: 0">
-        <div style="width: fit-content">
+      <div class="descriptionWrapper" style="margin-top: 1em">
+        <div style="width: fit-content; margin-bottom: 0.375em">
           <h3 class="header synopsisHeader showAbove">Synonyms</h3>
           <mat-divider style="position: relative"></mat-divider>
         </div>
@@ -130,16 +124,16 @@
     </div>
 
     <div class="shareWrapper">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frngmanga.com%2F&amp;src=sdkpreparse" class="showAbove">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frngmanga.com%2F&amp;src=sdkpreparse" class="showAbove shortenHeight">
         <fa-icon [icon]="faFacebook" class="shareIcon"></fa-icon>
       </a>
-      <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frngmanga.com" class="showAbove">
+      <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frngmanga.com" class="showAbove shortenHeight">
         <fa-icon [icon]="faTwitter" class="shareIcon"></fa-icon>
       </a>
-      <a href="http://www.reddit.com/submit?url=https%3A%2F%2Frngmanga.com" class="showAbove">
+      <a href="http://www.reddit.com/submit?url=https%3A%2F%2Frngmanga.com" class="showAbove shortenHeight">
         <fa-icon [icon]="faReddit" class="shareIcon"></fa-icon>
       </a>
-      <a href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Frngmanga.com" class="showAbove">
+      <a href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Frngmanga.com" class="showAbove shortenHeight">
         <fa-icon [icon]="faTumblr" class="shareIcon"></fa-icon>
       </a>
       <button mat-button (click)="setReportAndRoute()" class="errorButton showAbove">Report Error</button>
@@ -149,8 +143,11 @@
     <h3 class="sorryTitle" title>Sorry this feature is not yet added!</h3>
     <div class="sorryContent" content>
       <div class="sorryText">
-        It requires things I currently do not have the means to do. If you are able to, please support so that these features can be added. Thank you
-        for using RNGmanga.
+        I am currently working to get saving, sharing, and creating lists added. I wanted to get the site released without these features so I could
+        start getting feedback. I apoligize for any inconvenience this has caused you.
+        <br />
+        <br />
+        Thank you for using RNGmanga!
       </div>
 
       <div class="sorryIcons">
