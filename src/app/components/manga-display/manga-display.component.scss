@@ -2,9 +2,9 @@
 
 .expandoCard {
   display: inline-block;
-  margin-right: 0.375em;
+  margin-right: 0.875em;
   height: 75px;
-  width: 15vw;
+  width: 12vw;
 }
 
 .moreInfoTop {
@@ -20,11 +20,6 @@ mat-card.primary {
 }
 
 .synopsisText {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-  -webkit-line-clamp: 12;
-  overflow: hidden;
   margin-bottom: 0;
   margin-top: 10px;
   padding-left: 1em;
@@ -34,9 +29,9 @@ mat-card.primary {
   margin: 0;
   display: inline;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: normal;
   text-overflow: ellipsis;
-  max-width: 50vw;
+  max-width: 55vw;
   font-size: 1.375em;
 }
 
@@ -101,25 +96,25 @@ button {
   position: relative;
 }
 
-.genres {
+.extraTitleContent {
   font-size: 1.125em;
   line-height: 1.5em;
   margin: 0.375em;
+  display: inline-block;
+}
+
+.shareWrapper {
+  display: flex;
+  height: 35px;
 }
 
 .errorButton {
-  position: absolute;
-  bottom: 1em;
-  right: 1em;
+  margin-left: auto;
 }
 
-.share {
-  position: absolute;
-  bottom: 1em;
-  left: 1em;
-  display: flex;
-  justify-content: space-between;
-  width: 10%;
+.shareIcon {
+  font-size: 2.275em;
+  margin-right: 0.25em;
 }
 
 a:link {
@@ -154,6 +149,11 @@ fa-icon:hover {
   vertical-align: middle;
 }
 
+.showAbove {
+  z-index: 2;
+  position: relative;
+}
+
 .donationSVG ::ng-deep svg {
   width: 32.5px !important;
   height: 45px !important;
@@ -178,4 +178,14 @@ fa-icon:hover {
 .sorryText {
   padding: 1em;
   text-align: center;
+}
+
+ul {
+  padding-left: 1em;
+  list-style-type: none;
+  padding-left: 1em;
+}
+
+.fitContent {
+  width: fit-content;
 }

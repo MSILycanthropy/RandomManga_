@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IManga } from 'src/app/app.interface';
 import { MangaService } from 'src/app/services/manga/manga.service';
@@ -16,7 +16,7 @@ import { ReportErrorService } from 'src/app/services/report-error/report-error.s
 })
 export class MangaDisplayComponent implements OnInit {
   id: string;
-  manga: IManga;
+  @Input() manga: IManga;
   url: string;
   baseUrl: string;
   faFacebook = faFacebookSquare;
@@ -50,7 +50,11 @@ export class MangaDisplayComponent implements OnInit {
       this.notFound = true;
     }
 
-    this.url = `${this.baseUrl}${this.id}.jpg`;
+    this.url = `${this.baseUrl}${this.manga._id}.jpg`;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.url = `${this.baseUrl}${this.manga._id}.jpg`;
   }
 
   setReportAndRoute(): void {

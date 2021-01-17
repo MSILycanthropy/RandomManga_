@@ -1,102 +1,63 @@
-import { ViewChildren } from '@angular/core';
-import { QueryList } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MangaService } from 'src/app/services/manga/manga.service';
-import { ExpandoCardComponent } from '../expando-card/expando-card.component';
-import { environment } from 'src/environments/environment';
-import { isObservable } from 'rxjs';
-import { faFacebookSquare, faTwitterSquare, faRedditSquare, faTumblrSquare } from '@fortawesome/free-brands-svg-icons';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { IManga } from 'src/app/app.interface';
-import { ReportErrorService } from 'src/app/services/report-error/report-error.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'generated-list',
   templateUrl: './generated-list.component.html',
   styleUrls: ['./generated-list.component.scss'],
+  animations: [
+    trigger('buttonFade', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [style({ opacity: 0, background: 'rgb(0,0,0,1)' }), animate(1500)]),
+      transition(':leave', animate(1500, style({ opacity: 0, background: 'rgb(0,0,0,1)' }))),
+    ]),
+    trigger('arrowFade', [
+      state('out', style({ opacity: 0 })),
+      transition(':enter', [style({ opacity: 1 }), animate(1500)]),
+      transition(':leave', animate(1500, style({ opacity: 0 }))),
+    ]),
+  ],
 })
 export class GeneratedListComponent implements OnInit {
   mangas: Array<IManga>;
   currentIndex: number;
-  isMaxIndex: boolean;
-  isMinIndex: boolean;
-  @ViewChildren(ExpandoCardComponent) expandos: QueryList<ExpandoCardComponent>;
-  url: string;
-  faFacebook = faFacebookSquare;
-  faTwitter = faTwitterSquare;
-  faReddit = faRedditSquare;
-  faTumblr = faTumblrSquare;
-  faPlusCircle = faPlusCircle;
-  mangaSynonyms: Array<string>;
-  innerUrl: string;
+  faArrowLeft = faArrowLeft;
+  faArrowRight = faArrowRight;
 
   constructor(
     private mangaService: MangaService,
     public _DomSanitizer: DomSanitizer,
-    private reportService: ReportErrorService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private renderer: Renderer2
   ) {
     this.mangas = [];
     this.currentIndex = 0;
-    this.isMaxIndex = false;
-    this.isMinIndex = true;
   }
 
   ngOnInit(): void {
     this.mangas = this.mangaService.mangas;
 
     if (this.mangas[this.currentIndex]) {
-      this.getImage(this.mangas[this.currentIndex]._id);
-      this.getInnerUrl(this.mangas[this.currentIndex]._id);
       this.changeQueryString();
     }
   }
 
-  getImage(id: string): void {
-    this.url = `${environment.apiUrl}/assets/manga-images-${id}.jpg`;
-  }
-
-  getInnerUrl(id: string) {
-    this.innerUrl = `${environment.siteUrl}/manga?id=${id}`;
-  }
-
   increment(): void {
     this.currentIndex++;
-    this.expandos.forEach((expando) => {
-      expando.reset();
-    });
 
-    this.getImage(this.mangas[this.currentIndex]._id);
-    this.getInnerUrl(this.mangas[this.currentIndex]._id);
     this.changeQueryString();
-
-    console.log(this.mangas[this.currentIndex].Synonyms);
   }
 
   decrement(): void {
     this.currentIndex--;
-    this.expandos.forEach((expando) => {
-      expando.reset();
-    });
 
-    this.getImage(this.mangas[this.currentIndex]._id);
-    this.getInnerUrl(this.mangas[this.currentIndex]._id);
     this.changeQueryString();
-  }
-
-  setReportAndRoute(): void {
-    this.reportService.manga = this.mangas[this.currentIndex];
-
-    this.router.navigate(['/manga/report'], { queryParams: { id: this.mangas[this.currentIndex]._id } });
-  }
-
-  setViewMangaAndRoute(): void {
-    this.mangaService.viewManga = this.mangas[this.currentIndex];
-
-    this.router.navigate(['/manga'], { queryParams: { id: this.mangas[this.currentIndex]._id } });
   }
 
   changeQueryString(): void {

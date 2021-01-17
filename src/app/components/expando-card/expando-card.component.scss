@@ -8,6 +8,7 @@ mat-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-top: 5px;
   font-size: 0.75em;
   white-space: nowrap;
@@ -16,7 +17,7 @@ mat-card {
 .expandoCard {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
 }
 
 .overflowing {

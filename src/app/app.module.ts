@@ -42,6 +42,7 @@ import { ReportErrorFormComponent } from './components/report-error-form/report-
 import { RequestMangaComponent } from './components/request-manga/request-manga.component';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { CookiesComponent } from './components/cookies/cookies.component';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { CookiesComponent } from './components/cookies/cookies.component';
     MatInputModule,
     ReactiveFormsModule,
     InlineSVGModule.forRoot(),
+    MatRippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
