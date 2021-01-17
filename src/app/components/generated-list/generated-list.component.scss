@@ -12,6 +12,8 @@
   border: none;
   outline: none;
   overflow: hidden;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 .incButton {
@@ -26,6 +28,8 @@
   border: none;
   outline: none;
   overflow: hidden;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .iconColor {

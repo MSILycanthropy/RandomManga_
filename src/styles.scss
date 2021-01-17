@@ -86,3 +86,11 @@ a {
 p {
   line-height: 1.5;
 }
+
+a:link {
+  color: mat-color($success-palette, 300);
+}
+
+a:visited {
+  color: mat-color($success-palette, 300);
+}
