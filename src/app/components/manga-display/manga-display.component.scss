@@ -131,20 +131,14 @@ button {
   margin-right: 0.25em;
 }
 
-a:link {
-  color: mat-color($success-palette, 300);
-}
+a {
+  &:link {
+    color: mat-color($success-palette, 300);
+  }
 
-a:visited {
-  color: mat-color($success-palette, 300);
-}
-
-fa-icon {
-  color: white;
-}
-
-fa-icon:hover {
-  color: mat-color($success-palette, 300);
+  &:visited {
+    color: mat-color($success-palette, 300);
+  }
 }
 
 .fullTitle {
@@ -161,6 +155,20 @@ fa-icon:hover {
   outline: none;
   margin-left: 0.375em;
   vertical-align: middle;
+
+  &:focus {
+    fa-icon {
+      color: mat-color($success-palette, 300);
+    }
+  }
+}
+
+fa-icon {
+  color: white;
+
+  &:hover {
+    color: mat-color($success-palette, 300);
+  }
 }
 
 .showAbove {
