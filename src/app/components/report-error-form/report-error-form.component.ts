@@ -78,7 +78,7 @@ export class ReportErrorFormComponent implements OnInit {
     } else {
       this.genres = new FormControl(this.manga.Genres.join(', '), [Validators.required]);
     }
-    this.authors = new FormControl(this.manga.Authors.join('; ') || '');
+    this.authors = new FormControl(this.authorObjToString(this.manga.Authors));
     this.synopsis = new FormControl(this.manga.Synopsis || '', [Validators.required]);
 
     this.triedSubmit = false;
@@ -121,6 +121,32 @@ export class ReportErrorFormComponent implements OnInit {
     }
 
     return `${year}-${month}-${day}`;
+  }
+
+  authorObjToString(authors: Object[]): string {
+    let out: string;
+    for (let author of authors) {
+      if (author['name']['last'] && author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['last']}, ${author['name']['first']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['last']}, ${author['name']['first']}`;
+      } else if (!author['name']['last'] && author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['first']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['first']}`;
+      } else if (author['name']['last'] && !author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['last']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['last']}`;
+      }
+    }
+    return out;
   }
 
   enableControl(control: string, id: number): void {
