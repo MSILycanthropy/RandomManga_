@@ -222,6 +222,10 @@ ul {
   display: flex;
 }
 
+.imageLink:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1440px) {
   .moreInfoTile {
     width: 75%;

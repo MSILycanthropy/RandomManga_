@@ -3,7 +3,14 @@
   <mat-card class="primary center-10 mangaCard">
     <div class="titleInfoWrapper">
       <div class="gray" style="padding-right: 1em">
-        <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" height="320" style="display: block" class="showAbove" />
+        <img
+          [src]="_DomSanitizer.bypassSecurityTrustUrl(url)"
+          (click)="setViewAndRoute()"
+          width="240"
+          height="320"
+          style="display: block"
+          class="showAbove imageLink"
+        />
 
         <button mat-button class="altAddToList showAbove" (click)="sorryModal.create()">Add to List</button>
       </div>
@@ -124,16 +131,16 @@
     </div>
 
     <div class="shareWrapper">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frngmanga.com%2F&amp;src=sdkpreparse" class="showAbove shortenHeight">
+      <a [href]="facebookLink" class="showAbove shortenHeight" target="_blank">
         <fa-icon [icon]="faFacebook" class="shareIcon"></fa-icon>
       </a>
-      <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frngmanga.com" class="showAbove shortenHeight">
+      <a [href]="twitterLink" class="showAbove shortenHeight" target="_blank">
         <fa-icon [icon]="faTwitter" class="shareIcon"></fa-icon>
       </a>
-      <a href="http://www.reddit.com/submit?url=https%3A%2F%2Frngmanga.com" class="showAbove shortenHeight">
+      <a [href]="redditLink" class="showAbove shortenHeight" target="_blank">
         <fa-icon [icon]="faReddit" class="shareIcon"></fa-icon>
       </a>
-      <a href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Frngmanga.com" class="showAbove shortenHeight">
+      <a [href]="tumblrLink" class="showAbove shortenHeight" target="_blank">
         <fa-icon [icon]="faTumblr" class="shareIcon"></fa-icon>
       </a>
       <button mat-button (click)="setReportAndRoute()" class="errorButton showAbove">Report Error</button>
