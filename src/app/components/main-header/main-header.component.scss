@@ -1,3 +1,5 @@
+@import "src/themes.scss";
+
 .site-logo {
   padding-left: 16px;
   height: 100%;
@@ -7,11 +9,14 @@ ul {
   display: flex;
   flex-direction: row;
   list-style: none;
+  padding-left: 2em;
+  font-size: 0.875em;
+
   li a {
-    padding: 1em;
-    padding-left: 2em;
+    padding: 1.25em;
     &:hover {
       color: #97b883 !important;
+      background: rgb(255, 255, 255, 0.2);
     }
   }
 }
@@ -53,5 +58,8 @@ ul {
   }
   .barButton {
     display: block;
+  }
+  .search {
+    display: none;
   }
 }

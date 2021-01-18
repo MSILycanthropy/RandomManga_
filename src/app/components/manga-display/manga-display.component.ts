@@ -72,6 +72,32 @@ export class MangaDisplayComponent implements OnInit {
     this.tumblrLink = `http://tumblr.com/widgets/share/tool?canonicalUrl=${this.shareUrl}`;
   }
 
+  authorObjToString(authors: Object[]): string {
+    let out: string;
+    for (let author of authors) {
+      if (author['name']['last'] && author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['last']}, ${author['name']['first']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['last']}, ${author['name']['first']}`;
+      } else if (!author['name']['last'] && author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['first']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['first']}`;
+      } else if (author['name']['last'] && !author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['last']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['last']}`;
+      }
+    }
+    return out;
+  }
+
   setReportAndRoute(): void {
     this.report_service.manga = this.manga;
 

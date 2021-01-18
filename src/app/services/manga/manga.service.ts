@@ -12,15 +12,20 @@ const url = `${environment.apiUrl}/manga`;
 })
 export class MangaService {
   mangas: Array<IManga> = [];
+  searched: Array<IManga> = [];
   viewManga: IManga;
   constructor(private http: HttpClient) {}
 
-  async getDailies() {
+  async getDailies(): Promise<Array<IManga>> {
     return (await this.http.get(`${url}/dailies`).toPromise()) as Array<IManga>;
   }
 
-  async getById(id: string) {
+  async getById(id: string): Promise<IManga> {
     return (await this.http.get(`${url}/${id}`).toPromise())[0] as IManga;
+  }
+
+  search(query: string): Observable<any> {
+    return this.http.get(`${url}/search/${query}`);
   }
 
   getByGenre(type: string, include: Array<string>, exclude: Array<string>, minScore: number, isFinished: boolean, amount: number): Observable<any> {

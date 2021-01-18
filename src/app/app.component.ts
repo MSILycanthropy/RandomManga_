@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'RNGmanga';
+
+  toggleSideNav(): void {
+    document.getElementById('sideNav').style.height = '0';
+    document.getElementById('sideNav').style.borderTop = 'none';
+  }
 }

@@ -9,6 +9,7 @@ import { MangaDisplayComponent } from './components/manga-display/manga-display.
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ReportErrorFormComponent } from './components/report-error-form/report-error-form.component';
 import { RequestMangaComponent } from './components/request-manga/request-manga.component';
+import { SearchListComponent } from './components/search-list/search-list.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'manga/report', component: ReportErrorFormComponent },
   { path: 'feedback/request-manga', component: RequestMangaComponent },
   { path: 'about/cookies', component: CookiesComponent },
+  { path: 'manga/search', component: SearchListComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
 ];

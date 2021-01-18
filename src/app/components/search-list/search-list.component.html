@@ -1,0 +1,17 @@
+<div style="margin: 5em 0">
+  <ng-container *ngIf="mangas.length > 0; else elseTemplate">
+    <form class="search center-10" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <input type="search" class="searchInput fonts" placeholder="Search" [formControl]="query" />
+      <button type="submit" class="searchIcon">
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
+    </form>
+    <div #searchContainer>
+      <search-portion [mangas]="mangas.slice(currentFirstIndex, currentLastIndex)"></search-portion>
+    </div>
+    <button mat-button class="fullCenter loadMoreButton" (click)="showMore()" *ngIf="mangas.length > 10">Load More</button>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <not-found [error]="'Manga not found'" [num]="420"></not-found>
+  </ng-template>
+</div>

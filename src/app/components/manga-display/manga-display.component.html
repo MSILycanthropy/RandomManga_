@@ -44,11 +44,8 @@
 
             <ng-container *ngIf="manga.Authors; else authorsElse">
               <div class="extraTitleContent" style="font-size: 1em; margin-top: 0">
-                <span *ngFor="let author of manga.Authors; let i = index" class="showAbove fitContent">
-                  <span *ngIf="author['name']['last']">{{ author["name"]["last"] }},&nbsp;</span>{{ author["name"]["first"] }};<span
-                    *ngIf="i != manga.Authors.length - 1"
-                    >&nbsp;</span
-                  >
+                <span class="showAbove fitContent">
+                  {{ authorObjToString(manga.Authors) }}
                 </span>
               </div>
             </ng-container>
@@ -107,7 +104,9 @@
           <mat-divider style="position: relative"></mat-divider>
         </div>
         <p class="synopsisText showAbove" style="line-height: 1.5em" [innerHTML]="manga.Synopsis || 'None.'"></p>
-        <button *ngIf="!manga.Synopsis" mat-button (click)="setReportAndRoute()" class="showAbove">Suggest a Synopsis</button>
+        <button *ngIf="!manga.Synopsis" mat-button (click)="setReportAndRoute()" class="showAbove" style="margin-left: 1em">
+          Suggest a Synopsis
+        </button>
       </div>
     </div>
 

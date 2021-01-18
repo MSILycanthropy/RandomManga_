@@ -2,12 +2,12 @@
   <header role="banner">
     <main-header></main-header>
   </header>
-  <main class="content">
+  <main class="content" (click)="toggleSideNav()">
     <div>
       <router-outlet></router-outlet>
     </div>
   </main>
-  <footer>
+  <footer (click)="toggleSideNav()">
     <main-footer></main-footer>
   </footer>
 </div>
@@ -16,6 +16,11 @@
     <li><a href="#" routerLink="/about" class="txt-color"> About </a></li>
     <li>
       <a href="#" routerLink="/feedback" class="txt-color"> Contact </a>
+    </li>
+    <li>
+      <div class="search">
+        <manga-search-form [width]="120"></manga-search-form>
+      </div>
     </li>
   </ul>
 </div>

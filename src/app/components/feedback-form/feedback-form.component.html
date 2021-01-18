@@ -30,7 +30,7 @@
     </li>
   </ul>
 
-  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="feedbackForm" id="contact-form" role="form" *ngIf="feedbackFormSelected">
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="feedbackForm" id="contact-form" role="form">
     <mat-form-field appearance="fill">
       <mat-label for="name">Name</mat-label>
       <input type="text" id="name" name="name" [formControl]="name" matInput placeholder="John Doe" required />

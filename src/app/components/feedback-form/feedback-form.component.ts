@@ -16,7 +16,6 @@ export class FeedbackFormComponent implements OnInit {
   message = new FormControl('', [Validators.required, Validators.minLength(20)]);
   triedSubmit: boolean;
   hasErrors: boolean;
-  feedbackFormSelected: boolean;
   @ViewChild('modal') modal;
   @ViewChild('successModal') successModal;
 
@@ -31,7 +30,6 @@ export class FeedbackFormComponent implements OnInit {
       email: this.email,
       message: this.message,
     });
-    this.feedbackFormSelected = true;
   }
 
   onSubmit(): void {

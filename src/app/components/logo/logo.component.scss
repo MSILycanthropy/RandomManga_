@@ -1,24 +1,28 @@
 @import url(https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&display=swap);
-@import 'src/themes.scss';
+@import "src/themes.scss";
 
-.random-txt { 
-    font-size: 2em;
-    margin-top: 0.125em;
+.random-txt {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 2em;
 }
 
-.manga-txt { 
-    font-size: 0.6em;
-    color: mat-color($success-palette, 300);
+.manga-txt {
+  align-self: flex-end;
+  margin-bottom: 0.33em;
+  font-size: 0.6em;
+  color: mat-color($success-palette, 300);
 }
-    
-p { 
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin: 0;
+
+p {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 span {
-    font-family: "Big Shoulders Stencil Display";
+  font-family: "Big Shoulders Stencil Display";
 }
