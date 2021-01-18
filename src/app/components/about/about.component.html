@@ -29,9 +29,37 @@
     <h3>How can I support?</h3>
     <mat-divider class="divider"></mat-divider>
   </div>
-  <p class="text">TODO: insert donation shill here</p>
+  <p class="text">
+    You may have noticed this site has no ads, and I'd like to keep it that way. Ads are intrusive and get in the way of a good expierence. That said,
+    running a site like this costs money and time. If at all possible, please consider supporting me via
+    <a href="https://www.paypal.com/donate/?business=8TNF3RZ45CHRW&item_name=RNGmanga+contribution&currency_code=USD&Z3JncnB0=" target="_blank">
+      Paypal
+    </a>
+    or <a href="https://www.buymeacoffee.com/msilycanthropy" target="_blank">Buy Me A Coffee</a>. Brief descriptions of which can be found below!
+  </p>
+  <div class="donationWrapper">
+    <div class="donationSection">
+      <a
+        href="https://www.paypal.com/donate/?business=8TNF3RZ45CHRW&item_name=RNGmanga+contribution&currency_code=USD&Z3JncnB0="
+        target="_blank"
+        style="color: white"
+      >
+        <div inlineSVG="../assets/PayPal.svg" class="donationIcon"></div>
+        <div class="donationText hiddenVerySmall">Typical direct donation through Paypal. This is the easiest and most direct way to support me.</div>
+      </a>
+    </div>
 
-  <div class="wrapper">
+    <div class="donationSection">
+      <a href="https://www.buymeacoffee.com/msilycanthropy" target="_blank" style="color: white">
+        <div inlineSVG="../assets/BMC.svg" class="bmcSVG donationIcon"></div>
+        <div class="donationText hiddenVerySmall">
+          Buy Me a Coffee is a really cool and fun site. Basically a direct donation but your name will be listed on my page!
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="wrapper" style="margin-top: 1em">
     <h3>Places to read!</h3>
     <mat-divider class="divider"></mat-divider>
   </div>
@@ -47,7 +75,8 @@
     Second note, I only speak English, so please let me know of non-English sites, or anything I can do to support non-English speakers, please let me
     know as well.
     <br />
-    The place to do that it as the <a routerLink="/feedback">feedback form</a>.
+    <br />
+    The place to let me know about any of that is the <a routerLink="/feedback">feedback form</a>.
   </p>
 
   <p class="text" style="margin-bottom: 2em">Here's a list of some sites you can use!</p>
@@ -198,7 +227,7 @@
         </span>
       </div>
     </site-card>
-    <site-card [title]="'Mangafreak'" [color]="'#000000'" [url]="'https://w11.mangafreak.net/'">
+    <site-card [title]="'Mangafreak'" [color]="'#000000'" [url]="'https://w11.mangafreak.net/'" class="hiddenSmall">
       <div class="siteCardInner">
         <span class="siteCardInnerContent" style="margin-top: 1em">
           Pros

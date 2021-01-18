@@ -1,3 +1,5 @@
+@import "src/themes.scss";
+
 .site-logo {
   padding-left: 16px;
   height: 100%;
@@ -7,11 +9,14 @@ ul {
   display: flex;
   flex-direction: row;
   list-style: none;
+  padding-left: 2em;
+  font-size: 0.875em;
+
   li a {
-    padding: 1em;
-    padding-left: 2em;
+    padding: 1.25em;
     &:hover {
       color: #97b883 !important;
+      background: rgb(255, 255, 255, 0.2);
     }
   }
 }
@@ -22,12 +27,39 @@ ul {
   z-index: 1;
 }
 
+.toolbar {
+  height: 64px;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
 
-@media screen and (max-width: 550px) {
+.barButton {
+  background: inherit;
+  font-size: 1.5em;
+  color: white;
+  border: none;
+  display: none;
+}
+
+.sideNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: red;
+  width: 50%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
   .bigNavigation {
+    display: none;
+  }
+  .barButton {
+    display: block;
+  }
+  .search {
     display: none;
   }
 }

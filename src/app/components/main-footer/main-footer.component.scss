@@ -11,6 +11,7 @@
 .bottom {
   flex-basis: 100%;
   display: flex;
+  flex-flow: wrap;
 }
 
 .footerHeader {
@@ -27,6 +28,12 @@
   margin: 0;
   font-size: 0.85em;
   padding: 0;
+  position: relative;
+}
+
+.shareSection {
+  display: flex;
+  flex-flow: wrap;
 }
 
 a:link {
@@ -52,6 +59,17 @@ fa-icon:hover {
   text-align: center;
 }
 
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  flex-flow: wrap;
+}
+
+.share {
+  flex-basis: 32%;
+}
+
 @media screen and (max-width: 1440px) {
   .licenseText {
     font-size: 0.6em;
@@ -63,6 +81,18 @@ fa-icon:hover {
     width: 100%;
     text-align: left;
   }
+
+  .footerSection {
+    width: 33%;
+  }
+
+  .footerContent {
+    width: 100%;
+  }
+
+  *.center {
+    margin: 0 5% !important;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -70,6 +100,10 @@ fa-icon:hover {
     flex-direction: column !important;
     text-align: center !important;
     align-items: center !important;
+  }
+
+  .shareSection {
+    flex-flow: unset;
   }
 
   h3 {
@@ -81,10 +115,22 @@ fa-icon:hover {
     padding: 0;
   }
 
+  .bottom {
+    justify-content: center;
+  }
+
   .footerSection {
     width: 100%;
   }
   .licenseText {
     text-align: center;
+  }
+
+  .share {
+    flex-basis: 100%;
+  }
+
+  .shareSection {
+    justify-content: center;
   }
 }

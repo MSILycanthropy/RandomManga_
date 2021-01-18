@@ -5,10 +5,10 @@
     <p class="text">
       Report any errors you have noticed in the manga data, or suggest edits to improve it! THIS WILL NOT MAKE ANY DIRECT CHANGES TO THE DATA UNTIL
       CONFIRMED. If you would like to add a manga, please head over to the
-      <a routerLink="/feedback">feedback form</a> and press the 'Request New Manga' button!
+      <a routerLink="/feedback/request-manga">Request New Manga</a> form.
       <br />
       <br />
-      Please note that your information is NOT stored by the site, it is just used to send me an email and then it's gone.
+      Please note that your information is NOT stored by the site, it is just used in the process of submitting and then it's gone.
     </p>
 
     <ul class="warningText" *ngIf="triedSubmit">
@@ -30,20 +30,23 @@
       <li *ngIf="genres.errors?.required">
         <mat-error>At least one genre is required</mat-error>
       </li>
+      <li *ngIf="synopsis.errors?.required">
+        <mat-error>A synopsis is required</mat-error>
+      </li>
     </ul>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="reportForm" id="contact-form" role="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="reportForm" id="contact-form" role="form" netlify>
       <div class="dividerWrapper">
         <h3>Response Information</h3>
         <mat-divider class="divider"></mat-divider>
       </div>
       <div class="contactInfo">
-        <mat-form-field>
+        <mat-form-field appearance="fill">
           <mat-label>Name</mat-label>
           <input type="text" name="name" placeholder="John Doe" id="name" [formControl]="name" matInput required />
           <mat-error *ngIf="name.errors?.required">Name is required</mat-error>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
           <input type="email" name="email" placeholder="example@example.com" id="email" [formControl]="email" matInput required />
           <mat-error *ngIf="email.errors?.required">Email is required</mat-error>
@@ -57,7 +60,7 @@
       </div>
       <div class="mangaInfo">
         <div class="formFieldWrapper">
-          <mat-form-field class="formField">
+          <mat-form-field appearance="fill" class="formField">
             <mat-label>Title</mat-label>
             <input type="text" name="title" placeholder="Naruto" id="title" [formControl]="title" matInput required />
             <mat-error *ngIf="title.errors?.required">Title is required</mat-error>
@@ -66,7 +69,7 @@
         </div>
 
         <div class="formFieldWrapper">
-          <mat-form-field class="formField">
+          <mat-form-field appearance="fill" class="formField">
             <mat-label>English Title</mat-label>
             <input type="text" name="englishTitle" id="englishTitle" placeholder="Solo Leveling" [formControl]="englishTitle" matInput />
           </mat-form-field>
@@ -76,7 +79,7 @@
         </div>
 
         <div class="formFieldWrapper">
-          <mat-form-field class="formField">
+          <mat-form-field appearance="fill" class="formField">
             <mat-label>Alternate Titles</mat-label>
             <input type="text" name="alternateTitles" placeholder="Dragonball Z" id="alternateTitles" [formControl]="alternateTitles" matInput />
           </mat-form-field>
@@ -85,17 +88,17 @@
           </button>
         </div>
         <div class="formFieldWrapper">
-          <mat-form-field class="formField">
+          <mat-form-field appearance="fill" class="formField">
             <mat-label>Genres</mat-label>
             <input type="text" name="genres" id="genres" placeholder="Action, Adventure, Shounen" [formControl]="genres" matInput required />
-            <mat-error *ngIf="genres.errors?.required">At least one genre or "None" is required</mat-error>
+            <mat-error *ngIf="genres.errors?.required">At least one genre is required</mat-error>
           </mat-form-field>
           <button class="editButton" title="Edit" id="editButton_10" (click)="enableControl('genres', 10)">
             <fa-icon [icon]="faEdit"></fa-icon>
           </button>
         </div>
         <div class="formFieldWrapper">
-          <mat-form-field class="formField">
+          <mat-form-field appearance="fill" class="formField">
             <mat-label>Authors</mat-label>
             <input type="text" name="authors" id="authors" placeholder="Ōkubo, Atsushi; Kishimoto, Masashi" [formControl]="authors" matInput />
           </mat-form-field>
@@ -103,9 +106,9 @@
         </div>
         <div class="shortControls">
           <div class="shortFormFieldWrapper">
-            <mat-form-field class="shortControl">
+            <mat-form-field appearance="fill" class="shortControl">
               <mat-label>Type</mat-label>
-              <mat-select name="type" id="type" [formControl]="type" required>
+              <mat-select name="type" id="type" [formControl]="type" required (selectionChange)="checkOneShot()">
                 <mat-option *ngFor="let type of mangaTypes" [value]="type">
                   {{ type }}
                 </mat-option>
@@ -116,7 +119,7 @@
             </button>
           </div>
           <div class="shortFormFieldWrapper">
-            <mat-form-field class="shortControl">
+            <mat-form-field appearance="fill" class="shortControl">
               <mat-label>Volumes</mat-label>
               <input type="number" name="volumes" id="volumes" min="0" [formControl]="volumes" matInput />
             </mat-form-field>
@@ -125,7 +128,7 @@
             </button>
           </div>
           <div class="shortFormFieldWrapper">
-            <mat-form-field class="shortControl">
+            <mat-form-field appearance="fill" class="shortControl">
               <mat-label>Chapters</mat-label>
               <input type="number" name="chapters" id="chapters" min="0" [formControl]="chapters" matInput />
             </mat-form-field>
@@ -134,7 +137,7 @@
             </button>
           </div>
           <div class="shortFormFieldWrapper">
-            <mat-form-field class="shortControl">
+            <mat-form-field appearance="fill" class="shortControl">
               <mat-label>Start Date</mat-label>
               <input type="date" name="startDate" id="startDate" [formControl]="startDate" matInput />
             </mat-form-field>
@@ -143,7 +146,7 @@
             </button>
           </div>
           <div class="shortFormFieldWrapper">
-            <mat-form-field class="shortControl" appearance="">
+            <mat-form-field appearance="fill" class="shortControl">
               <mat-label>End Date</mat-label>
               <input type="date" name="endDate" id="endDate" [formControl]="endDate" matInput />
             </mat-form-field>
@@ -152,7 +155,7 @@
             </button>
           </div>
           <div class="shortFormFieldWrapper">
-            <mat-form-field class="shortControl">
+            <mat-form-field appearance="fill" class="shortControl">
               <mat-label>Finished</mat-label>
               <mat-select name="finished" id="finished" [formControl]="finished" required>
                 <mat-option [value]="true"> Yes </mat-option>
@@ -164,6 +167,29 @@
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
           </div>
+        </div>
+        <div class="formFieldWrapper">
+          <mat-form-field appearance="fill" class="formField">
+            <mat-label>Synopsis</mat-label>
+            <textarea name="synopsis" id="synopsis" [formControl]="synopsis" matInput rows="15" placeholder="Once upon a time..." required></textarea>
+            <mat-error *ngIf="synopsis.errors?.required">A synopsis is required</mat-error>
+          </mat-form-field>
+          <button class="editButton" title="Edit" id="editButton_11" (click)="enableControl('synopsis', 11)" style="top: unset; bottom: 1.875em">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </button>
+        </div>
+        <div class="formFieldWrapper">
+          <mat-form-field appearance="fill" class="formField">
+            <mat-label>Other</mat-label>
+            <textarea
+              name="other"
+              id="other"
+              [formControl]="other"
+              matInput
+              rows="5"
+              placeholder="This manga is on hiatus until futher notice"
+            ></textarea>
+          </mat-form-field>
         </div>
       </div>
 

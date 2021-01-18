@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FeedbackFormComponent implements OnInit {
   contactUrl: string;
-  form: FormGroup;
+  feedbackForm: FormGroup;
   name = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.email, Validators.required]);
   message = new FormControl('', [Validators.required, Validators.minLength(20)]);
@@ -25,7 +25,7 @@ export class FeedbackFormComponent implements OnInit {
     this.triedSubmit = false;
     this.hasErrors = true;
     this.contactUrl = `${environment.apiUrl}/contact`;
-    this.form = this.fb.group({
+    this.feedbackForm = this.fb.group({
       name: this.name,
       email: this.email,
       message: this.message,
@@ -35,8 +35,8 @@ export class FeedbackFormComponent implements OnInit {
   onSubmit(): void {
     this.hasErrors = false;
 
-    Object.keys(this.form.controls).forEach((key) => {
-      if (this.form.get(key).errors != null) {
+    Object.keys(this.feedbackForm.controls).forEach((key) => {
+      if (this.feedbackForm.get(key).errors != null) {
         console.log('HAS ERRORS WEE WOO WEE WOO!!!');
 
         this.triedSubmit = true;
@@ -48,7 +48,9 @@ export class FeedbackFormComponent implements OnInit {
 
     this.modal.destroy();
 
-    const feedbackData = `name=${this.form.get('name').value}&email=${this.form.get('email').value}&message=${this.form.get('message').value}`;
+    const feedbackData = `name=${this.feedbackForm.get('name').value}&email=${this.feedbackForm.get('email').value}&message=${
+      this.feedbackForm.get('message').value
+    }`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     if (!this.hasErrors) {
       this.http.post(this.contactUrl, feedbackData, { headers: headers }).subscribe();

@@ -1,0 +1,88 @@
+<mat-card class="primary center-10 mangaCard" *ngFor="let manga of mangas; let i = index">
+  <div class="titleInfoWrapper">
+    <div class="gray" style="padding-right: 1em">
+      <img
+        [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i])"
+        (click)="setViewAndRoute()"
+        width="240"
+        height="320"
+        style="display: block"
+        class="imageLink"
+      />
+    </div>
+
+    <div class="titleTile">
+      <div>
+        <div class="titleWrapper">
+          <div class="title">
+            <h3 class="header">
+              {{ manga.Title }}
+            </h3>
+            <mat-divider style="position: relative"></mat-divider>
+          </div>
+
+          <span class="addToListWrapper">
+            <button class="addToList" title="Add to List" (click)="sorryModal.create()">
+              <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
+            </button>
+          </span>
+        </div>
+
+        <div style="display: flex; flex-flow: column">
+          <ng-container *ngIf="manga.Genres; else genresElse">
+            <div class="extraTitleContent fitContent">
+              {{ manga.Genres.join(", ") }}
+            </div>
+          </ng-container>
+          <ng-template #genresElse>
+            <div class="extraTitleContent fitContent">No known genres</div>
+          </ng-template>
+          <div class="descriptionTile">
+            <div class="descriptionWrapper">
+              <p class="synopsisText" style="line-height: 1.5em" [innerHTML]="manga.Synopsis || 'None.'"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shareWrapper">
+    <a [href]="facebookLinks[i]" class="shortenHeight" target="_blank">
+      <fa-icon [icon]="faFacebook" class="shareIcon"></fa-icon>
+    </a>
+    <a [href]="twitterLinks[i]" class="shortenHeight" target="_blank">
+      <fa-icon [icon]="faTwitter" class="shareIcon"></fa-icon>
+    </a>
+    <a [href]="redditLinks[i]" class="shortenHeight" target="_blank">
+      <fa-icon [icon]="faReddit" class="shareIcon"></fa-icon>
+    </a>
+    <a [href]="tumblrLinks[i]" class="shortenHeight" target="_blank">
+      <fa-icon [icon]="faTumblr" class="shareIcon"></fa-icon>
+    </a>
+    <button mat-button (click)="setViewAndRoute(i)" class="errorButton">Read More</button>
+  </div>
+
+  <modal-popup [width]="380" [background]="'#212121'" #sorryModal class="sorryModal">
+    <h3 class="sorryTitle" title>Sorry this feature is not yet added!</h3>
+    <div class="sorryContent" content>
+      <div class="sorryText">
+        I am currently working to get saving, sharing, and creating lists added. I wanted to get the site released without these features so I could
+        start getting feedback. I apoligize for any inconvenience this has caused you.
+        <br />
+        <br />
+        Thank you for using RNGmanga!
+      </div>
+
+      <div class="sorryIcons">
+        <a
+          inlineSVG="../assets/PayPal.svg"
+          class="donationSVG"
+          href="https://www.paypal.com/donate/?business=8TNF3RZ45CHRW&item_name=RNGmanga+contribution&currency_code=USD&Z3JncnB0="
+          target="_blank"
+        ></a>
+        <a inlineSVG="../assets/BMC.svg" class="donationSVG" href="https://www.buymeacoffee.com/msilycanthropy" target="_blank"></a>
+      </div>
+    </div>
+  </modal-popup>
+</mat-card>

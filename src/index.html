@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RWZ9JPYY30"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-RWZ9JPYY30");
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css" />
+    <script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.wpcc.init({
+          colors: { popup: { background: "#212121", text: "#ffffff", border: "#ffffff" }, button: { background: "#5c5c5c", text: "#ffffff" } },
+          position: "bottom",
+          border: "thin",
+          corners: "small",
+          content: { href: "https://rngmanga.com/about/cookies", button: "Accept" },
+        });
+      });
+    </script>
     <meta charset="utf-8" />
     <title>RNGmanga</title>
     <base href="/" />
@@ -13,25 +37,13 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627" />
     <meta name="msapplication-TileColor" content="#252627" />
     <meta name="theme-color" content="#252627" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <meta property="og:title" content="RNGManga" />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:description"
-      content="If you need manga to read, please come use our Manga Generator to find what you need!"
-    />
-    <meta
-      property="og:image"
-      content="https://rngmanga.com/favicon-32x32.png"
-    />
+    <meta property="og:description" content="If you need manga to read, please come use our Manga Generator to find what you need!" />
+    <meta property="og:image" content="https://rngmanga.com/favicon-32x32.png" />
   </head>
 
   <body>

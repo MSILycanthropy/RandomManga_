@@ -31,8 +31,11 @@ export class ReportErrorFormComponent implements OnInit {
   endDate = new FormControl();
   finished = new FormControl();
   genres = new FormControl();
+  synopsis = new FormControl();
   name = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
+  other = new FormControl('');
+
   mangaTypes: Array<string> = ['Manga', 'Manhwa', 'Manhua', 'One-shot', 'Doujinshi', 'Novel'];
 
   faEdit = faEdit;
@@ -65,21 +68,18 @@ export class ReportErrorFormComponent implements OnInit {
     this.englishTitle = new FormControl(this.manga.English || '');
     this.alternateTitles = new FormControl(this.manga.Synonyms.join(', ') || '');
     this.type = new FormControl(this.manga.Type || '', [Validators.required]);
-
     this.volumes = new FormControl(this.manga.Volumes || -1);
-
     this.chapters = new FormControl(this.manga.Chapters || -1);
-    this.startDate = new FormControl(this.manga.Start);
-    this.endDate = new FormControl(this.manga.End);
+    this.startDate = new FormControl(this.dateObjToString(this.manga.Start));
+    this.endDate = new FormControl(this.dateObjToString(this.manga.End));
     this.finished = new FormControl(this.manga.isFinished, [Validators.required]);
-
     if (!this.manga.Genres || this.manga.Genres.length <= 0) {
       this.genres = new FormControl('', [Validators.required]);
     } else {
       this.genres = new FormControl(this.manga.Genres.join(', '), [Validators.required]);
     }
-
-    this.authors = new FormControl(this.manga.Authors.join('; ') || '');
+    this.authors = new FormControl(this.authorObjToString(this.manga.Authors));
+    this.synopsis = new FormControl(this.manga.Synopsis || '', [Validators.required]);
 
     this.triedSubmit = false;
     this.hasErrors = true;
@@ -96,16 +96,64 @@ export class ReportErrorFormComponent implements OnInit {
       finished: this.finished,
       genres: this.genres,
       authors: this.authors,
+      synopsis: this.synopsis,
       email: this.email,
       name: this.name,
+      other: this.other,
     });
 
     this.form.disable();
     this.form.controls['name'].enable();
     this.form.controls['email'].enable();
+    this.form.controls['other'].enable();
   }
 
-  enableControl(control: string, id: number) {
+  dateObjToString(date: Object): string {
+    let year = date['year'];
+    let month = date['month'];
+    let day = date['day'];
+
+    if (parseInt(month) / 10 < 1) {
+      month = `0${month}`;
+    }
+    if (parseInt(day) / 10 < 1) {
+      day = `0${day}`;
+    }
+
+    return `${year}-${month}-${day}`;
+  }
+
+  authorObjToString(authors: Object[]): string {
+    let out: string;
+    for (let author of authors) {
+      if (author['name']['last'] && author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['last']}, ${author['name']['first']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['last']}, ${author['name']['first']}`;
+      } else if (!author['name']['last'] && author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['first']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['first']}`;
+      } else if (author['name']['last'] && !author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['last']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['last']}`;
+      }
+    }
+    return out;
+  }
+
+  enableControl(control: string, id: number): void {
+    if (this.type.value == 'One-shot' && control == 'finished') {
+      return;
+    }
+
     this.form.controls[control].enable();
 
     let button = this.el.nativeElement.querySelector(`#editButton_${id}`);
@@ -117,8 +165,6 @@ export class ReportErrorFormComponent implements OnInit {
 
     Object.keys(this.form.controls).forEach((key) => {
       if (this.form.get(key).errors != null) {
-        console.log('HAS ERRORS WEE WOO WEE WOO!!!');
-
         this.triedSubmit = true;
         this.hasErrors = true;
         this.modal.destroy();
@@ -138,15 +184,22 @@ export class ReportErrorFormComponent implements OnInit {
       this.form.get('endDate').value['month']
     }-${this.form.get('endDate').value['day']}-${this.form.get('endDate').value['year']}`}&finished=${this.form.get('finished').value}&authors=${
       this.form.get('authors').value
-    }&genres=${this.form.get('genres').value}`;
-
-    console.log(reportData);
+    }&genres=${this.form.get('genres').value}&synopsis=${this.form.get('synopsis').value}&other=${this.form.get('other').value}`;
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     if (!this.hasErrors) {
       this.http.post(this.contactUrl, reportData, { headers: headers }).subscribe();
       this.successModal.create();
-      //location.reload();
+      location.reload();
+    }
+  }
+
+  checkOneShot(): void {
+    if (this.type.value == 'One-shot') {
+      this.form.controls['finished'].setValue(true);
+      this.form.controls['finished'].disable();
+    } else if (this.form.controls['finished'].disabled && !this.el.nativeElement.querySelector(`#editButton_8`)) {
+      this.form.controls['finished'].enable();
     }
   }
 }

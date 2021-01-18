@@ -39,6 +39,14 @@ import { FeedbackFormComponent } from './components/feedback-form/feedback-form.
 import { MatInputModule } from '@angular/material/input';
 import { ModalPopupComponent } from './components/modal-popup/modal-popup.component';
 import { ReportErrorFormComponent } from './components/report-error-form/report-error-form.component';
+import { RequestMangaComponent } from './components/request-manga/request-manga.component';
+import { InlineSVGModule } from 'ng-inline-svg';
+import { CookiesComponent } from './components/cookies/cookies.component';
+import { MatRippleModule } from '@angular/material/core';
+import { SearchListComponent } from './components/search-list/search-list.component';
+import { SearchPortionComponent } from './components/search-portion/search-portion.component';
+import { MangaSearchFormComponent } from './components/manga-search-form/manga-search-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +68,11 @@ import { ReportErrorFormComponent } from './components/report-error-form/report-
     FeedbackFormComponent,
     ModalPopupComponent,
     ReportErrorFormComponent,
+    RequestMangaComponent,
+    CookiesComponent,
+    SearchListComponent,
+    SearchPortionComponent,
+    MangaSearchFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +95,8 @@ import { ReportErrorFormComponent } from './components/report-error-form/report-
     FormsModule,
     MatInputModule,
     ReactiveFormsModule,
+    InlineSVGModule.forRoot(),
+    MatRippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

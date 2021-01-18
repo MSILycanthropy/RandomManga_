@@ -1,0 +1,129 @@
+@import "src/themes.scss";
+
+a:link {
+  color: #40f99b;
+}
+
+a:visited {
+  color: #40f99b;
+}
+.color {
+  color: white;
+}
+.warningText {
+  color: $warn;
+}
+
+.reportForm {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 1em;
+}
+
+.shortControls {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+:host::ng-deep .mat-select-value-text {
+  line-height: 1.125 !important;
+}
+
+.formField {
+  width: 100%;
+}
+
+.formFieldWrapper {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+
+.shortFormFieldWrapper {
+  flex-basis: 30%;
+  position: relative;
+}
+
+.shortControl {
+  width: 100%;
+}
+
+input {
+  width: calc(100% - 2.5em);
+  text-overflow: ellipsis;
+}
+
+.button-color {
+  background: $primary;
+  margin-top: 1em;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+.contactInfo {
+  margin-top: 1em;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.mangaInfo {
+  margin-top: 1em;
+}
+
+.divider {
+  position: relative;
+}
+
+.dividerWrapper {
+  width: fit-content;
+}
+
+.modalContent {
+  display: flex;
+  justify-content: center;
+}
+
+.modalTitle {
+  padding: 1em 4px;
+}
+
+.confirmButton {
+  background: #5c5c5c;
+  width: 45%;
+}
+
+ul {
+  padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  input {
+    width: calc(100% - 1.5em);
+  }
+
+  *.center {
+    margin: 2.5em 5% !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .shortFormFieldWrapper {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .text {
+    padding: 0;
+  }
+  .reportForm {
+    padding: 0;
+  }
+}

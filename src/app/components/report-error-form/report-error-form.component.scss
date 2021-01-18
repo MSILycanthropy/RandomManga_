@@ -32,8 +32,8 @@ a:visited {
 
 .editButton {
   position: absolute;
-  right: 0;
-  bottom: 1.5em;
+  right: 0.8em;
+  top: 1.875em;
   height: 24px;
   background: #5c5c5c;
   border: none;
@@ -41,7 +41,6 @@ a:visited {
   color: rgba(255, 255, 255, 1);
   padding: 0;
   height: fit-content;
-  margin-bottom: 0.5em;
 }
 
 .editButton:hover {
@@ -127,4 +126,29 @@ h3 {
 
 ul {
   padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  input {
+    width: calc(100% - 1.5em);
+  }
+
+  *.center {
+    margin: 2.5em 5% !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .shortFormFieldWrapper {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .text {
+    padding: 0;
+  }
+  .reportForm {
+    padding: 0;
+  }
 }

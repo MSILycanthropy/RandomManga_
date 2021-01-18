@@ -1,20 +1,34 @@
 <mat-toolbar class="dark-background footer-position" style="height: fit-content; padding: 16px">
-  <div class="center footerContent" style="display: flex; justify-content: space-between; width: 60%; flex-flow: wrap">
-    <div class="bottom" style="flex-direction: column">
-      <h3 style="width: 15%">Share</h3>
-      <div style="display: flex; justify-content: space-evenly; width: fit-content">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frngmanga.com%2F&amp;src=sdkpreparse" style="margin-right: 0.25em">
-          <fa-icon [icon]="faFacebook" size="2x"></fa-icon>
-        </a>
-        <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frngmanga.com" style="margin-right: 0.25em">
-          <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
-        </a>
-        <a href="http://www.reddit.com/submit?url=https%3A%2F%2Frngmanga.com" style="margin-right: 0.25em">
-          <fa-icon [icon]="faReddit" size="2x"></fa-icon>
-        </a>
-        <a href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Frngmanga.com">
-          <fa-icon [icon]="faTumblr" size="2x"></fa-icon>
-        </a>
+  <div class="center footerContent">
+    <div class="bottom">
+      <div class="share">
+        <h3>Share</h3>
+        <div class="shareSection">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frngmanga.com%2F&amp;src=sdkpreparse" style="margin-right: 0.25em">
+            <fa-icon [icon]="faFacebook" size="2x"></fa-icon>
+          </a>
+          <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frngmanga.com" style="margin-right: 0.25em">
+            <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+          </a>
+          <a href="http://www.reddit.com/submit?url=https%3A%2F%2Frngmanga.com" style="margin-right: 0.25em">
+            <fa-icon [icon]="faReddit" size="2x"></fa-icon>
+          </a>
+          <a href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Frngmanga.com">
+            <fa-icon [icon]="faTumblr" size="2x"></fa-icon>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <div>
+          <a
+            href="https://www.paypal.com/donate/?business=8TNF3RZ45CHRW&item_name=RNGmanga+contribution&currency_code=USD&Z3JncnB0="
+            inlineSVG="../assets/paypalSquare.svg"
+            target="_blank"
+            style="margin-right: 0.25em"
+          ></a>
+          <a href="https://www.buymeacoffee.com/msilycanthropy" inlineSVG="../assets/bmcSquare.svg" target="_blank"></a>
+        </div>
       </div>
     </div>
     <div class="footerSection">
@@ -38,16 +52,16 @@
       <h3>Navigation</h3>
       <ul class="coolList">
         <li>
-          <a href="#" routerLink="">Home</a>
+          <a routerLink="">Home</a>
         </li>
         <li>
-          <a href="#" routerLink="/about">About</a>
+          <a routerLink="/about">About</a>
         </li>
         <li>
-          <a href="#" routerLink="/feedback">Contact</a>
+          <a routerLink="/feedback">Contact</a>
         </li>
-        <li>
-          <a href="#" routerLink="/manga/report">Report Errors</a>
+        <li class="navList">
+          <a routerLink="/feedback/request-manga">Request Manga</a>
         </li>
       </ul>
     </div>

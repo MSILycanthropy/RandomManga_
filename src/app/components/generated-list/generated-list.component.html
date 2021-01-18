@@ -1,127 +1,17 @@
-<ng-container *ngIf="mangas[currentIndex]; then thenTemplate; else elseTemplate"></ng-container>
-<ng-template #thenTemplate>
-  <mat-card class="primary center-10 mangaCard">
-    <div style="display: flex">
-      <div class="gray" style="padding-right: 1em">
-        <a (click)="setViewMangaAndRoute()" class="linkToManga">
-          <img [src]="_DomSanitizer.bypassSecurityTrustUrl(url)" width="240" (error)="defaultUrl()" height="320" style="display: block" />
-        </a>
-      </div>
+<div class="fonts" style="position: relative; width: 100%; height: 100%">
+  <ng-container *ngIf="mangas[currentIndex]; then thenTemplate; else elseTemplate"></ng-container>
+  <ng-template #thenTemplate>
+    <button matRipple (click)="decrement()" class="decButton" [disabled]="currentIndex == 0" [@buttonFade]="'in'">
+      <fa-icon [icon]="faArrowLeft" class="iconColor" size="4x" [@arrowFade]="'out'"></fa-icon>
+    </button>
+    <button matRipple (click)="increment()" class="incButton" [disabled]="currentIndex == mangas.length - 1" [@buttonFade]="'in'">
+      <fa-icon [icon]="faArrowRight" class="iconColor" size="4x" [@arrowFade]="'out'"></fa-icon>
+    </button>
+    <span class="position"> {{ currentIndex }} / {{ mangas.length }} </span>
 
-      <div class="titleTile">
-        <div>
-          <div class="titleWrapper">
-            <div class="title">
-              <h3 class="header">
-                {{ mangas[currentIndex].Title }}
-              </h3>
-              <mat-divider style="position: relative"></mat-divider>
-            </div>
-
-            <span style="margin-left: auto">
-              <span>
-                {{ currentIndex + 1 }}
-                /
-                {{ mangas.length }}
-              </span>
-              <button (click)="decrement()" [disabled]="currentIndex == 0" style="margin-left: 0.375em" mat-button>Prev</button>
-              <button (click)="increment()" [disabled]="currentIndex == mangas.length - 1" style="margin-left: 0.375em" mat-button>Next</button>
-            </span>
-
-            <button class="addToList" title="Add to List">
-              <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
-            </button>
-          </div>
-
-          <div class="genres">
-            {{ mangas[currentIndex].Genres.join(", ") }}
-          </div>
-        </div>
-
-        <div class="moreInfoTile">
-          <div class="moreInfoTop">
-            <expando-card #expando class="expandoCard">
-              <div title>Type</div>
-              <div class="matchJapaneseHeight" content>
-                {{ mangas[currentIndex].Type || "N/A" }}
-              </div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title>Volumes</div>
-              <div class="matchJapaneseHeight" content>
-                {{ mangas[currentIndex].Volumes || "N/A" }}
-              </div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title>Chapters</div>
-              <div class="matchJapaneseHeight" content>
-                {{ mangas[currentIndex].Chapters || "N/A" }}
-              </div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title>Authors</div>
-              <div class="matchJapaneseHeight" content>
-                {{ mangas[currentIndex].Authors.join("; ") || "N/A" }}
-              </div>
-            </expando-card>
-          </div>
-          <div>
-            <expando-card #expando class="expandoCard">
-              <div title>Synonyms</div>
-              <div class="matchJapaneseHeight" content [innerHTML]="mangas[currentIndex].Synonyms.join('; ') || 'N/A'"></div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title>Score</div>
-              <div class="matchJapaneseHeight" content [innerHTML]="mangas[currentIndex].Score || 'N/A'"></div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title>Start</div>
-              <div class="matchJapaneseHeight" content>
-                {{ mangas[currentIndex].Start["month"] ? mangas[currentIndex].Start["month"] + " -" : "" }}
-                {{ mangas[currentIndex].Start["day"] ? mangas[currentIndex].Start["day"] + " -" : "" }}
-                {{ mangas[currentIndex].Start["year"] ? mangas[currentIndex].Start["year"] : "" || "N/A" }}
-              </div>
-            </expando-card>
-            <expando-card #expando class="expandoCard">
-              <div title>End</div>
-              <div class="matchJapaneseHeight" content>
-                {{ mangas[currentIndex].End["month"] ? mangas[currentIndex].End["month"] + " -" : "" }}
-                {{ mangas[currentIndex].End["day"] ? mangas[currentIndex].End["day"] + " -" : "" }}
-                {{ mangas[currentIndex].End["year"] ? mangas[currentIndex].End["year"] : "" || "N/A" }}
-              </div>
-            </expando-card>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="primary descriptionTile">
-      <div class="descriptionWrapper">
-        <div style="width: fit-content">
-          <h3 class="header synopsisHeader">Synopsis</h3>
-          <mat-divider style="position: relative"></mat-divider>
-        </div>
-        <p class="synopsisText" style="line-height: 1.5em" [innerHTML]="mangas[currentIndex].Synopsis || 'None.'"></p>
-        <!-- <button *ngIf="!mangas[currentIndex].Synopsis" mat-button>Write One</button> -->
-      </div>
-    </div>
-
-    <div class="share">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frngmanga.com%2F&amp;src=sdkpreparse">
-        <fa-icon [icon]="faFacebook" style="font-size: 2.5em"></fa-icon>
-      </a>
-      <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frngmanga.com">
-        <fa-icon [icon]="faTwitter" style="font-size: 2.5em"></fa-icon>
-      </a>
-      <a href="http://www.reddit.com/submit?url=https%3A%2F%2Frngmanga.com">
-        <fa-icon [icon]="faReddit" style="font-size: 2.5em"></fa-icon>
-      </a>
-      <a href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Frngmanga.com">
-        <fa-icon [icon]="faTumblr" style="font-size: 2.5em"></fa-icon>
-      </a>
-    </div>
-    <button mat-button (click)="setReportAndRoute()" class="errorButton">Report Error</button>
-  </mat-card>
-</ng-template>
-<ng-template #elseTemplate>
-  <not-found [error]="'No Manga Found'" [num]="420"></not-found>
-</ng-template>
+    <manga-display [manga]="mangas[currentIndex]"> </manga-display>
+  </ng-template>
+  <ng-template #elseTemplate>
+    <not-found [error]="'No Manga Found'" [num]="420"></not-found>
+  </ng-template>
+</div>

@@ -1,0 +1,303 @@
+@import "src/themes.scss";
+
+.expandoCard {
+  display: inline-block;
+  width: 12vw;
+}
+
+.moreInfoTop {
+  margin-bottom: 1em;
+}
+
+mat-card.primary {
+  background: $primary !important;
+}
+
+.matchJapaneseHeight {
+  line-height: 18px;
+}
+
+.synopsisText {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding-left: 0.375em;
+}
+
+.header {
+  margin: 0;
+  display: inline;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  max-width: 55vw;
+  font-size: 1.375em;
+}
+
+.titleTile {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: none;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.moreInfoTile {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  width: 60%;
+  height: 50%;
+}
+
+.descriptionTile {
+  flex-grow: 1;
+  border-top-right-radius: 0;
+  box-shadow: none;
+}
+
+.descriptionWrapper {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow-y: hidden;
+}
+
+.synopsisTitle {
+  display: inline-block;
+  white-space: normal;
+  width: calc(90% - 16px);
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.mangaCard {
+  margin: 2em 0;
+  flex-direction: column;
+  display: flex;
+}
+
+button {
+  background: #5c5c5c !important;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.5;
+  position: relative;
+}
+
+.extraTitleContent {
+  font-size: 1.125em;
+  line-height: 1.5em;
+  margin: 0.375em;
+  word-wrap: break-word;
+  max-width: 60vw;
+  display: inline;
+  clear: both;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.addToListWrapper {
+  margin-left: auto;
+}
+
+.shareWrapper {
+  display: flex;
+  height: 35px;
+  margin-top: 1em;
+}
+
+.errorButton {
+  margin-left: auto;
+}
+
+.shareIcon {
+  font-size: 2.275em;
+  margin-right: 0.25em;
+}
+
+a {
+  &:link {
+    color: mat-color($success-palette, 300);
+  }
+
+  &:visited {
+    color: mat-color($success-palette, 300);
+  }
+}
+
+.fullTitle {
+  position: absolute;
+  left: 0;
+}
+
+.addToList {
+  border: none;
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  padding: 0;
+  outline: none;
+  margin-left: 0.375em;
+  vertical-align: middle;
+
+  &:focus {
+    fa-icon {
+      color: mat-color($success-palette, 300);
+    }
+  }
+}
+
+fa-icon {
+  color: white;
+
+  &:hover {
+    color: mat-color($success-palette, 300);
+  }
+}
+
+.showAbove {
+  z-index: 2;
+  position: relative;
+}
+
+.donationSVG ::ng-deep svg {
+  width: 32.5px !important;
+  height: 45px !important;
+}
+
+.sorryContent {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.sorryIcons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+.sorryTitle {
+  margin: 0;
+  padding: 1em;
+}
+
+.sorryText {
+  padding: 1em;
+  text-align: center;
+}
+
+ul {
+  padding-left: 1em;
+  list-style-type: none;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.fitContent {
+  width: fit-content;
+}
+
+.shortenHeight {
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+.altAddToList {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  height: 27px;
+}
+
+.titleInfoWrapper {
+  display: flex;
+}
+
+.imageLink:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1440px) {
+  .moreInfoTile {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .moreInfoTile {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .moreInfoTile {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  *.center-10 {
+    margin-right: 12px !important;
+    margin-left: 12px !important;
+  }
+
+  .expandoCard {
+    width: 17vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .titleInfoWrapper {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  .addToListWrapper {
+    display: none;
+  }
+
+  .expandoCard {
+    width: 25vw;
+  }
+
+  .header {
+    max-width: 100vw;
+  }
+
+  .extraTitleContent {
+    max-width: 85vw;
+  }
+
+  .moreInfoTile {
+    margin-top: 0.75em;
+  }
+
+  .titleTile {
+    margin-top: 2em;
+  }
+
+  .expandoCard {
+    margin-top: 0.25em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  *.center-10 {
+    margin-right: 8px !important;
+    margin-left: 8px !important;
+  }
+}

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IManga } from 'src/app/app.interface';
 import { MangaService } from 'src/app/services/manga/manga.service';
 import { faFacebookSquare, faTwitterSquare, faRedditSquare, faTumblrSquare } from '@fortawesome/free-brands-svg-icons';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
-import { escapeRegExp } from '@angular/compiler/src/util';
+import { ReportErrorService } from 'src/app/services/report-error/report-error.service';
 
 @Component({
   selector: 'manga-display',
@@ -15,7 +15,7 @@ import { escapeRegExp } from '@angular/compiler/src/util';
 })
 export class MangaDisplayComponent implements OnInit {
   id: string;
-  manga: IManga;
+  @Input() manga: IManga;
   url: string;
   baseUrl: string;
   faFacebook = faFacebookSquare;
@@ -24,7 +24,19 @@ export class MangaDisplayComponent implements OnInit {
   faTumblr = faTumblrSquare;
   faPlusCircle = faPlusCircle;
   notFound: boolean;
-  constructor(private router: ActivatedRoute, public manga_service: MangaService, public _DomSanitizer: DomSanitizer) {}
+  twitterLink: string;
+  facebookLink: string;
+  redditLink: string;
+  tumblrLink: string;
+  shareUrl: string;
+
+  constructor(
+    private router: ActivatedRoute,
+    public manga_service: MangaService,
+    public _DomSanitizer: DomSanitizer,
+    private navRouter: Router,
+    private report_service: ReportErrorService
+  ) {}
 
   async ngOnInit(): Promise<void> {
     this.notFound = false;
@@ -43,10 +55,58 @@ export class MangaDisplayComponent implements OnInit {
       this.notFound = true;
     }
 
-    this.url = `${this.baseUrl}${this.id}.jpg`;
+    this.url = `${this.baseUrl}${this.manga._id}.jpg`;
+    this.shareUrl = `https%3A%2F%2Frngmanga.com%2Fmanga%3Fid%3D${this.manga._id}`;
+    this.facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}&amp;src=sdkpreparse`;
+    this.twitterLink = `https://twitter.com/intent/tweet?text=${this.shareUrl}`;
+    this.redditLink = `http://www.reddit.com/submit?url=${this.shareUrl}`;
+    this.tumblrLink = `http://tumblr.com/widgets/share/tool?canonicalUrl=${this.shareUrl}`;
   }
 
-  defaultUrl() {
-    this.url = `${environment.apiUrl}/assets/manga-images-notfound.jpg`;
+  ngOnChanges(changes: SimpleChanges) {
+    this.url = `${this.baseUrl}${this.manga._id}.jpg`;
+    this.shareUrl = `https%3A%2F%2Frngmanga.com%2Fmanga%3Fid%3D${this.manga._id}`;
+    this.facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}&amp;src=sdkpreparse`;
+    this.twitterLink = `https://twitter.com/intent/tweet?text=${this.shareUrl}`;
+    this.redditLink = `http://www.reddit.com/submit?url=${this.shareUrl}`;
+    this.tumblrLink = `http://tumblr.com/widgets/share/tool?canonicalUrl=${this.shareUrl}`;
+  }
+
+  authorObjToString(authors: Object[]): string {
+    let out: string;
+    for (let author of authors) {
+      if (author['name']['last'] && author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['last']}, ${author['name']['first']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['last']}, ${author['name']['first']}`;
+      } else if (!author['name']['last'] && author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['first']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['first']}`;
+      } else if (author['name']['last'] && !author['name']['first']) {
+        if (!out) {
+          out = `${author['name']['last']}`;
+          continue;
+        }
+        out = `${out}; ${author['name']['last']}`;
+      }
+    }
+    return out;
+  }
+
+  setReportAndRoute(): void {
+    this.report_service.manga = this.manga;
+
+    this.navRouter.navigate(['/manga/report'], { queryParams: { id: this.manga._id } });
+  }
+
+  setViewAndRoute(): void {
+    this.manga_service.viewManga = this.manga;
+
+    this.navRouter.navigate(['/manga'], { queryParams: { id: this.manga._id } });
   }
 }

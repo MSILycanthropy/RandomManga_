@@ -1,0 +1,30 @@
+@import "src/themes.scss";
+
+.search {
+  background: lighten($primary, 10%);
+  padding: 0 1em;
+  border-radius: 16px;
+  position: relative;
+}
+
+.searchInput {
+  background: inherit;
+  border: none;
+  font-size: 1.125em;
+  outline: none;
+  color: white;
+  width: 160px;
+  &::placeholder {
+    font-weight: 500;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  right: 0.85em;
+  top: 0.3em;
+  background: inherit;
+  border: none;
+  color: rgb(255, 255, 255, 0.4);
+  font-size: 1em;
+}
