@@ -22,12 +22,36 @@ ul {
   z-index: 1;
 }
 
+.toolbar {
+  height: 64px;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
 
-@media screen and (max-width: 550px) {
+.barButton {
+  background: inherit;
+  font-size: 1.5em;
+  color: white;
+  border: none;
+  display: none;
+}
+
+.sideNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: red;
+  width: 50%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
   .bigNavigation {
     display: none;
+  }
+  .barButton {
+    display: block;
   }
 }
