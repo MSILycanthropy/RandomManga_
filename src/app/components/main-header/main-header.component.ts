@@ -31,13 +31,4 @@ export class MainHeaderComponent implements OnInit {
       document.getElementById('sideNav').style.borderTop = 'none';
     }
   }
-
-  onSubmit(): void {
-    if (this.query.value) {
-      this.manga_service.search(this.query.value).subscribe((mangas) => {
-        this.manga_service.searched = mangas;
-        this.router.navigate(['/manga/search'], { queryParams: { query: this.query.value } });
-      });
-    }
-  }
 }

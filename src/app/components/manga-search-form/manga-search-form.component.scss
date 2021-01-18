@@ -13,8 +13,10 @@
   font-size: 1.125em;
   outline: none;
   color: white;
-  font-weight: 500;
   width: 160px;
+  &::placeholder {
+    font-weight: 500;
+  }
 }
 
 .searchIcon {

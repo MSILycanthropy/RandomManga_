@@ -1,6 +1,6 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { IManga } from 'src/app/app.interface';
 import { MangaService } from 'src/app/services/manga/manga.service';
@@ -20,34 +20,51 @@ export class SearchListComponent implements OnInit {
   query = new FormControl('');
   @ViewChild('searchContainer', { read: ViewContainerRef }) searchContainer;
 
-  constructor(private manga_service: MangaService, private router: ActivatedRoute, private resolver: ComponentFactoryResolver) {}
+  constructor(
+    private manga_service: MangaService,
+    private router: Router,
+    private resolver: ComponentFactoryResolver,
+    private cdRef: ChangeDetectorRef,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.router.queryParams.subscribe((queryParams) => {
-      this.currentFirstIndex = 0;
-      this.currentLastIndex = 11;
-      this.mangas = this.manga_service.searched;
-    });
+    this.currentFirstIndex = 0;
+    this.currentLastIndex = 11;
+    this.mangas = this.manga_service.searched;
 
     this.searchForm = new FormGroup({
       query: this.query,
     });
+
+    this.query.setValue(this.activatedRoute.snapshot.queryParamMap.get('query'));
   }
 
-  showMore(): void {
+  ngAfterViewInit(): void {
+    this.showMore(this.currentFirstIndex, this.currentLastIndex);
+    this.cdRef.detectChanges();
+  }
+
+  showMore(firstIndex: number, lastIndex: number): void {
+    const temp = [...this.mangas];
+    const factory = this.resolver.resolveComponentFactory(SearchPortionComponent);
+    const compontentRef = this.searchContainer.createComponent(factory);
+
+    compontentRef.instance.mangas = temp.slice(firstIndex, lastIndex);
+  }
+
+  incrementIndices(): void {
     this.currentFirstIndex = this.currentLastIndex;
     this.currentLastIndex += 10;
-
-    const factory = this.resolver.resolveComponentFactory(SearchPortionComponent);
-    const compontentRef: SearchPortionComponent = this.searchContainer.createComponent(factory);
-    compontentRef.mangas = this.mangas.slice(this.currentFirstIndex, this.currentLastIndex);
   }
 
   onSubmit(): void {
     if (this.query.value) {
       this.manga_service.search(this.query.value).subscribe((mangas) => {
         this.manga_service.searched = mangas;
-        this.mangas = mangas;
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => this.router.navigate(['/manga/search'], { queryParams: { query: this.query.value } }));
       });
     }
   }

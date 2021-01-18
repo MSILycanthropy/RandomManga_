@@ -40,7 +40,6 @@
           <div class="descriptionTile">
             <div class="descriptionWrapper">
               <p class="synopsisText" style="line-height: 1.5em" [innerHTML]="manga.Synopsis || 'None.'"></p>
-              <button *ngIf="!manga.Synopsis" mat-button (click)="setReportAndRoute()" class="" style="margin-left: 1em">Suggest a Synopsis</button>
             </div>
           </div>
         </div>

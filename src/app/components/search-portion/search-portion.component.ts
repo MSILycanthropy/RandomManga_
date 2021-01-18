@@ -38,21 +38,16 @@ export class SearchPortionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setMangas();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.setMangas();
-  }
-
-  setMangas(): void {
     this.urls = new Array<string>(this.mangas.length);
     this.shareUrls = new Array<string>(this.mangas.length);
     this.facebookLinks = new Array<string>(this.mangas.length);
     this.twitterLinks = new Array<string>(this.mangas.length);
     this.redditLinks = new Array<string>(this.mangas.length);
     this.tumblrLinks = new Array<string>(this.mangas.length);
+    this.setMangas();
+  }
 
+  setMangas(): void {
     this.baseUrl = `${environment.apiUrl}/assets/manga-images-`;
 
     this.mangas.forEach((manga, i) => {

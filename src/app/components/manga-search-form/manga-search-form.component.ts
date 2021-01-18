@@ -30,7 +30,10 @@ export class MangaSearchFormComponent implements OnInit {
     if (this.query.value) {
       this.manga_service.search(this.query.value).subscribe((mangas) => {
         this.manga_service.searched = mangas;
-        this.router.navigate(['/manga/search'], { queryParams: { query: this.query.value } });
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/manga/search'], { queryParams: { query: this.query.value } });
+          this.query.setValue('');
+        });
       });
     }
   }
