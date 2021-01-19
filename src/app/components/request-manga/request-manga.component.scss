@@ -103,6 +103,10 @@ ul {
   padding: 0;
 }
 
+:host::ng-deep input.mat-input-element {
+  width: 100%;
+}
+
 @media screen and (max-width: 1024px) {
   input {
     width: calc(100% - 1.5em);
