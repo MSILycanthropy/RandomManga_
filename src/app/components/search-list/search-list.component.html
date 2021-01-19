@@ -1,7 +1,7 @@
 <div style="margin: 5em 0">
   <ng-container *ngIf="mangas.length > 0; else elseTemplate">
     <form class="search center-10" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-      <input type="search" class="searchInput fonts" placeholder="Search" [formControl]="query" />
+      <input type="search" class="searchInput fonts" placeholder="Search" [formControl]="query" aria-label="Search for manga" />
       <button type="submit" class="searchIcon">
         <fa-icon [icon]="faSearch"></fa-icon>
       </button>
