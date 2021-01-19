@@ -1,10 +1,26 @@
 <div class="fonts" style="position: relative; width: 100%; height: 100%">
   <ng-container *ngIf="mangas[currentIndex]; then thenTemplate; else elseTemplate"></ng-container>
   <ng-template #thenTemplate>
-    <button matRipple (click)="decrement()" class="decButton" [disabled]="currentIndex == 0" [@buttonFade]="'in'" aria-label="Previous">
+    <button
+      matRipple
+      (click)="decrement()"
+      class="decButton"
+      [disabled]="currentIndex == 0"
+      [@buttonFade]="'in'"
+      aria-label="Previous"
+      style="background: transparent"
+    >
       <fa-icon [icon]="faArrowLeft" class="iconColor" size="4x" [@arrowFade]="'out'"></fa-icon>
     </button>
-    <button matRipple (click)="increment()" class="incButton" [disabled]="currentIndex == mangas.length - 1" [@buttonFade]="'in'" aria-label="Next">
+    <button
+      matRipple
+      (click)="increment()"
+      class="incButton"
+      [disabled]="currentIndex == mangas.length - 1"
+      [@buttonFade]="'in'"
+      aria-label="Next"
+      style="background: transparent"
+    >
       <fa-icon [icon]="faArrowRight" class="iconColor" size="4x" [@arrowFade]="'out'"></fa-icon>
     </button>
     <span class="position"> {{ currentIndex }} / {{ mangas.length }} </span>
