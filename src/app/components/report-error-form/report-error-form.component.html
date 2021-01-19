@@ -65,7 +65,9 @@
             <input type="text" name="title" placeholder="Naruto" id="title" [formControl]="title" matInput required />
             <mat-error *ngIf="title.errors?.required">Title is required</mat-error>
           </mat-form-field>
-          <button class="editButton" title="Edit" id="editButton_0" (click)="enableControl('title', 0)"><fa-icon [icon]="faEdit"></fa-icon></button>
+          <button class="editButton" aria-label="Enable Editing for Title Field" title="Edit" id="editButton_0" (click)="enableControl('title', 0)">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </button>
         </div>
 
         <div class="formFieldWrapper">
@@ -73,7 +75,13 @@
             <mat-label>English Title</mat-label>
             <input type="text" name="englishTitle" id="englishTitle" placeholder="Solo Leveling" [formControl]="englishTitle" matInput />
           </mat-form-field>
-          <button class="editButton" title="Edit" id="editButton_1" (click)="enableControl('englishTitle', 1)">
+          <button
+            class="editButton"
+            aria-label="Enable Editing for English Title Field"
+            title="Edit"
+            id="editButton_1"
+            (click)="enableControl('englishTitle', 1)"
+          >
             <fa-icon [icon]="faEdit"></fa-icon>
           </button>
         </div>
@@ -83,7 +91,13 @@
             <mat-label>Alternate Titles</mat-label>
             <input type="text" name="alternateTitles" placeholder="Dragonball Z" id="alternateTitles" [formControl]="alternateTitles" matInput />
           </mat-form-field>
-          <button class="editButton" title="Edit" id="editButton_2" (click)="enableControl('alternateTitles', 2)">
+          <button
+            class="editButton"
+            aria-label="Enable Editing for Alternate Titles Field"
+            title="Edit"
+            id="editButton_2"
+            (click)="enableControl('alternateTitles', 2)"
+          >
             <fa-icon [icon]="faEdit"></fa-icon>
           </button>
         </div>
@@ -93,7 +107,13 @@
             <input type="text" name="genres" id="genres" placeholder="Action, Adventure, Shounen" [formControl]="genres" matInput required />
             <mat-error *ngIf="genres.errors?.required">At least one genre is required</mat-error>
           </mat-form-field>
-          <button class="editButton" title="Edit" id="editButton_10" (click)="enableControl('genres', 10)">
+          <button
+            class="editButton"
+            aria-label="Enable Editing for Genres Field"
+            title="Edit"
+            id="editButton_10"
+            (click)="enableControl('genres', 10)"
+          >
             <fa-icon [icon]="faEdit"></fa-icon>
           </button>
         </div>
@@ -102,19 +122,33 @@
             <mat-label>Authors</mat-label>
             <input type="text" name="authors" id="authors" placeholder="Ōkubo, Atsushi; Kishimoto, Masashi" [formControl]="authors" matInput />
           </mat-form-field>
-          <button class="editButton" title="Edit" id="editButton_9" (click)="enableControl('authors', 9)"><fa-icon [icon]="faEdit"></fa-icon></button>
+          <button
+            class="editButton"
+            aria-label="Enable Editing for Authors field"
+            title="Edit"
+            id="editButton_9"
+            (click)="enableControl('authors', 9)"
+          >
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </button>
         </div>
         <div class="shortControls">
           <div class="shortFormFieldWrapper">
             <mat-form-field appearance="fill" class="shortControl">
-              <mat-label>Type</mat-label>
+              <mat-label>Country of Origin</mat-label>
               <mat-select name="type" id="type" [formControl]="type" required (selectionChange)="checkOneShot()">
                 <mat-option *ngFor="let type of mangaTypes" [value]="type">
                   {{ type }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <button class="editButton" title="Edit" id="editButton_3" (click)="enableControl('type', 3)">
+            <button
+              class="editButton"
+              aria-label="Enable Editing for Country of Origin Field"
+              title="Edit"
+              id="editButton_3"
+              (click)="enableControl('type', 3)"
+            >
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
           </div>
@@ -123,7 +157,13 @@
               <mat-label>Volumes</mat-label>
               <input type="number" name="volumes" id="volumes" min="0" [formControl]="volumes" matInput />
             </mat-form-field>
-            <button class="editButton" title="Edit" id="editButton_4" (click)="enableControl('volumes', 4)">
+            <button
+              class="editButton"
+              aria-label="Enable Editing for Volumes Field"
+              title="Edit"
+              id="editButton_4"
+              (click)="enableControl('volumes', 4)"
+            >
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
           </div>
@@ -132,7 +172,13 @@
               <mat-label>Chapters</mat-label>
               <input type="number" name="chapters" id="chapters" min="0" [formControl]="chapters" matInput />
             </mat-form-field>
-            <button class="editButton" title="Edit" id="editButton_5" (click)="enableControl('chapters', 5)">
+            <button
+              class="editButton"
+              aria-label="Enable Editing for Chapters Field"
+              title="Edit"
+              id="editButton_5"
+              (click)="enableControl('chapters', 5)"
+            >
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
           </div>
@@ -141,7 +187,13 @@
               <mat-label>Start Date</mat-label>
               <input type="date" name="startDate" id="startDate" [formControl]="startDate" matInput />
             </mat-form-field>
-            <button class="editButton" title="Edit" id="editButton_6" (click)="enableControl('startDate', 6)">
+            <button
+              class="editButton"
+              aria-label="Enable Editing for Start Date Field"
+              title="Edit"
+              id="editButton_6"
+              (click)="enableControl('startDate', 6)"
+            >
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
           </div>
@@ -150,7 +202,13 @@
               <mat-label>End Date</mat-label>
               <input type="date" name="endDate" id="endDate" [formControl]="endDate" matInput />
             </mat-form-field>
-            <button class="editButton" title="Edit" id="editButton_7" (click)="enableControl('endDate', 7)">
+            <button
+              class="editButton"
+              aria-label="Enable Editing for End Date Field"
+              title="Edit"
+              id="editButton_7"
+              (click)="enableControl('endDate', 7)"
+            >
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
           </div>
@@ -163,7 +221,13 @@
               </mat-select>
               <mat-error *ngIf="finished.errors?.required">Finished is required</mat-error>
             </mat-form-field>
-            <button class="editButton" title="Edit" id="editButton_8" (click)="enableControl('finished', 8)">
+            <button
+              class="editButton"
+              aria-label="Enable Editing for Finished Field"
+              title="Edit"
+              id="editButton_8"
+              (click)="enableControl('finished', 8)"
+            >
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
           </div>
@@ -174,7 +238,14 @@
             <textarea name="synopsis" id="synopsis" [formControl]="synopsis" matInput rows="15" placeholder="Once upon a time..." required></textarea>
             <mat-error *ngIf="synopsis.errors?.required">A synopsis is required</mat-error>
           </mat-form-field>
-          <button class="editButton" title="Edit" id="editButton_11" (click)="enableControl('synopsis', 11)" style="top: unset; bottom: 1.875em">
+          <button
+            class="editButton"
+            aria-label="Enable Editing for Synopsis field"
+            title="Edit"
+            id="editButton_11"
+            (click)="enableControl('synopsis', 11)"
+            style="top: unset; bottom: 1.875em"
+          >
             <fa-icon [icon]="faEdit"></fa-icon>
           </button>
         </div>
@@ -193,12 +264,16 @@
         </div>
       </div>
 
-      <button mat-button type="button" id="send" class="button-color" (click)="modal.create()">Submit</button>
+      <button mat-button type="button" id="send" class="button-color" (click)="modal.create()" aria-label="Submit Form">Submit</button>
       <modal-popup #modal [width]="250" [background]="'#212121'">
         <h3 class="modalTitle" title>Are you sure you want to submit this edit?</h3>
         <div class="modalContent" content>
-          <button mat-button type="button" (click)="modal.destroy()" class="confirmButton">No</button>
-          <button mat-button type="submit" id="submit" class="confirmButton" style="margin-left: 1em">Yes</button>
+          <button mat-button type="button" (click)="modal.destroy()" class="confirmButton" aria-label="No, I don't want to submit this edit">
+            No
+          </button>
+          <button mat-button type="submit" id="submit" class="confirmButton" style="margin-left: 1em" aria-label="Yes, I do want to submit this edit">
+            Yes
+          </button>
         </div>
       </modal-popup>
     </form>

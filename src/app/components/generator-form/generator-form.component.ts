@@ -32,7 +32,7 @@ export class GeneratorFormComponent implements OnInit {
       fa: faMinus,
     },
   ];
-  mangaTypes: Array<string> = ['All', 'Manga', 'Manhwa', 'Manhua', 'One-shot', 'Doujinshi'];
+  mangaTypes: Array<string> = ['All', 'JP', 'KR', 'CN', 'TW'];
   searchType: string;
   scoreNumbers: Array<number> = Array.from(new Array(20).keys()).map((x) => x / 2);
   listNumbers: Array<number> = [1, 5, 10].concat(Array.from(new Array(10).keys()).map((x) => (100 * (x + 1)) / 2));

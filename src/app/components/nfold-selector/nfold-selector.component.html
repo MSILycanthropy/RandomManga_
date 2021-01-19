@@ -12,6 +12,7 @@
     (click)="toggle(value, i)"
     [class.firstButton]="i == 0"
     [class.lastButton]="i == selectableValues.length - 1"
+    [attr.aria-label]="value.text"
   >
     <fa-icon [icon]="value.fa"></fa-icon>
   </button>

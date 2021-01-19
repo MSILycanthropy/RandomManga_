@@ -12,6 +12,7 @@
       class="fullCenter loadMoreButton"
       (click)="incrementIndices(); showMore(currentFirstIndex, currentLastIndex)"
       *ngIf="mangas.length >= currentLastIndex"
+      aria-label="Load More"
     >
       Load More
     </button>

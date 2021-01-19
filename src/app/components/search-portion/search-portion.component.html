@@ -3,6 +3,7 @@
     <div class="gray" style="padding-right: 1em">
       <img
         [src]="_DomSanitizer.bypassSecurityTrustUrl(urls[i])"
+        [alt]="manga.Title"
         (click)="setViewAndRoute()"
         width="240"
         height="320"
@@ -80,8 +81,9 @@
           class="donationSVG"
           href="https://www.paypal.com/donate/?business=8TNF3RZ45CHRW&item_name=RNGmanga+contribution&currency_code=USD&Z3JncnB0="
           target="_blank"
+          rel="noreferrer"
         ></a>
-        <a inlineSVG="../assets/BMC.svg" class="donationSVG" href="https://www.buymeacoffee.com/msilycanthropy" target="_blank"></a>
+        <a inlineSVG="../assets/BMC.svg" class="donationSVG" href="https://www.buymeacoffee.com/msilycanthropy" target="_blank" rel="noreferrer"></a>
       </div>
     </div>
   </modal-popup>

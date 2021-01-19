@@ -29,7 +29,7 @@ export class RequestMangaComponent implements OnInit {
   name = new FormControl('', [Validators.required]);
   other = new FormControl('');
   email = new FormControl('', [Validators.required, Validators.email]);
-  mangaTypes: Array<string> = ['Manga', 'Manhwa', 'Manhua', 'One-shot', 'Doujinshi', 'Novel'];
+  mangaTypes: Array<string> = ['JP', 'KR', 'CN', 'TW'];
 
   @ViewChild('modal') modal;
   @ViewChild('successModal') successModal;

@@ -48,6 +48,6 @@
       </nfold-selector>
       <dynamic-table [toDisplay]="genres" (sendToggle)="this.onGenreToggle($event)" #dynTable card></dynamic-table>
     </hidden-div>
-    <button (click)="generateList()" class="submitButton" mat-button>Generate</button>
+    <button (click)="generateList()" class="submitButton" mat-button aria-label="Generate">Generate</button>
   </div>
 </mat-card>

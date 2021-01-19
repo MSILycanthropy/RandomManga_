@@ -1,6 +1,6 @@
 <form class="search" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
   <input type="search" class="searchInput fonts" placeholder="Search" [ngStyle]="setStyles()" [formControl]="query" />
-  <button type="submit" class="searchIcon">
+  <button type="submit" class="searchIcon" aria-label="Search">
     <fa-icon [icon]="faSearch"></fa-icon>
   </button>
 </form>
