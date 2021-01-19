@@ -36,7 +36,7 @@ export class ReportErrorFormComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   other = new FormControl('');
 
-  mangaTypes: Array<string> = ['Manga', 'Manhwa', 'Manhua', 'One-shot', 'Doujinshi', 'Novel'];
+  mangaTypes: Array<string> = ['JP', 'KR', 'CN', 'TW'];
 
   faEdit = faEdit;
 

@@ -48,12 +48,12 @@
       <mat-error *ngIf="message.errors?.required">A message is required</mat-error>
       <mat-error *ngIf="message.errors?.minlength">Please leave a longer message</mat-error>
     </mat-form-field>
-    <button mat-button type="button" (click)="modal.create()" class="button-color">Send</button>
+    <button mat-button type="button" (click)="modal.create()" class="button-color" aria-label="Send Message">Send</button>
     <modal-popup #modal [width]="250" [background]="'#212121'">
       <h3 class="modalTitle" title>Are you sure you want to send this message?</h3>
       <div class="modalContent" content>
-        <button mat-button type="button" (click)="modal.destroy()" class="confirmButton">No</button>
-        <button mat-button type="submit" id="submit" class="confirmButton" style="margin-left: 1em">Yes</button>
+        <button mat-button type="button" (click)="modal.destroy()" class="confirmButton" aria-label="No, don't send my message">No</button>
+        <button mat-button type="submit" id="submit" class="confirmButton" style="margin-left: 1em" aria-label="Yes, send my message">Yes</button>
       </div>
     </modal-popup>
   </form>

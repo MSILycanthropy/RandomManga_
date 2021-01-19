@@ -168,12 +168,16 @@
       </div>
     </div>
 
-    <button mat-button type="button" id="send" class="button-color" (click)="modal.create()">Submit</button>
+    <button mat-button type="button" id="send" class="button-color" (click)="modal.create()" aria-label="Submit Request">Submit</button>
     <modal-popup #modal [width]="250" [background]="'#212121'">
       <h3 class="modalTitle" title>Are you sure you want to submit this edit?</h3>
       <div class="modalContent" content>
-        <button mat-button type="button" (click)="modal.destroy()" class="confirmButton">No</button>
-        <button mat-button type="submit" id="submit" class="confirmButton" style="margin-left: 1em">Yes</button>
+        <button mat-button type="button" (click)="modal.destroy()" class="confirmButton" aria-label="No, I don't want to request this manga">
+          No
+        </button>
+        <button mat-button type="submit" id="submit" class="confirmButton" style="margin-left: 1em" aria-label="Yes, I want to request this manga">
+          Yes
+        </button>
       </div>
     </modal-popup>
   </form>
