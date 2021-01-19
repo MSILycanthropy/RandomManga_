@@ -37,11 +37,11 @@ export class LandingComponent implements OnInit {
     });
   }
 
-  ngAfterViewInit() {
-    if (environment.production) {
-      this.underConstructionModal.create();
-    }
-  }
+  // ngAfterViewInit() {
+  //   if (environment.production) {
+  //     this.underConstructionModal.create();
+  //   }
+  // }
 
   setViewAndRoute(i): void {
     this.mangaService.viewManga = this.dailies[i];

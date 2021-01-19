@@ -5,16 +5,20 @@
         <h3>Share</h3>
         <div class="shareSection">
           <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frngmanga.com%2F&amp;src=sdkpreparse" style="margin-right: 0.25em">
-            <fa-icon [icon]="faFacebook" size="2x"></fa-icon>
+            <fa-icon [icon]="faFacebook" size="2x" aria-hidden="true"></fa-icon>
+            <span class="sr-only">Share on Facebook</span>
           </a>
           <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frngmanga.com" style="margin-right: 0.25em">
-            <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+            <fa-icon [icon]="faTwitter" size="2x" aria-hidden="true"></fa-icon>
+            <span class="sr-only">Share on Twitter</span>
           </a>
           <a href="http://www.reddit.com/submit?url=https%3A%2F%2Frngmanga.com" style="margin-right: 0.25em">
-            <fa-icon [icon]="faReddit" size="2x"></fa-icon>
+            <fa-icon [icon]="faReddit" size="2x" aria-hidden="true"></fa-icon>
+            <span class="sr-only">Share on Reddit</span>
           </a>
           <a href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Frngmanga.com">
-            <fa-icon [icon]="faTumblr" size="2x"></fa-icon>
+            <fa-icon [icon]="faTumblr" size="2x" aria-hidden="true"></fa-icon>
+            <span class="sr-only">Share on Tumblr</span>
           </a>
         </div>
       </div>
@@ -23,12 +27,16 @@
         <div>
           <a
             href="https://www.paypal.com/donate/?business=8TNF3RZ45CHRW&item_name=RNGmanga+contribution&currency_code=USD&Z3JncnB0="
-            inlineSVG="../assets/paypalSquare.svg"
             target="_blank"
-            style="margin-right: 0.25em"
             rel="noreferrer"
-          ></a>
-          <a href="https://www.buymeacoffee.com/msilycanthropy" inlineSVG="../assets/bmcSquare.svg" target="_blank" rel="noreferrer"></a>
+          >
+            <img src="../assets/paypalSquare.svg" style="width: 35px; height: 40px; margin-right: 0.25em" aria-hidden="true" />
+            <span class="sr-only">Donate via PayPal</span>
+          </a>
+          <a href="https://www.buymeacoffee.com/msilycanthropy" target="_blank" rel="noreferrer">
+            <img src="../assets/bmcSquare.svg" style="width: 35px; height: 40px" aria-hidden="true" />
+            <span class="sr-only">Donate via Buy Me A Coffee</span>
+          </a>
         </div>
       </div>
     </div>
@@ -45,7 +53,7 @@
           <a routerLink="/about/sitemap">Site Map</a>
         </li>
         <li>
-          <a routerLink="/about/cookies">Cookies</a>
+          <a routerLink="/about/cookies">Cookies Policy</a>
         </li>
       </ul>
     </div>
