@@ -1,7 +1,3 @@
-User-agent: googlebot-image
-Disallow: /
-User-agent: psbot
-Disallow: /
 User-agent: spambot
 Disallow: /
 User-agent: *

@@ -29,6 +29,8 @@ export class MangaService {
   }
 
   getByGenre(type: string, include: Array<string>, exclude: Array<string>, minScore: number, isFinished: boolean, amount: number): Observable<any> {
+    console.log(type);
+
     if (environment.production) {
       const hash = sha1(
         `${type}${environment.SECRET}${include.join('-')}\
@@ -37,6 +39,8 @@ export class MangaService {
 
       return this.http.get(`${url}/${type}/${include.join('-')}/${exclude.join('-')}/${minScore}/${isFinished}/${amount}?gamma=${hash}`);
     } else {
+      console.log(`${url}/${type}/${include.join('-')}/${exclude.join('-')}/${minScore}/${isFinished}/${amount}`);
+
       return this.http.get(`${url}/${type}/${include.join('-')}/${exclude.join('-')}/${minScore}/${isFinished}/${amount}`);
     }
   }

@@ -18,7 +18,7 @@ export class ModalPopupComponent implements OnInit {
 
   create() {
     this.shown = true;
-    (document.querySelector('.page-wrap') as HTMLElement).style.cssText += 'overflow:hidden;height:100%';
+    (document.querySelector('.page-wrap') as HTMLElement).style.cssText += 'position:fixed;width:100%';
   }
 
   destroy() {

@@ -66,7 +66,11 @@ export class ReportErrorFormComponent implements OnInit {
 
     this.title = new FormControl(this.manga.Title || '', [Validators.required]);
     this.englishTitle = new FormControl(this.manga.English || '');
-    this.alternateTitles = new FormControl(this.manga.Synonyms.join(', ') || '');
+    if (!this.manga.Synonyms) {
+      this.alternateTitles = new FormControl('');
+    } else {
+      this.alternateTitles = new FormControl(this.manga.Synonyms.join(', '));
+    }
     this.type = new FormControl(this.manga.Type || '', [Validators.required]);
     this.volumes = new FormControl(this.manga.Volumes || -1);
     this.chapters = new FormControl(this.manga.Chapters || -1);

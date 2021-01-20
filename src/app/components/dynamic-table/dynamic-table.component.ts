@@ -20,9 +20,9 @@ export class DynamicTableComponent implements OnInit {
 
   ngOnInit(): void {
     if (window.innerWidth >= 1024) {
-      this.columns = 5;
+      this.columns = 3;
     } else if (window.innerWidth < 1024 && window.innerWidth > 500) {
-      this.columns = 4;
+      this.columns = 3;
     } else {
       this.columns = 2;
     }
