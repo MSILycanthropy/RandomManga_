@@ -23,7 +23,7 @@
     >
       <fa-icon [icon]="faArrowRight" class="iconColor" size="4x" [@arrowFade]="'out'"></fa-icon>
     </button>
-    <span class="position"> {{ currentIndex }} / {{ mangas.length }} </span>
+    <span class="position"> {{ currentIndex + 1 }} / {{ mangas.length }} </span>
 
     <manga-display [manga]="mangas[currentIndex]"> </manga-display>
   </ng-template>

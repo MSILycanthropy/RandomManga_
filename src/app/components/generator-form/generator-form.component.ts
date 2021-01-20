@@ -34,9 +34,9 @@ export class GeneratorFormComponent implements OnInit {
   ];
   mangaTypes: Array<string> = ['All', 'JP', 'KR', 'CN', 'TW'];
   searchType: string;
-  scoreNumbers: Array<number> = Array.from(new Array(20).keys()).map((x) => x / 2);
+  scoreNumbers: Array<any> = ['Any', ...Array.from(new Array(20).keys()).map((x) => x / 2)];
   listNumbers: Array<number> = [1, 5, 10].concat(Array.from(new Array(10).keys()).map((x) => (100 * (x + 1)) / 2));
-  searchMinScore: number;
+  searchMinScore: any;
   searchAmount: number;
   isFinished: boolean;
   isUnscored: boolean;
@@ -50,7 +50,7 @@ export class GeneratorFormComponent implements OnInit {
   ngOnInit() {
     this.getGenres();
     this.searchType = 'All';
-    this.searchMinScore = 0;
+    this.searchMinScore = 'Any';
     this.searchAmount = 250;
     this.isFinished = false;
     this.isUnscored = false;
@@ -72,7 +72,9 @@ export class GeneratorFormComponent implements OnInit {
     if (this.excludeGenres.length == 0) {
       this.excludeGenres = ['none'];
     }
-
+    if (this.searchMinScore == 'Any') {
+      this.searchMinScore = NaN;
+    }
     this.mangaService
       .getByGenre(this.searchType, this.includeGenres, this.excludeGenres, this.searchMinScore, this.isFinished, this.searchAmount)
       .subscribe((mangas) => {
